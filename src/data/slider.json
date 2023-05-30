@@ -1,0 +1,26 @@
+[
+    {
+        "tile" : "New Furniture Collection Trends in 2020",
+        "subtitle" : "Best Furniture For Your Castle....",
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo",
+        "link" : "/",
+        "imageOne" : "../assets/img/slider/1.png",
+        "imageTwo" : "../assets/img/slider/2.png"
+    },
+    {
+        "tile" : "New Furniture Collection Trends in 2020",
+        "subtitle" : "Best Furniture For Your Castle....",
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo",
+        "link" : "/",
+        "imageOne" : "../assets/img/slider/1.png",
+        "imageTwo" : "../assets/img/slider/2.png"
+    },
+    {
+        "tile" : "New Furniture Collection Trends in 2020",
+        "subtitle" : "Best Furniture For Your Castle....",
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo",
+        "link" : "/",
+        "imageOne" : "../assets/img/slider/1.png",
+        "imageTwo" : "../assets/img/slider/2.png"
+    }
+]

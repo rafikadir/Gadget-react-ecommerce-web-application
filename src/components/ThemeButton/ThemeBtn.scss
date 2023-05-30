@@ -1,0 +1,14 @@
+@import '../../assets/scss/style.scss';
+
+.theme-btn {
+    background: $pink-color;
+    color: $white-color;
+    padding: 10px 45px;
+    transition: .5s;
+    border: 1px solid $pink-color;
+
+    &:hover {
+        background: transparent;
+        color: $pink-color;
+    }
+}

@@ -1,0 +1,22 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: $theme-font;
+    letter-spacing: -.6px;
+}
+a {
+    text-decoration: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    display: inline-block;
+}

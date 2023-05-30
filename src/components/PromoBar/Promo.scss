@@ -1,0 +1,14 @@
+@import '../../assets/scss/style.scss';
+;
+.promo-bar {
+    background: rgb(255, 73, 73);
+    color: $white-color;
+    font-size: 17px;
+    border-radius: 0;
+    padding: 5px 0;
+    margin-bottom: 0;
+
+    button {
+        padding: 10px 10px !important;
+    }
+}

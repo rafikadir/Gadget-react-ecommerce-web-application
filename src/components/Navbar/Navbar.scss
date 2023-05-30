@@ -1,0 +1,51 @@
+@import '../../assets/scss/style.scss';
+
+.header-wrapper {
+    background: $white-color;
+    box-shadow: rgba(0, 0, 0, 0.1) 5px 3px 5px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+    .navbar {
+        .navbar-brand {
+            img {
+                max-width: 150px;
+            }
+        }
+
+        .navbar-nav {
+            .nav-item {
+                list-style-type: none;
+
+                .nav-link {
+                    color: $black-color;
+                    font-size: 18px;
+                    margin: 5px 10px;
+                }
+            }
+        }
+    }
+
+    .header-right {
+        .menu-icon {
+            margin: 0 5px;
+            border: none;
+            font-size: 22px;
+            position: relative;
+            background: #eceef3;
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+
+            .cart-item {
+                position: absolute;
+                top: 0px;
+                right: -8px;
+                font-size: 13px;
+                background: $blue-color;
+                color: $white-color;
+                width: 18px;
+                height: 18px;
+                border-radius: 50px;
+            }
+        }
+    }
+}
