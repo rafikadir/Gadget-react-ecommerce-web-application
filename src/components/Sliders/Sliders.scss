@@ -3,34 +3,68 @@
 .slider-wrapper {
     background: #F2F0FF;
     
-    .single-slider {
-        height: 100%;
+    .slick-slider {
         position: relative;
-        padding: 50px 0;
 
-        .slider-text {
-            span {
-                color: $blue-color;
-                margin-bottom: 25px;
-                display: inline-block;
+        .single-slider {
+            height: 100%;
+            position: relative;
+            padding: 50px 0;
+    
+            .slider-text {
+                span {
+                    color: $blue-color;
+                    margin-bottom: 25px;
+                    display: inline-block;
+                }
+    
+                h2 {
+                    color: $black-color;
+                    font-size: 50px;
+                    font-weight: 600;
+                    margin-bottom: 15px;
+                }
+                p {
+                    font-size: 20px;
+                    color: #8A8FB9;
+                    margin-bottom: 25px;
+                }
             }
-
-            h2 {
-                color: $black-color;
-                font-size: 50px;
-                font-weight: 600;
-                margin-bottom: 15px;
-            }
-            p {
-                font-size: 20px;
-                color: #8A8FB9;
-                margin-bottom: 25px;
+    
+            .slider-img {
+                max-width: 450px;
+                margin: auto 0 auto auto;
             }
         }
 
-        .slider-img {
-            max-width: 450px;
-            margin: auto 0 auto auto;
+        .slick-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            margin: auto;
+
+            li {
+                button {
+                    &::before {
+                        content: '';
+                        color: transparent;
+                        border: 2px solid $pink-color;
+                        width: 10px;
+                        height: 10px;
+                        transform: rotate(45deg);
+                    }
+                }
+
+                &.slick-active {
+                    button {
+                        &::before {
+                            background: $pink-color;
+                        }
+                    }
+                }
+            }
+
         }
     }
 }

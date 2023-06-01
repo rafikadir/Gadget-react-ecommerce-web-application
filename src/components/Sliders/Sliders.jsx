@@ -2,9 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "./Sliders.scss";
-import { Link } from "react-router-dom";
 import img from '../../assets/img/slider/2.png';
-import subImg from '../../assets/img/slider/1.png';
 import ThemeBtn from "../ThemeButton/ThemeBtn";
 
 const Sliders = () => {
