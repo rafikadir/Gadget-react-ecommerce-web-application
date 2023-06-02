@@ -1,21 +1,23 @@
 import './Product.scss';
-import pd from '../../assets/img/products/1.png';
 import { AiFillStar, AiOutlineStar, AiFillHeart } from "react-icons/ai";
 import {FiShoppingBag} from "react-icons/fi"; 
 import { Link } from 'react-router-dom';
 
-const Product = () => {
+const Product = (product) => {
+    const {img, title} = product.product;
+    console.log(img);
+    
     return (
         <div className="product-box">
             <div className="product-img">
-                <img src={pd} alt="" />
+                <img src={img} alt="product" />
 
                 <button className='product-fav'>
                     <AiFillHeart/>
                 </button>
             </div>
             <div className="product-info">
-                <h3><Link className='product-title' to="/">Cantilever chair</Link></h3>
+                <h3><Link className='product-title' to="/">{title}</Link></h3>
 
                 <div className="price-text">
                     <span className='price'>$250</span>

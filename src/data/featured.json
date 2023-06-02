@@ -1,0 +1,34 @@
+[
+    {
+        "tile" : "Cantilever chair",
+        "img" : "../assets/img/products/1.png",
+        "price" : 150,
+        "prevPrice" : 650,
+        "offPrice" : 50,
+        "rating" : 55
+    },
+    {
+        "tile" : "Balance Chair",
+        "img" : "../assets/img/products/2.png",
+        "price" : 130,
+        "prevPrice" : 550,
+        "offPrice" : 60,
+        "rating" : 65
+    },
+    {
+        "tile" : "Suspended Seat",
+        "img" : "../assets/img/products/3.png",
+        "price" : 250,
+        "prevPrice" : 620,
+        "offPrice" : 55,
+        "rating" : 45
+    },
+    {
+        "tile" : "Floating Lounge",
+        "img" : "../assets/img/products/4.png",
+        "price" : 310,
+        "prevPrice" : 410,
+        "offPrice" : 40,
+        "rating" : 50
+    }
+]
