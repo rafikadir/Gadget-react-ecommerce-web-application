@@ -1,10 +1,15 @@
 import './Featured.scss';
 import SectionTitle from '../../components/SectionTitle/SectionTitle';
+import Product from '../Product/Product';
 
 const Featured = () => {
     return (
         <section className="featured-product">
-            <SectionTitle title="Featured Products" />
+            <div className="container">
+                <SectionTitle title="Featured Products" />
+
+                <Product/>
+            </div>
         </section>
     );
 };
