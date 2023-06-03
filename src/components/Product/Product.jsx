@@ -1,5 +1,5 @@
 import './Product.scss';
-import { AiFillStar, AiOutlineStar, AiFillHeart } from "react-icons/ai";
+import { AiFillStar, AiOutlineStar, AiOutlineHeart } from "react-icons/ai";
 import {FiShoppingBag} from "react-icons/fi"; 
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ const Product = (products) => {
                 <img src={img} alt="product" />
 
                 <button className='product-fav'>
-                    <AiFillHeart/>
+                    <AiOutlineHeart/>
                 </button>
             </div>
             <div className="product-info">
