@@ -3,7 +3,6 @@ import SectionTitle from '../../components/SectionTitle/SectionTitle';
 import Product from '../Product/Product';
 import featuredProducts from '../../data/featured.json';
 
-
 const Featured = () => {
     return (
         <section className="featured-product">
@@ -13,8 +12,8 @@ const Featured = () => {
                 <div className="row">
                     {
                         featuredProducts.map(product => (
-                            <div className='col-lg-3' key={product.id}>
-                                <Product product={product} />
+                            <div className='col-lg-3' key={product.title}>
+                                <Product products={product} />
                             </div>
                         ))
                     }

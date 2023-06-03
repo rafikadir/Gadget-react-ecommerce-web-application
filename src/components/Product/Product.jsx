@@ -3,8 +3,8 @@ import { AiFillStar, AiOutlineStar, AiFillHeart } from "react-icons/ai";
 import {FiShoppingBag} from "react-icons/fi"; 
 import { Link } from 'react-router-dom';
 
-const Product = (product) => {
-    const {img, title} = product.product;
+const Product = (products) => {
+    const {img, title, price, prevPrice, offPrice, rating} = products.products;
     console.log(img);
     
     return (
@@ -20,9 +20,9 @@ const Product = (product) => {
                 <h3><Link className='product-title' to="/">{title}</Link></h3>
 
                 <div className="price-text">
-                    <span className='price'>$250</span>
-                    <del className="prev-price">$650</del>
-                    <span className='price-off'>60% Off</span>
+                    <span className='price'>${price}</span>
+                    <del className="prev-price">${prevPrice}</del>
+                    <span className='price-off'>{offPrice}% Off</span>
                 </div>
 
                 <div className='rating-box'>
@@ -33,7 +33,7 @@ const Product = (product) => {
                         <li className='single-rating'><AiFillStar/></li>
                         <li className='single-rating'><AiOutlineStar/></li>
                     </ul>
-                    <span className='review-count'>68 Reviews</span>
+                    <span className='review-count'>{rating} Reviews</span>
                 </div>
 
                 <div className='bottom-btn'>
