@@ -1,5 +1,31 @@
+@import '../../assets/scss/style.scss';
+
 .featured-product {
     padding-top: 100px;
     padding-bottom: 70px;
     background: rgb(244, 245, 247);
+
+    .product-box {
+        margin: 0 6px 20px;
+    }
+
+    .slick-dots {
+        li {
+            margin: 0px 10px;
+
+            button {
+                padding: 0; 
+                width: 25px;
+
+                &:before {
+                    width: 30px;
+                    height: 5px;
+                    background: $pink-color;
+                    content: '';
+                    right: 0;
+                    margin: auto;
+                }
+            }
+        }
+    }
 }

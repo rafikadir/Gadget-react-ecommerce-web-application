@@ -30,5 +30,21 @@
         "prevPrice" : 410,
         "offPrice" : 40,
         "rating" : 50
+    },
+    {
+        "title" : "Cantilever chair",
+        "img" : "/src/assets/img/products/1.png",
+        "price" : 150,
+        "prevPrice" : 650,
+        "offPrice" : 50,
+        "rating" : 55
+    },
+    {
+        "title" : "Balance Chair",
+        "img" : "/src/assets/img/products/2.png",
+        "price" : 130,
+        "prevPrice" : 550,
+        "offPrice" : 60,
+        "rating" : 65
     }
 ]
