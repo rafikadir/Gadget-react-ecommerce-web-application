@@ -1,12 +1,15 @@
 import './Latest.scss';
 import SectionTitle from '../SectionTitle/SectionTitle';
+import TabsItem from '../TabsItem/TabsItem';
 
 const Latest = () => {
     return (
         <section className='latest-section'>
-            <SectionTitle title="Latest Products" />
+            <div className="container">
+                <SectionTitle title="Latest Products" />
 
-            
+                <TabsItem/>
+            </div>
         </section>
     );
 };
