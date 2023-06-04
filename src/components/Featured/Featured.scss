@@ -11,19 +11,28 @@
 
     .slick-dots {
         li {
-            margin: 0px 10px;
+            margin: 0px 5px;
 
             button {
                 padding: 0; 
                 width: 25px;
 
                 &:before {
-                    width: 30px;
+                    width: 15px;
                     height: 5px;
                     background: $pink-color;
                     content: '';
                     right: 0;
                     margin: auto;
+                    transition: .5s;
+                }
+            }
+
+            &.slick-active {
+                button {
+                    &:before {
+                        width: 30px;
+                    }
                 }
             }
         }

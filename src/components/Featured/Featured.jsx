@@ -10,9 +10,11 @@ const Featured = () => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
         slidesToShow: 4,
         slidesToScroll: 3,
+        autoplay: true,
+        speed: 1000,
+        autoplaySpeed: 2000,
         responsive: [
             {
               breakpoint: 1024,
