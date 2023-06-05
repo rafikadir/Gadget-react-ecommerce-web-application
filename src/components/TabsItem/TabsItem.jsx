@@ -1,9 +1,10 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import './TabsItem.scss';
 
 const TabsItem = () => {
     return (
-        <div>
+        <div className="theme-tabs">
             <Tabs>
                 <TabList>
                     <Tab>New Arrival</Tab>
