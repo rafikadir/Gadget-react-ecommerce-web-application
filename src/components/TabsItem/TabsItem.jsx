@@ -1,6 +1,7 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import './TabsItem.scss';
+import ProductTwo from '../ProductTwo/ProductTwo';
 
 const TabsItem = () => {
     return (
@@ -13,7 +14,7 @@ const TabsItem = () => {
                 </TabList>
 
                 <TabPanel>
-                   <h1>one</h1>
+                   <ProductTwo/>
                 </TabPanel>
                 <TabPanel>
                     <h1>two</h1>
