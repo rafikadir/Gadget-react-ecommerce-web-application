@@ -1,13 +1,23 @@
 import './Latest.scss';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import TabsItem from '../TabsItem/TabsItem';
+import NewArrival from '../NewArrival/NewArrival';
 
 const Latest = () => {
 
     const tabContents = [
-        {'title': 'New Arrival'},
-        {'title': 'Best Selling'},
-        {'title': 'New Special Offer'}
+        {
+            'title': 'New Arrival',
+            'content': <NewArrival/>
+        },
+        {
+            'title': 'Best Selling',
+            'content': <NewArrival/>
+        },
+        {
+            'title': 'New Special Offer',
+            'content': <NewArrival/>
+        }
     ]
 
     return (
@@ -15,8 +25,7 @@ const Latest = () => {
             <div className="container">
                 <SectionTitle title="Latest Products" />
 
-
-                <TabsItem tabContent={tabContents}/>
+                <TabsItem tabContents={tabContents}/>
             </div>
         </section>
     );

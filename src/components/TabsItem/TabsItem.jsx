@@ -4,26 +4,35 @@ import 'react-tabs/style/react-tabs.css';
 import './TabsItem.scss';
 import ProductTwo from '../ProductTwo/ProductTwo';
 
-const TabsItem = (tabContent) => {
+const TabsItem = ({tabContents}) => {
+
+    // const {content, title} = tabContents[0];
+    // console.log(title);
 
     return (
         <div className="theme-tabs">
             <Tabs>
                 <TabList>
-                   <Tab>Title One</Tab>
-                   <Tab>Title One</Tab>
-                   <Tab>Title One</Tab>
+                    {
+                        tabContents.map((tab, index) => {
+                            return (
+                                <Tab key={index}>
+                                    {tab.title}
+                                </Tab>
+                            );
+                        })
+                    }
                 </TabList>
 
-                <TabPanel>
-                   <ProductTwo/>
-                </TabPanel>
-                <TabPanel>
-                    <h1>two</h1>
-                </TabPanel>
-                <TabPanel>
-                    <h1>three</h1>
-                </TabPanel>
+                {
+                    tabContents.map((tab, index) => {
+                        return (
+                            <TabPanel key={index}>
+                                {tab.content}
+                            </TabPanel>
+                        );
+                    })
+                }
             </Tabs>
         </div>
     );
