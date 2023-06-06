@@ -1,16 +1,18 @@
+/* eslint-disable react/prop-types */
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import './TabsItem.scss';
 import ProductTwo from '../ProductTwo/ProductTwo';
 
-const TabsItem = () => {
+const TabsItem = (tabContent) => {
+
     return (
         <div className="theme-tabs">
             <Tabs>
                 <TabList>
-                    <Tab>New Arrival</Tab>
-                    <Tab>Best Selling</Tab>
-                    <Tab>Special Offer</Tab>
+                   <Tab>Title One</Tab>
+                   <Tab>Title One</Tab>
+                   <Tab>Title One</Tab>
                 </TabList>
 
                 <TabPanel>

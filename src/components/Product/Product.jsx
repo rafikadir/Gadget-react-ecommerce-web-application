@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const Product = (products) => {
     const {img, title, price, prevPrice, offPrice, rating} = products.products;
-    console.log(img);
     
     return (
         <div className="product-box">
