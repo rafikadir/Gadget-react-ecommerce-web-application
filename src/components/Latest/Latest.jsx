@@ -2,6 +2,7 @@ import './Latest.scss';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import TabsItem from '../TabsItem/TabsItem';
 import NewArrival from '../NewArrival/NewArrival';
+import BestSelling from '../BestSelling/BestSelling';
 
 const Latest = () => {
 
@@ -12,7 +13,7 @@ const Latest = () => {
         },
         {
             'title': 'Best Selling',
-            'content': <NewArrival/>
+            'content': <BestSelling/>
         },
         {
             'title': 'New Special Offer',

@@ -7,18 +7,7 @@
     margin-bottom: 20px;
 
     .product-img {
-        position: relative;
-        border-bottom: 1px solid rgba(255, 198, 198, 0.40);
-        border-radius: 10px 10px 0 0;
-        display: flex;
-        vertical-align: middle;
-        height: 290px;
-        justify-content: center;
-        align-items: center;
-
-        img {
-            max-width: 200px;
-        }
+        background: #dee2e6;
 
         .product-fav {
             position: absolute;
