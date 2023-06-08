@@ -1,13 +1,8 @@
-/* eslint-disable react/prop-types */
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import './TabsItem.scss';
-import ProductTwo from '../ProductTwo/ProductTwo';
 
 const TabsItem = ({tabContents}) => {
-
-    // const {content, title} = tabContents[0];
-    // console.log(title);
 
     return (
         <div className="theme-tabs">
