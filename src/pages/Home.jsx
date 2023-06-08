@@ -3,6 +3,7 @@ import Latest from "../components/Latest/Latest";
 import Navbar from "../components/Navbar/Navbar";
 import Promo from "../components/PromoBar/Promo";
 import Sliders from "../components/Sliders/Sliders";
+import WhyChoose from "../components/WhyChoose/WhyChoose";
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <Sliders/>
             <Featured/>
             <Latest/>
+            <WhyChoose/>
         </>
     );
 };

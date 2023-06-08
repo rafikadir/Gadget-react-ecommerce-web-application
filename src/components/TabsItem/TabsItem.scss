@@ -13,10 +13,21 @@
         color: $blue-color;
         padding: 0;
         margin: 5px 15px;
+        bottom: 0;
+        border-bottom: 2px solid transparent;
+
+        &:focus {
+            &::after {
+                position: unset;
+            }
+        }
     }
 
     .react-tabs__tab--selected {
         color: $pink-color;
         font-weight: 600;
+        border-radius: unset;
+        background: transparent;
+        border-bottom: 2px solid $pink-color;
     }
 }

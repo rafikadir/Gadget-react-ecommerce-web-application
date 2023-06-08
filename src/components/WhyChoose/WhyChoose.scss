@@ -1,2 +1,24 @@
 @import "../../assets/scss/style.scss";
 
+.why-choose {
+    padding: 50px 0 30px;
+
+    .why-choose-box {
+        margin-bottom: 20px;
+
+        .why-choose-icon {
+            margin-bottom: 25px;
+        }
+
+        .why-choose-content {
+            h3 {
+                margin-bottom: 10px;
+            }
+    
+            p {
+                margin-bottom: 0;
+                color: $gray-color;
+            }
+        }
+    }
+}
