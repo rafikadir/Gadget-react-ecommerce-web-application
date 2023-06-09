@@ -6,20 +6,20 @@ import { AiFillFacebook, AiFillInstagram, AiFillTwitterSquare } from "react-icon
 
 const Footer = () => {
     return (
-        <footer>
+        <Footer>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-3">
-                        <div className="compnay-info">
+                        <div className="company-info">
                             <img src={logo} alt="logo" />
 
-                            <ul>
+                            <ul className="company-contact">
                                 <li>17 Princess Road, London</li>
                                 <li>furnish@gmail.com</li>
                                 <li>+0 998 5585 </li>
                             </ul>
 
-                            <div>
+                            <div className="company-social">
                                 <Link to="/"><AiFillFacebook/></Link>
                                 <Link to="/"><AiFillInstagram/></Link>
                                 <Link to="/"><AiFillTwitterSquare/></Link>
@@ -64,7 +64,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-        </footer>
+        </Footer>
     );
 };
 
