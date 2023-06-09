@@ -5,6 +5,7 @@ import Promo from "../components/PromoBar/Promo";
 import SingleProduct from "../components/SingleProduct/SingleProduct";
 import Sliders from "../components/Sliders/Sliders";
 import WhyChoose from "../components/WhyChoose/WhyChoose";
+import Footer from "../shared/Footer/Footer";
 
 const Home = () => {
     return (
@@ -14,8 +15,9 @@ const Home = () => {
             <Sliders/>
             <Featured/>
             <Latest/>
-            <WhyChoose/>
             <SingleProduct/>
+            <WhyChoose/>
+            <Footer/>
         </>
     );
 };

@@ -8,7 +8,7 @@ const SingleProduct = () => {
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-md-6">
-                        <div className="prodcut-img">
+                        <div className="product-img">
                             <img src={img} alt="" />
                         </div>
                     </div>
