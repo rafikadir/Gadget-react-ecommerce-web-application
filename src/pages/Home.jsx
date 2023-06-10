@@ -17,7 +17,7 @@ const Home = () => {
             <Latest/>
             <SingleProduct/>
             <WhyChoose/>
-            <Footer/>
+            {/* <Footer/> */}
         </>
     );
 };
