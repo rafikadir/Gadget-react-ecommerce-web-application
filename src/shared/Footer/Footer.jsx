@@ -3,10 +3,9 @@ import logo from '../../assets/img/logo.png';
 import { Link } from "react-router-dom";
 import { AiFillFacebook, AiFillInstagram, AiFillTwitterSquare } from "react-icons/ai";
 
-
 const Footer = () => {
-    return (
-        <Footer>
+    return ( 
+        <div className="footer"> 
             <div className="container">
                 <div className="row">
                     <div className="col-lg-3">
@@ -63,8 +62,8 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </Footer>
+            </div>  
+        </div>  
     );
 };
 
