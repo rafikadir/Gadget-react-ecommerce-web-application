@@ -1,6 +1,6 @@
 @import '../../assets/scss/style.scss';
 
-footer {
+.footer {
     background: #EEEFFB;
     border-top: 1px solid #d5d5ff;
     padding: 50px 0;
@@ -12,14 +12,35 @@ footer {
 
             li {
                 font-size: 17px;
-                color: #8A8FB9;
+                color: #8A8FB9; 
+            }
+        }
+
+        .company-social {
+            a {
+                color: $navy-color;
+                font-size: 26px;
+                margin-right: 5px;
             }
         }
     }
 
-    .company-social {
-        a {
-           font-size: 20px; 
+    .footer-links {
+        h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+
+            li {
+                a {
+                    font-size: 17px; 
+                    color: #8A8FB9;
+                    margin-bottom: 10px;
+                }
+            }
         }
     }
 }

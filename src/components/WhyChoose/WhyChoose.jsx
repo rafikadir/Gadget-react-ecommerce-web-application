@@ -9,23 +9,19 @@ const WhyChoose = () => {
     const whyChooseInfo = [
         {
             "icon": delivery,
-            "title": "Fast Delivery",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "title": "Fast Delivery"
         },
         {
             "icon": support,
-            "title": "24/7 Support",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "title": "24/7 Support"
         },
         {
             "icon": quality,
-            "title": "Best Quality",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "title": "Best Quality"
         },
         {
             "icon": cashback,
-            "title": "Cash Back",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "title": "Cash Back"
         }
     ]
 
@@ -43,7 +39,6 @@ const WhyChoose = () => {
                                         </div>
                                         <div className="why-choose-content">
                                             <h3>{item.title}</h3>
-                                            <p>{item.description}</p>
                                         </div>
                                     </div>
                                 </div>
