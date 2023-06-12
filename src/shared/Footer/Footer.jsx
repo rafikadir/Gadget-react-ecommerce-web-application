@@ -4,6 +4,31 @@ import { Link } from "react-router-dom";
 import { AiFillFacebook, AiFillInstagram, AiFillTwitterSquare } from "react-icons/ai";
 
 const Footer = () => {
+
+    const FooterInfo = [
+        {
+            "title" : "Catagories",
+            "links" : [{ "name":"Chair","link": "/"},
+                    { "name":"Sofa","link": "/"},
+                    { "name":"Table","link": "/"},
+                    { "name":"Book Shelf","link": "/"}]
+        },
+        {
+            "title" : "Customer Care",
+            "links" : [{ "name":"My Account","link": "/"},
+                    { "name":"Returns","link": "/"},
+                    { "name":"Orders History","link": "/"},
+                    { "name":"Order Tracking","link": "/"}]
+        },
+        {
+            "title" : "Company",
+            "links" : [{ "name":"About","link": "/"},
+                    { "name":"Shop","link": "/"},
+                    { "name":"Blog","link": "/"},
+                    { "name":"Contact","link": "/"}]
+        }
+    ];
+
     return ( 
         <div className="footer"> 
             <div className="container">
@@ -27,7 +52,7 @@ const Footer = () => {
                     </div>
 
                     <div className="col-lg-3">
-                        <div className="footer-links">
+                        <div className="00">
                             <h3>Catagories</h3>
                             <ul>
                                 <li><Link to="/">Chair</Link></li>
