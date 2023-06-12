@@ -25,7 +25,7 @@ const Footer = () => {
             "links" : [{ "name":"About","link": "/"},
                     { "name":"Shop","link": "/"},
                     { "name":"Blog","link": "/"},
-                    { "name":"Contact","link": "/"}]
+                    { "name":"Chair","link": "/"}]
         }
     ];
 
@@ -51,41 +51,23 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="col-lg-3">
-                        <div className="00">
-                            <h3>Catagories</h3>
-                            <ul>
-                                <li><Link to="/">Chair</Link></li>
-                                <li><Link to="/">Sofa</Link></li>
-                                <li><Link to="/">Table</Link></li>
-                                <li><Link to="/">Book Shelf</Link></li>
-                            </ul>
-                        </div>
-                    </div>
+                    {
+                        FooterInfo.map((item,index)=> 
+                            <div className="col-lg-3" key={index}>
+                                <div className="footer-links">
+                                    <h3>{item.title}</h3>
 
-                    <div className="col-lg-3">
-                        <div className="footer-links">
-                            <h3>Customer Care</h3>
-                            <ul>
-                                <li><Link to="/">My Account</Link></li>
-                                <li><Link to="/">Returns</Link></li>
-                                <li><Link to="/">Orders History</Link></li>
-                                <li><Link to="/">Order Tracking</Link></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div className="col-lg-3">
-                        <div className="footer-links">
-                            <h3>Company</h3>
-                            <ul>
-                                <li><Link to="/">About</Link></li>
-                                <li><Link to="/">Shop</Link></li>
-                                <li><Link to="/">Blog</Link></li>
-                                <li><Link to="/">Contact</Link></li>
-                            </ul>
-                        </div>
-                    </div>
+                                    <ul>
+                                        {
+                                            item.links.map((item, index)=> 
+                                                <li key={index}><Link to={item.link}>{item.name}</Link></li>
+                                            )
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        )
+                    }
                 </div>
             </div>  
         </div>  
