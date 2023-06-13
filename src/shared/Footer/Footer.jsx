@@ -40,8 +40,8 @@ const Footer = () => {
 
                             <ul className="company-contact">
                                 <li>17 Princess Road, London</li>
-                                <li>furnish@gmail.com</li>
-                                <li>+0 998 5585 </li>
+                                <li>furnish.support@gmail.com</li>
+                                <li>+022 998 5585 </li>
                             </ul>
 
                             <div className="company-social">
