@@ -3,8 +3,9 @@ import './ShopTemp.scss';
 
 const ShopTemp = () => {
     return (
-        <section>
+        <section className='shop-wrapper'>
             <div className="container">
+                <h2>Shop</h2>
                 <div className="row">
                     <div className="col-lg-3">
                         <Sidebar/>
