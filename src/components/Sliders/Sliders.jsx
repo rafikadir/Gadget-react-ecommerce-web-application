@@ -10,10 +10,12 @@ const Sliders = () => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 2000,
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows:false
+        arrows:false,
+        autoplay: true,
+        autoplaySpeed: 2000,
     };
 
     return (

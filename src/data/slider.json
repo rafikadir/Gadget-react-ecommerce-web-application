@@ -4,20 +4,20 @@
         "subtitle" : "Best Furniture For Your Castle....",
         "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo",
         "link" : "/",
-        "image" : "../assets/img/slider/1.png"
+        "image" : "src/assets/img/slider/1.png"
     },
     {
         "title" : "20% off Furniture Collection for you",
         "subtitle" : "Best Furniture For Your Castle....",
         "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo",
         "link" : "/",
-        "image" : "../assets/img/slider/2.png"
+        "image" : "src/assets/img/slider/2.png"
     },
     {
         "title" : "New Furniture Collection Trends in 2023",
         "subtitle" : "Best Furniture For Your Castle....",
         "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo",
         "link" : "/",
-        "image": "../assets/img/slider/1.png"
+        "image": "src/assets/img/slider/1.png"
     }
 ]

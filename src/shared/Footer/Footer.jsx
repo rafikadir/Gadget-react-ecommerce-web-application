@@ -1,7 +1,8 @@
 import "./Footer.scss";
-import logo from '../../assets/img/logo.png';
+import logo from '../../assets/img/logo2.png';
 import { Link } from "react-router-dom";
 import { AiFillFacebook, AiFillInstagram, AiFillTwitterSquare } from "react-icons/ai";
+
 
 const Footer = () => {
 
@@ -23,7 +24,7 @@ const Footer = () => {
         {
             "title" : "Company",
             "links" : [{ "name":"About","link": "/"},
-                    { "name":"Shop","link": "/"},
+                    { "name":"Shop","link": "/shop"},
                     { "name":"Blog","link": "/"},
                     { "name":"Chair","link": "/"}]
         }
@@ -60,7 +61,9 @@ const Footer = () => {
                                     <ul>
                                         {
                                             item.links.map((item, index)=> 
-                                                <li key={index}><Link to={item.link}>{item.name}</Link></li>
+                                                <li key={index}>
+                                                    <Link to={item.link}>{item.name}</Link>
+                                                </li>
                                             )
                                         }
                                     </ul>

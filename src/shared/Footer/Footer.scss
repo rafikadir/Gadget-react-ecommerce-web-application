@@ -1,8 +1,7 @@
 @import '../../assets/scss/style.scss';
 
 .footer {
-    background: #EEEFFB;
-    border-top: 1px solid #d5d5ff;
+    background: $navy-color;
     padding: 50px 0;
 
     .company-info {
@@ -29,6 +28,7 @@
         h3 {
             font-size: 24px;
             margin-bottom: 20px;
+            color: $white-color;
         }
 
         ul {
@@ -39,6 +39,11 @@
                     font-size: 17px; 
                     color: #8A8FB9;
                     margin-bottom: 10px;
+                    transition: .4s;
+
+                    &:hover {
+                        color: $white-color;
+                    }
                 }
             }
         }
