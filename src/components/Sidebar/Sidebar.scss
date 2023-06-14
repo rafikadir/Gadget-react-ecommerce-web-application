@@ -8,6 +8,7 @@
     .sidebar-title {
         border-bottom: 1px solid #f0f0f0;
         padding: 0 0 10px 0;
+        margin: 0 0 20px 0;
 
         span {
             font-size: 22px;
@@ -22,20 +23,20 @@
 
     .filters {
         .price-filter {
-            padding: 15px 0;
+            padding: 0 0 25px;
 
             h3 {
-                font-size: 16px;
+                font-size: 20px;
                 font-weight: 600;
-                margin-bottom: 15px;
+                margin-bottom: 10px;
             }
         }
 
         .category-filter, .brand-filter {
-            padding: 15px 0;
+            padding: 0 0 25px;
 
             h3 {
-                font-size: 16px;
+                font-size: 20px;
                 font-weight: 600;
                 margin-bottom: 15px;
             }
@@ -46,15 +47,26 @@
 
                     a {
                         color: $gray-color;
+                        font-size: 16px;
+                        margin-bottom: 5px;
                     }
                 }
             }
         }
 
         .rating-filter {
+            padding: 0 0 25px;
+
+            h3 {
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 15px;
+            }
+
             .rating-box {
                 display: flex;
                 align-items: center;
+                margin-bottom: 5px;
 
                 .single-rating {
                     display: flex;

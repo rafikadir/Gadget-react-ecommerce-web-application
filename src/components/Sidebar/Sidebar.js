@@ -17,18 +17,18 @@ const Sidebar = () => {
                 <div className="price-filter">
                     <h3>Price Range</h3>
                     <input type="range" className="form-range" ></input>
-                    <span></span>
+                    <span>$0 - $1200</span>
                 </div>
 
                 <div className="category-filter">
                     <h3>Category</h3>
                     
                     <ul>
-                        <li><Link tp="/">One two</Link></li>
-                        <li><Link tp="/">One two</Link></li>
-                        <li><Link tp="/">One two</Link></li>
-                        <li><Link tp="/">One two</Link></li>
-                        <li><Link tp="/">One two</Link></li>
+                        <li><Link tp="/">Sofas</Link></li>
+                        <li><Link tp="/">Chair</Link></li>
+                        <li><Link tp="/">Wardrobes</Link></li>
+                        <li><Link tp="/">Armchairs</Link></li>
+                        <li><Link tp="/">Stools</Link></li>
                     </ul>
                 </div>
                
@@ -36,11 +36,11 @@ const Sidebar = () => {
                     <h3>Brand</h3>
                     
                     <ul>
-                        <li><Link tp="/">One two</Link></li>
-                        <li><Link tp="/">One two</Link></li>
-                        <li><Link tp="/">One two</Link></li>
-                        <li><Link tp="/">One two</Link></li>
-                        <li><Link tp="/">One two</Link></li>
+                        <li><Link tp="/">Coaster</Link></li>
+                        <li><Link tp="/">Fusion Dot</Link></li>
+                        <li><Link tp="/">Dream Furniture</Link></li>
+                        <li><Link tp="/">Green DIY</Link></li>
+                        <li><Link tp="/">Unique STY</Link></li>
                     </ul>
                 </div>
 
