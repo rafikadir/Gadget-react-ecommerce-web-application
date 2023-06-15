@@ -9,7 +9,8 @@
 
     .product-img {
         background: #dee2e6;
-
+        position: relative;
+        
         .product-fav {
             position: absolute;
             right: 15px;
@@ -18,7 +19,7 @@
             width: 30px;
             height: 30px;
             text-align: center;
-            background: #e0e5e9;
+            background: $white-color;
             color: $blue-color;
             box-shadow: rgba(146, 153, 184, 0.082) 0px 5px 10px;
             border-radius: 30px;

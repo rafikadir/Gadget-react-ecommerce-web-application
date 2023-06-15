@@ -1,5 +1,8 @@
 import Sidebar from '../../components/Sidebar/Sidebar';
 import './ShopTemp.scss';
+import { BsFillGrid3X3GapFill, BsListUl } from "react-icons/bs";
+import Product from '../../components/Product/Product';
+import productsData from '../../data/products.json';
 
 const ShopTemp = () => {
     return (
@@ -13,26 +16,43 @@ const ShopTemp = () => {
                     </div>
                     <div className="col-lg-9">
                         <div className="shop-top">
-                            <div>
-                                <div>
-                                    <h3>Furniture Items</h3>
-                                    <span>50 found</span>
-                                </div>
+                            <div className="top-left">
+                                <h3>Furniture Items</h3>
+                                <p>50 found</p>
                             </div>
-                            <div>
-                                <div>
+                            <div className="top-right">
+                                <div className="short-item">
                                     <p>Short by:</p>
-                                    <select className="form-select" aria-label="Default select example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
+                                    
+                                    <div>
+                                        <select className="form-select" aria-label="Default select example">
+                                            <option selected>Relevance</option>
+                                            <option value="1">Date</option>
+                                            <option value="2">Price Low to High</option>
+                                            <option value="3">Price High to Low</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div>
+
+                                <div className="view-item">
                                     <p>View:</p>
+                                    
+                                    <div>
+                                        <button><BsFillGrid3X3GapFill/></button>
+                                        <button><BsListUl/></button>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div className="row">
+                            {
+                                productsData.map((item, index) => 
+                                    <div className="col-lg-4"  key={index}>
+                                        <Product products={item}/>
+                                    </div>
+                                )
+                            }
                         </div>
                     </div>
                 </div>

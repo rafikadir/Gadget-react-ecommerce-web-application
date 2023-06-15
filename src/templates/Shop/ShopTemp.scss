@@ -1,9 +1,60 @@
+@import '../../assets/scss/style.scss';
+
 .shop-wrapper { 
     background: rgb(244, 245, 247);
+
     .page-title {
         background-color: #e4e1ff;
         padding: 50px 0;
         font-size: 50px;
         margin-bottom: 50px;
+    }
+
+    .shop-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+
+        .top-left {
+            h3 {
+                font-size: 22px;
+            }
+
+            p {
+                color: $gray-color;
+            }
+        }
+
+        .top-right {
+            display: flex;
+            align-items: center;
+
+            .short-item {
+                display: flex;
+                margin-right: 20px;
+                align-items: center;
+
+                p {
+                    margin: 0 10px 0 0;
+                }
+            }
+
+            .view-item {
+                display: flex;
+                align-items: center;
+
+                p {
+                    margin: 0 10px 0 0;
+                }
+
+                button {
+                    border: 1px solid $white-color;
+                    background: $white-color;
+                    color: $gray-color;
+                    margin-right: 5px;
+                }
+            }
+        }
     }
 }
