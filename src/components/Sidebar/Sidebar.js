@@ -16,7 +16,10 @@ const Sidebar = () => {
             <div className='filters'>
                 <div className="price-filter">
                     <h3>Price Range</h3>
-                    <input type="range" className="form-range" ></input>
+                    <div className="form-group">
+
+                    </div>
+                    <input type="number" placeholder='Min' className="form-range"></input>
                     <span>$0 - $1200</span>
                 </div>
 
