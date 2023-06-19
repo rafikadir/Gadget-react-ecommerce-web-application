@@ -3,8 +3,26 @@ import './ShopTemplate.scss';
 import { BsFillGrid3X3GapFill, BsListUl } from "react-icons/bs";
 import Product from '../../components/Product/Product';
 import productsData from '../../data/products.json';
+import {useState } from 'react';
 
-const ShopTemp = () => {
+const ShopTemplate = () => {
+
+    const [index, setIndex] = useState(6);
+    const initialItems = productsData.slice(0,index);
+    const [isCompleted,setIsCompleted] = useState(false);
+
+    const loadmore = () => {
+        const indexUpdate = index + 3;
+        setIndex(indexUpdate);
+
+        if(index >= productsData.length) {
+            setIsCompleted(true)
+        }
+        else {
+            setIsCompleted(false)
+        }
+    }
+
     return (
         <section className='shop-wrapper'>
             <h2 className="page-title text-center">Shop</h2>
@@ -26,7 +44,7 @@ const ShopTemp = () => {
                                     
                                     <div>
                                         <select className="form-select" aria-label="Default select example">
-                                            <option selected>Relevance</option>
+                                            <option value="0">Relevance</option>
                                             <option value="1">Date</option>
                                             <option value="2">Price Low to High</option>
                                             <option value="3">Price High to Low</option>
@@ -47,12 +65,20 @@ const ShopTemp = () => {
 
                         <div className="row">
                             {
-                                productsData.map((item, index) => 
+                                initialItems.map((item, index) => 
                                     <div className="col-lg-4"  key={index}>
                                         <Product products={item}/>
                                     </div>
                                 )
                             }
+
+                            <div className="col-lg-12 text-center">
+                                { isCompleted ?
+                                    <button onClick={loadmore} className='load-more disabled' disabled>Finised</button>
+                                    :
+                                    <button  onClick={loadmore} className='load-more'>Load More</button>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -61,4 +87,4 @@ const ShopTemp = () => {
     );
 };
 
-export default ShopTemp;
+export default ShopTemplate;

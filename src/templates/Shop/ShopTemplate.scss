@@ -2,6 +2,7 @@
 
 .shop-wrapper { 
     background: rgb(244, 245, 247);
+    padding-bottom: 50px;
 
     .page-title {
         background-color: #e4e1ff;
@@ -55,6 +56,18 @@
                     margin-right: 5px;
                 }
             }
+        }
+    }
+
+    .load-more {
+        background: $blue-color;
+        border: none;
+        color: $white-color;
+        padding: 10px 20px;
+        border-radius: 5px;
+
+        &.disabled {
+            background: #dddddd;
         }
     }
 }
