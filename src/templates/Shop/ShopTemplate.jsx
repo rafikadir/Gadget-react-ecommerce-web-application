@@ -1,5 +1,5 @@
 import Sidebar from '../../components/Sidebar/Sidebar';
-import './ShopTemp.scss';
+import './ShopTemplate.scss';
 import { BsFillGrid3X3GapFill, BsListUl } from "react-icons/bs";
 import Product from '../../components/Product/Product';
 import productsData from '../../data/products.json';

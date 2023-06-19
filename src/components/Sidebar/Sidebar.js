@@ -1,29 +1,22 @@
 import { Link } from 'react-router-dom';
 import './Sidebar.scss';
-import { AiOutlineSetting, AiFillStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
 
 
 const Sidebar = () => {
     return (
         <div className='sidebar-wrapper'>
-            <div className="sidebar-title">
-                <span>
-                    <AiOutlineSetting/>
-                    Filters
-                </span>
-            </div>
-
             <div className='filters'>
-                <div className="price-filter">
+                <div className="price-filter filter-item">
                     <h3>Price Range</h3>
-                    <div className="form-group">
-
+                    <div className="price-form">
+                        <input type="number" placeholder='Min' className="price-input"></input>
+                        <input type="number" placeholder='Max' className="price-input"></input>
+                        <button>Apply</button>
                     </div>
-                    <input type="number" placeholder='Min' className="form-range"></input>
-                    <span>$0 - $1200</span>
                 </div>
 
-                <div className="category-filter">
+                <div className="category-filter filter-item">
                     <h3>Category</h3>
                     
                     <ul>
@@ -35,7 +28,7 @@ const Sidebar = () => {
                     </ul>
                 </div>
                
-                <div className="brand-filter">
+                <div className="brand-filter filter-item">
                     <h3>Brand</h3>
                     
                     <ul>
@@ -47,7 +40,7 @@ const Sidebar = () => {
                     </ul>
                 </div>
 
-                <div className="rating-filter">
+                <div className="rating-filter filter-item">
                     <h3>Rating</h3>
                     
                     <div className="rating-box">

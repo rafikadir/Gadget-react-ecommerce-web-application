@@ -1,40 +1,42 @@
 @import '../../assets/scss/style.scss';
 
 .sidebar-wrapper {
-    background: $white-color;
-    padding: 20px;
-    margin-bottom: 30px;
-
-    .sidebar-title {
-        border-bottom: 1px solid #f0f0f0;
-        padding: 0 0 10px 0;
-        margin: 0 0 20px 0;
-
-        span {
-            font-size: 22px;
-
-            svg {
-                margin-right: 5px;
-                top: -3px;
-                position: relative;
-            }
-        }
-    }
-
     .filters {
-        .price-filter {
-            padding: 0 0 25px;
+        .filter-item {
+            background: $white-color;
+            padding: 20px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
 
+        .price-filter {
             h3 {
                 font-size: 20px;
                 font-weight: 600;
                 margin-bottom: 10px;
             }
+
+            .price-form {
+                display: flex;
+                justify-content: space-between;
+
+                .price-input {
+                    max-width: 90px;
+                    padding: 2px 10px;
+                    border: 1px solid $gray-color;
+                }
+
+                button {
+                    background: $blue-color;
+                    color: $white-color;
+                    border: none;
+                    font-size: 14px;
+                    padding: 2px 10px;
+                }
+            }
         }
 
         .category-filter, .brand-filter {
-            padding: 0 0 25px;
-
             h3 {
                 font-size: 20px;
                 font-weight: 600;
@@ -55,8 +57,6 @@
         }
 
         .rating-filter {
-            padding: 0 0 25px;
-
             h3 {
                 font-size: 20px;
                 font-weight: 600;
