@@ -9,10 +9,10 @@ const Footer = () => {
     const FooterInfo = [
         {
             "title" : "Catagories",
-            "links" : [{ "name":"Chair","link": "/"},
-                    { "name":"Sofa","link": "/"},
-                    { "name":"Table","link": "/"},
-                    { "name":"Book Shelf","link": "/"}]
+            "links" : [{ "name":"Cantilever","link": "/"},
+                    { "name":"Suspended","link": "/"},
+                    { "name":"Floating","link": "/"},
+                    { "name":"Balance","link": "/"}]
         },
         {
             "title" : "Customer Care",
