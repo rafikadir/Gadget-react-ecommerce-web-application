@@ -8,6 +8,7 @@ import ProductList from '../../components/ProductList/ProductList';
 
 const ShopTemplate = () => {
 
+    const [defaultView, setDefaultView] = useState(true);
     const [index, setIndex] = useState(6);
     const initialItems = productsData.slice(0,index);
     const [isCompleted,setIsCompleted] = useState(false);
@@ -24,6 +25,15 @@ const ShopTemplate = () => {
         }
     }
 
+    const listView = () => {
+        if(defaultView === true) {
+            setDefaultView(false)
+        }
+        else {
+            setDefaultView(true)
+        }
+    }
+
     return (
         <section className='shop-wrapper'>
             <h2 className="page-title text-center">Shop</h2>
@@ -37,7 +47,7 @@ const ShopTemplate = () => {
                         <div className="shop-top">
                             <div className="top-left">
                                 <h3>Furniture Items</h3>
-                                <p>50 found</p>
+                                <p>{productsData.length} found</p>
                             </div>
                             <div className="top-right">
                                 <div className="short-item">
@@ -57,8 +67,8 @@ const ShopTemplate = () => {
                                     <p>View:</p>
                                     
                                     <div>
-                                        <button><BsFillGrid3X3GapFill/></button>
-                                        <button><BsListUl/></button>
+                                        <button onClick={listView}><BsFillGrid3X3GapFill/></button>
+                                        <button onClick={listView}><BsListUl/></button>
                                     </div>
                                 </div>
                             </div>
@@ -66,20 +76,30 @@ const ShopTemplate = () => {
 
                         <div className="row">
                             {
-                                initialItems.map((item, index) => 
-                                    <div className="col-lg-4"  key={index}>
-                                        <Product products={item}/>
-                                    </div>
-                                )
+                                defaultView ? 
+                                <>
+                                    {/* Display Grid View */}
+                                    {
+                                    initialItems.map((item, index) => 
+                                        <div className="col-lg-4"  key={index}>
+                                            <Product products={item}/>
+                                        </div>
+                                    )
+                                    }
+                                </>
+                                : 
+                                <>
+                                    {/* Display List View */}
+                                    {
+                                        initialItems.map((item, index) => 
+                                            <div className="col-lg-12"  key={index}>
+                                                <ProductList products={item}/>
+                                            </div>
+                                        )
+                                    }
+                                </>
                             }
 
-{
-                                initialItems.map((item, index) => 
-                                    <div className="col-lg-4"  key={index}>
-                                        <ProductList products={item}/>
-                                    </div>
-                                )
-                            }
 
                             <div className="col-lg-12 text-center">
                                 { isCompleted ?

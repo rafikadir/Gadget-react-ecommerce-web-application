@@ -8,9 +8,7 @@ const Navbar = () => {
     const navbarItems = [
         {"name" : "Home", "link": "/"},
         {"name" : "Shop", "link": "/shop"},
-        {"name" : "Chair", "link": "/"},
-        {"name" : "Sofa", "link": "/"},
-        {"name" : "Latest", "link": "/"},
+        {"name" : "Account", "link": "/"},
         {"name" : "Contact", "link": "/contact"},
     ];
 
