@@ -19,25 +19,51 @@ const Sidebar = () => {
                 <div className="category-filter filter-item">
                     <h3>Category</h3>
                     
-                    <ul>
-                        <li><Link tp="/">Sofas</Link></li>
-                        <li><Link tp="/">Chair</Link></li>
-                        <li><Link tp="/">Wardrobes</Link></li>
-                        <li><Link tp="/">Armchairs</Link></li>
-                        <li><Link tp="/">Stools</Link></li>
-                    </ul>
+                    <div className='category-list'>
+                        <label>
+                            <input type="checkbox"/>
+                            Cantilever
+                        </label>
+                        <label>
+                            <input type="checkbox"/>
+                            Suspended
+                        </label>
+                        <label>
+                            <input type="checkbox"/>
+                            Floating
+                        </label>
+                        <label>
+                            <input type="checkbox"/>
+                            Balance
+                        </label>
+                    </div>
                 </div>
                
                 <div className="brand-filter filter-item">
                     <h3>Brand</h3>
                     
-                    <ul>
-                        <li><Link tp="/">Coaster</Link></li>
-                        <li><Link tp="/">Fusion Dot</Link></li>
-                        <li><Link tp="/">Dream Furniture</Link></li>
-                        <li><Link tp="/">Green DIY</Link></li>
-                        <li><Link tp="/">Unique STY</Link></li>
-                    </ul>
+                    <div className='brand-list'>
+                        <label>
+                            <input type="checkbox"/>
+                            one
+                        </label>
+                        <label>
+                            <input type="checkbox"/>
+                            two
+                        </label>
+                        <label>
+                            <input type="checkbox"/>
+                            three
+                        </label>
+                        <label>
+                            <input type="checkbox"/>
+                            four
+                        </label>
+                        <label>
+                            <input type="checkbox"/>
+                            five
+                        </label>
+                    </div>
                 </div>
 
                 <div className="rating-filter filter-item">

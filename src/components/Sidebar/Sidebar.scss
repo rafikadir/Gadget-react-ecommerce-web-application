@@ -43,14 +43,19 @@
                 margin-bottom: 15px;
             }
 
-            ul {
-                li {
-                    list-style: none;
+            .category-list, .brand-list {
+                display: flex;
+                flex-direction: column;
 
-                    a {
-                        color: $gray-color;
-                        font-size: 16px;
-                        margin-bottom: 5px;
+                label {
+                    display: flex;
+                    align-items: center;
+                    text-transform: capitalize;
+                    font-size: 17px;
+                    margin-bottom: 5px;
+
+                    input {
+                        margin-right: 10px;
                     }
                 }
             }

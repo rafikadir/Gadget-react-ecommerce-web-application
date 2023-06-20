@@ -5,7 +5,8 @@
         "price" : 150,
         "prevPrice" : 650,
         "offPrice" : 50,
-        "rating" : 55
+        "rating" : 55,
+        "category" : "cantilever"
     },
     {
         "title" : "Balance Chair",
@@ -13,7 +14,8 @@
         "price" : 230,
         "prevPrice" : 550,
         "offPrice" : 60,
-        "rating" : 65
+        "rating" : 65,
+        "category" : "cantilever"
     },
     {
         "title" : "Suspended Seat",
@@ -21,7 +23,8 @@
         "price" : 350,
         "prevPrice" : 620,
         "offPrice" : 55,
-        "rating" : 45
+        "rating" : 45,
+        "category" : "suspended"
     },
     {
         "title" : "Floating Lounge",
@@ -29,7 +32,8 @@
         "price" : 510,
         "prevPrice" : 810,
         "offPrice" : 40,
-        "rating" : 50
+        "rating" : 50,
+        "category" : "floating"
     },
     {
         "title" : "Cantilever chair",
@@ -37,7 +41,8 @@
         "price" : 750,
         "prevPrice" : 950,
         "offPrice" : 50,
-        "rating" : 55
+        "rating" : 55,
+        "category" : "cantilever"
     },
     {
         "title" : "Balance Chair",
@@ -45,7 +50,8 @@
         "price" : 100,
         "prevPrice" : 450,
         "offPrice" : 60,
-        "rating" : 65
+        "rating" : 65,
+        "category" : "suspended"
     },
     {
         "title" : "Cantilever chair",
@@ -53,7 +59,8 @@
         "price" : 150,
         "prevPrice" : 650,
         "offPrice" : 50,
-        "rating" : 55
+        "rating" : 55,
+        "category" : "floating"
     },
     {
         "title" : "Balance Chair",
@@ -61,7 +68,8 @@
         "price" : 250,
         "prevPrice" : 550,
         "offPrice" : 60,
-        "rating" : 65
+        "rating" : 65,
+        "category" : "balance"
     },
     {
         "title" : "Suspended Seat",
@@ -69,7 +77,8 @@
         "price" : 450,
         "prevPrice" : 620,
         "offPrice" : 55,
-        "rating" : 45
+        "rating" : 45,
+        "category" : "suspended"
     },
     {
         "title" : "Floating Lounge",
@@ -77,7 +86,8 @@
         "price" : 310,
         "prevPrice" : 410,
         "offPrice" : 40,
-        "rating" : 50
+        "rating" : 50,
+        "category" : "floating"
     },
     {
         "title" : "Cantilever chair",
@@ -85,7 +95,8 @@
         "price" : 150,
         "prevPrice" : 650,
         "offPrice" : 50,
-        "rating" : 55
+        "rating" : 55,
+        "category" : "cantilever"
     },
     {
         "title" : "Balance Chair",
@@ -93,7 +104,8 @@
         "price" : 230,
         "prevPrice" : 550,
         "offPrice" : 60,
-        "rating" : 65
+        "rating" : 65,
+        "category" : "balance"
     },
     {
         "title" : "Balance Chair",
@@ -101,7 +113,8 @@
         "price" : 130,
         "prevPrice" : 550,
         "offPrice" : 60,
-        "rating" : 65
+        "rating" : 65,
+        "category" : "balance"
     },
     {
         "title" : "Suspended Seat",
@@ -109,7 +122,8 @@
         "price" : 250,
         "prevPrice" : 620,
         "offPrice" : 55,
-        "rating" : 45
+        "rating" : 45,
+        "category" : "suspended"
     },
     {
         "title" : "Floating Lounge",
@@ -117,6 +131,7 @@
         "price" : 310,
         "prevPrice" : 410,
         "offPrice" : 40,
-        "rating" : 50
+        "rating" : 50,
+        "category" : "floating"
     }
 ]
