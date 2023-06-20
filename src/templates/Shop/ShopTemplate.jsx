@@ -4,6 +4,7 @@ import { BsFillGrid3X3GapFill, BsListUl } from "react-icons/bs";
 import Product from '../../components/Product/Product';
 import productsData from '../../data/products.json';
 import {useState } from 'react';
+import ProductList from '../../components/ProductList/ProductList';
 
 const ShopTemplate = () => {
 
@@ -72,9 +73,17 @@ const ShopTemplate = () => {
                                 )
                             }
 
+{
+                                initialItems.map((item, index) => 
+                                    <div className="col-lg-4"  key={index}>
+                                        <ProductList products={item}/>
+                                    </div>
+                                )
+                            }
+
                             <div className="col-lg-12 text-center">
                                 { isCompleted ?
-                                    <button onClick={loadmore} className='load-more disabled' disabled>Finised</button>
+                                    <button onClick={loadmore} className='load-more disabled' disabled>Finished</button>
                                     :
                                     <button  onClick={loadmore} className='load-more'>Load More</button>
                                 }
