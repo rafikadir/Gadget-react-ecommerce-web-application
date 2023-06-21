@@ -1,18 +1,27 @@
-import { Link } from 'react-router-dom';
 import './Sidebar.scss';
 import { AiFillStar } from "react-icons/ai";
+import { useState } from 'react';
 
 
-const Sidebar = () => {
+const Sidebar = ({sendData}) => {
+
+    const [sliderValue, setSliderValue] = useState(0);
+
+    const updateValue = (sliderValue) => {
+        setSliderValue(sliderValue.target.value);
+        sendData(sliderValue.target.value);
+    }
+
     return (
         <div className='sidebar-wrapper'>
             <div className='filters'>
                 <div className="price-filter filter-item">
                     <h3>Price Range</h3>
-                    <div className="price-form">
-                        <input type="number" placeholder='Min' className="price-input"></input>
-                        <input type="number" placeholder='Max' className="price-input"></input>
-                        <button>Apply</button>
+                    <div className="price-range">
+                        <input type="range" className="price-input form-range" min={0} max={1200} value={sliderValue} 
+                        onChange={updateValue}/>
+
+                        <span>$0 - ${sliderValue}</span>
                     </div>
                 </div>
 

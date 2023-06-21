@@ -10,9 +10,11 @@ const ShopTemplate = () => {
 
     const [defaultView, setDefaultView] = useState(true);
     const [index, setIndex] = useState(6);
-    const initialItems = productsData.slice(0,index);
+    let initialItems = productsData.slice(0,index);
     const [isCompleted,setIsCompleted] = useState(false);
+    const [priceValue, SetPriceValue] = useState();
 
+    // Load More function
     const loadmore = () => {
         const indexUpdate = index + 3;
         setIndex(indexUpdate);
@@ -25,14 +27,26 @@ const ShopTemplate = () => {
         }
     }
 
+    // List View
     const listView = () => {
-        if(defaultView === true) {
-            setDefaultView(false)
-        }
-        else {
-            setDefaultView(true)
-        }
+        setDefaultView(false)
     }
+    // Grid View
+    const gridView = () => {
+        setDefaultView(true)
+    }
+    // Getting Filtered Price
+    const receiveData = (sliderValue) => {
+        SetPriceValue(sliderValue);
+    };
+
+    const filterdInitial = initialItems.filter((item) => {
+        const itemPrice = item.price;
+        if(priceValue >= itemPrice) {
+            return productsData.slice(0,index);
+        }
+    });
+
 
     return (
         <section className='shop-wrapper'>
@@ -41,7 +55,7 @@ const ShopTemplate = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-3">
-                        <Sidebar/>
+                        <Sidebar sendData={receiveData}/>
                     </div>
                     
                     <div className="col-lg-9">
@@ -68,7 +82,7 @@ const ShopTemplate = () => {
                                     <p>View:</p>
                                     
                                     <div>
-                                        <button onClick={listView}><BsFillGrid3X3GapFill/></button>
+                                        <button onClick={gridView}><BsFillGrid3X3GapFill/></button>
                                         <button onClick={listView}><BsListUl/></button>
                                     </div>
                                 </div>
@@ -81,7 +95,7 @@ const ShopTemplate = () => {
                                 <>
                                     {/* Display Grid View */}
                                     {
-                                    initialItems.map((item, index) => 
+                                    filterdInitial.map((item, index) => 
                                         <div className="col-lg-4"  key={index}>
                                             <Product products={item}/>
                                         </div>

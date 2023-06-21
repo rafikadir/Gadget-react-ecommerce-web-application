@@ -16,22 +16,9 @@
                 margin-bottom: 10px;
             }
 
-            .price-form {
-                display: flex;
-                justify-content: space-between;
-
+            .price-range {
                 .price-input {
-                    max-width: 90px;
-                    padding: 2px 10px;
-                    border: 1px solid $gray-color;
-                }
-
-                button {
-                    background: $blue-color;
-                    color: $white-color;
-                    border: none;
-                    font-size: 14px;
-                    padding: 2px 10px;
+                    width: 100%;
                 }
             }
         }
