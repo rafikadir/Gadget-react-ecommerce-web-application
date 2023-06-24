@@ -10,10 +10,10 @@ const ShopTemplate = () => {
 
     const [defaultView, setDefaultView] = useState(true);
     const [index, setIndex] = useState(6);
-    let initialItems = productsData.slice(0,index);
     const [isCompleted,setIsCompleted] = useState(false);
     const [priceValue, SetPriceValue] = useState();
-
+    let initialItems = productsData.slice(0,index);
+    
     // Load More function
     const loadmore = () => {
         const indexUpdate = index + 3;
@@ -40,6 +40,7 @@ const ShopTemplate = () => {
         SetPriceValue(sliderValue);
     };
 
+    // Filtering Price
     const filterdInitial = initialItems.filter((item) => {
         const itemPrice = item.price;
         if(priceValue >= itemPrice) {
@@ -95,18 +96,18 @@ const ShopTemplate = () => {
                                 <>
                                     {/* Display Grid View */}
                                     {
-                                    filterdInitial.map((item, index) => 
-                                        <div className="col-lg-4"  key={index}>
-                                            <Product products={item}/>
-                                        </div>
-                                    )
+                                        filterdInitial.map((item, index) => 
+                                            <div className="col-lg-4"  key={index}>
+                                                <Product products={item}/>
+                                            </div>
+                                        )
                                     }
                                 </>
                                 : 
                                 <>
                                     {/* Display List View */}
                                     {
-                                        initialItems.map((item, index) => 
+                                        filterdInitial.map((item, index) => 
                                             <div className="col-lg-12"  key={index}>
                                                 <ProductList products={item}/>
                                             </div>

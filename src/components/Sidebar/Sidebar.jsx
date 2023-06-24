@@ -1,16 +1,21 @@
 import './Sidebar.scss';
 import { AiFillStar } from "react-icons/ai";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 const Sidebar = ({sendData}) => {
 
-    const [sliderValue, setSliderValue] = useState(0);
+    const [sliderValue, setSliderValue] = useState(1200);
+
+    useEffect(() => {
+        sendData(sliderValue);
+    },[]);
 
     const updateValue = (sliderValue) => {
         setSliderValue(sliderValue.target.value);
         sendData(sliderValue.target.value);
     }
+    
 
     return (
         <div className='sidebar-wrapper'>
@@ -18,8 +23,7 @@ const Sidebar = ({sendData}) => {
                 <div className="price-filter filter-item">
                     <h3>Price Range</h3>
                     <div className="price-range">
-                        <input type="range" className="price-input form-range" min={0} max={1200} value={sliderValue} 
-                        onChange={updateValue}/>
+                        <input type="range" className="price-input form-range" min={0} max={1200} value={sliderValue} onChange={updateValue}/>
 
                         <span>$0 - ${sliderValue}</span>
                     </div>
