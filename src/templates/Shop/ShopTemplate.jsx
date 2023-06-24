@@ -36,8 +36,9 @@ const ShopTemplate = () => {
         setDefaultView(true)
     }
     // Getting Filtered Price
-    const receiveData = (sliderValue) => {
+    const receiveData = (sliderValue,category) => {
         SetPriceValue(sliderValue);
+        console.log(category);
     };
 
     // Filtering Price

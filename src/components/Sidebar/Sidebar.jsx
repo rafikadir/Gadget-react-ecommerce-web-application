@@ -34,19 +34,19 @@ const Sidebar = ({sendData}) => {
                     
                     <div className='category-list'>
                         <label>
-                            <input type="checkbox"/>
+                            <input type="checkbox" value="cantilever"/>
                             Cantilever
                         </label>
                         <label>
-                            <input type="checkbox"/>
+                            <input type="checkbox" value="suspended"/>
                             Suspended
                         </label>
                         <label>
-                            <input type="checkbox"/>
+                            <input type="checkbox" value="floating"/>
                             Floating
                         </label>
                         <label>
-                            <input type="checkbox"/>
+                            <input type="checkbox" value="balance"/>
                             Balance
                         </label>
                     </div>
