@@ -6,16 +6,26 @@ import { useState, useEffect } from 'react';
 const Sidebar = ({sendData}) => {
 
     const [sliderValue, setSliderValue] = useState(1200);
+    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        sendData(sliderValue);
-    },[]);
+        sendData(sliderValue,categories);
+    });
 
     const updateValue = (sliderValue) => {
         setSliderValue(sliderValue.target.value);
         sendData(sliderValue.target.value);
     }
     
+    const updateCategory = (e) => {
+        const selectedCategory = e.target.value;
+        if(categories.includes(selectedCategory)){
+            setCategories(categories.filter((category) => category !== selectedCategory));
+        }
+        else {
+            setCategories([...categories, selectedCategory]);
+        }
+    }    
 
     return (
         <div className='sidebar-wrapper'>
@@ -34,19 +44,19 @@ const Sidebar = ({sendData}) => {
                     
                     <div className='category-list'>
                         <label>
-                            <input type="checkbox" value="cantilever"/>
+                            <input type="checkbox" value="cantilever" onChange={updateCategory}/>
                             Cantilever
                         </label>
                         <label>
-                            <input type="checkbox" value="suspended"/>
+                            <input type="checkbox" value="suspended" onChange={updateCategory}/>
                             Suspended
                         </label>
                         <label>
-                            <input type="checkbox" value="floating"/>
+                            <input type="checkbox" value="floating" onChange={updateCategory}/>
                             Floating
                         </label>
                         <label>
-                            <input type="checkbox" value="balance"/>
+                            <input type="checkbox" value="balance" onChange={updateCategory}/>
                             Balance
                         </label>
                     </div>

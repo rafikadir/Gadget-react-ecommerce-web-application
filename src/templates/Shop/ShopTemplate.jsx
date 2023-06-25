@@ -12,6 +12,7 @@ const ShopTemplate = () => {
     const [index, setIndex] = useState(6);
     const [isCompleted,setIsCompleted] = useState(false);
     const [priceValue, SetPriceValue] = useState();
+    const [category, setCategory] = useState([]);
     let initialItems = productsData.slice(0,index);
     
     // Load More function
@@ -19,13 +20,13 @@ const ShopTemplate = () => {
         const indexUpdate = index + 3;
         setIndex(indexUpdate);
 
-        if(index >= productsData.length) {
+        if(index > productsData.length) {
             setIsCompleted(true)
         }
         else {
             setIsCompleted(false)
         }
-    }
+    }    
 
     // List View
     const listView = () => {
@@ -35,19 +36,35 @@ const ShopTemplate = () => {
     const gridView = () => {
         setDefaultView(true)
     }
-    // Getting Filtered Price
-    const receiveData = (sliderValue,category) => {
+    // Getting Filtered Price and Category
+    const receiveData = (sliderValue,categories) => {
         SetPriceValue(sliderValue);
-        console.log(category);
+        setCategory(categories);
     };
 
+
     // Filtering Price
-    const filterdInitial = initialItems.filter((item) => {
+    const filteredItems = initialItems.filter((item) => {
         const itemPrice = item.price;
-        if(priceValue >= itemPrice) {
-            return productsData.slice(0,index);
-        }
+        const itemCategory = item.category;
+        
+        if (priceValue && (itemPrice <= priceValue[1] && itemPrice >= priceValue[0])) {
+            // Check if category is selected
+            if (category.length > 0) {
+              // Check if the item's category matches any selected category
+              if (category.includes(itemCategory)) {
+                return true;
+              }
+            } else {
+              return true;
+            }
+          }
+      
+        return false;
     });
+
+    const displayedItems = priceValue || category ? filteredItems : initialItems;
+
 
 
     return (
@@ -97,7 +114,7 @@ const ShopTemplate = () => {
                                 <>
                                     {/* Display Grid View */}
                                     {
-                                        filterdInitial.map((item, index) => 
+                                        displayedItems.map((item, index) => 
                                             <div className="col-lg-4"  key={index}>
                                                 <Product products={item}/>
                                             </div>
@@ -108,7 +125,7 @@ const ShopTemplate = () => {
                                 <>
                                     {/* Display List View */}
                                     {
-                                        filterdInitial.map((item, index) => 
+                                        displayedItems.map((item, index) => 
                                             <div className="col-lg-12"  key={index}>
                                                 <ProductList products={item}/>
                                             </div>
