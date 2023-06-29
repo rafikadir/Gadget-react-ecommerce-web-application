@@ -12,7 +12,7 @@ const ShopTemplate = () => {
     const [index, setIndex] = useState(6);
     const [isCompleted,setIsCompleted] = useState(false);
     const [priceValue, SetPriceValue] = useState();
-    const [category, setCategory] = useState([]);
+    const [categories, setCategories] = useState([]);
     let initialItems = productsData.slice(0,index);
     
     // Load More function
@@ -28,6 +28,7 @@ const ShopTemplate = () => {
         }
     }    
 
+    
     // List View
     const listView = () => {
         setDefaultView(false)
@@ -37,35 +38,21 @@ const ShopTemplate = () => {
         setDefaultView(true)
     }
     // Getting Filtered Price and Category
-    const receiveData = (sliderValue,categories) => {
+    const receiveData = (sliderValue, category) => {
         SetPriceValue(sliderValue);
-        setCategory(categories);
+        setCategories(category);
     };
-
 
     // Filtering Price
     const filteredItems = initialItems.filter((item) => {
         const itemPrice = item.price;
-        const itemCategory = item.category;
-        
-        if (priceValue && (itemPrice <= priceValue[1] && itemPrice >= priceValue[0])) {
-            // Check if category is selected
-            if (category.length > 0) {
-              // Check if the item's category matches any selected category
-              if (category.includes(itemCategory)) {
-                return true;
-              }
-            } else {
-              return true;
-            }
-          }
-      
-        return false;
+        if(itemPrice < priceValue){
+            return true;
+        }
     });
 
-    const displayedItems = priceValue || category ? filteredItems : initialItems;
 
-
+    const displayItems = filteredItems ? filteredItems : initialItems;
 
     return (
         <section className='shop-wrapper'>
@@ -84,19 +71,6 @@ const ShopTemplate = () => {
                                 <p>{productsData.length} found</p>
                             </div>
                             <div className="top-right">
-                                <div className="short-item">
-                                    <p>Short by:</p>
-                                    
-                                    <div>
-                                        <select className="form-select" aria-label="Default select example">
-                                            <option value="0">Relevance</option>
-                                            <option value="1">Date</option>
-                                            <option value="2">Price Low to High</option>
-                                            <option value="3">Price High to Low</option>
-                                        </select>
-                                    </div>
-                                </div>
-
                                 <div className="view-item">
                                     <p>View:</p>
                                     
@@ -114,7 +88,7 @@ const ShopTemplate = () => {
                                 <>
                                     {/* Display Grid View */}
                                     {
-                                        displayedItems.map((item, index) => 
+                                        displayItems.map((item, index) => 
                                             <div className="col-lg-4"  key={index}>
                                                 <Product products={item}/>
                                             </div>
@@ -125,7 +99,7 @@ const ShopTemplate = () => {
                                 <>
                                     {/* Display List View */}
                                     {
-                                        displayedItems.map((item, index) => 
+                                        displayItems.map((item, index) => 
                                             <div className="col-lg-12"  key={index}>
                                                 <ProductList products={item}/>
                                             </div>

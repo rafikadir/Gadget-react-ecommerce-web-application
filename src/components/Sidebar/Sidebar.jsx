@@ -16,6 +16,7 @@ const Sidebar = ({sendData}) => {
         setSliderValue(sliderValue.target.value);
         sendData(sliderValue.target.value);
     }
+
     
     const updateCategory = (e) => {
         const selectedCategory = e.target.value;
