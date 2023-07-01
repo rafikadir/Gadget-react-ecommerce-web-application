@@ -5,16 +5,18 @@ import Product from '../../components/Product/Product';
 import productsData from '../../data/products.json';
 import {useState } from 'react';
 import ProductList from '../../components/ProductList/ProductList';
+import { useEffect } from 'react';
 
 const ShopTemplate = () => {
 
     const [defaultView, setDefaultView] = useState(true);
     const [index, setIndex] = useState(6);
     const [isCompleted,setIsCompleted] = useState(false);
-    const [priceValue, SetPriceValue] = useState();
+    const [price, setPrice] = useState();
     const [categories, setCategories] = useState([]);
+
     let initialItems = productsData.slice(0,index);
-    
+   
     // Load More function
     const loadmore = () => {
         const indexUpdate = index + 3;
@@ -39,20 +41,10 @@ const ShopTemplate = () => {
     }
     // Getting Filtered Price and Category
     const receiveData = (sliderValue, category) => {
-        SetPriceValue(sliderValue);
-        setCategories(category);
+        setPrice(sliderValue);
+        setCategories(category);  
     };
 
-    // Filtering Price
-    const filteredItems = initialItems.filter((item) => {
-        const itemPrice = item.price;
-        if(itemPrice < priceValue){
-            return true;
-        }
-    });
-
-
-    const displayItems = filteredItems ? filteredItems : initialItems;
 
     return (
         <section className='shop-wrapper'>
@@ -88,7 +80,7 @@ const ShopTemplate = () => {
                                 <>
                                     {/* Display Grid View */}
                                     {
-                                        displayItems.map((item, index) => 
+                                        initialItems.map((item, index) => 
                                             <div className="col-lg-4"  key={index}>
                                                 <Product products={item}/>
                                             </div>
@@ -99,7 +91,7 @@ const ShopTemplate = () => {
                                 <>
                                     {/* Display List View */}
                                     {
-                                        displayItems.map((item, index) => 
+                                        initialItems.map((item, index) => 
                                             <div className="col-lg-12"  key={index}>
                                                 <ProductList products={item}/>
                                             </div>
