@@ -10,7 +10,7 @@ const Sidebar = ({sendData}) => {
 
     useEffect(() => {
         sendData(sliderValue,categories);
-    });
+    },[sliderValue,categories]);
 
     const updateValue = (sliderValue) => {
         setSliderValue(sliderValue.target.value);

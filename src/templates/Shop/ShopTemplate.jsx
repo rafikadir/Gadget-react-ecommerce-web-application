@@ -10,26 +10,24 @@ import { useEffect } from 'react';
 const ShopTemplate = () => {
 
     const [defaultView, setDefaultView] = useState(true);
-    const [index, setIndex] = useState(6);
-    const [isCompleted,setIsCompleted] = useState(false);
+    // const [index, setIndex] = useState(6);
+    // const [isCompleted,setIsCompleted] = useState(false);
     const [price, setPrice] = useState();
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState();
+    const [initialItems, setInitialItems] = useState(productsData);
 
-    let initialItems = productsData.slice(0,index);
-   
     // Load More function
-    const loadmore = () => {
-        const indexUpdate = index + 3;
-        setIndex(indexUpdate);
+    // const loadmore = () => {
+    //     const indexUpdate = index + 3;
+    //     setIndex(indexUpdate);
 
-        if(index > productsData.length) {
-            setIsCompleted(true)
-        }
-        else {
-            setIsCompleted(false)
-        }
-    }    
-
+    //     if(index > productsData.length) {
+    //         setIsCompleted(true)
+    //     }
+    //     else {
+    //         setIsCompleted(false)
+    //     }
+    // } 
     
     // List View
     const listView = () => {
@@ -39,10 +37,11 @@ const ShopTemplate = () => {
     const gridView = () => {
         setDefaultView(true)
     }
+
     // Getting Filtered Price and Category
     const receiveData = (sliderValue, category) => {
         setPrice(sliderValue);
-        setCategories(category);  
+        setCategories(category);
     };
 
 
@@ -101,13 +100,13 @@ const ShopTemplate = () => {
                             }
 
 
-                            <div className="col-lg-12 text-center">
+                            {/* <div className="col-lg-12 text-center">
                                 { isCompleted ?
                                     <button onClick={loadmore} className='load-more disabled' disabled>Finished</button>
                                     :
                                     <button  onClick={loadmore} className='load-more'>Load More</button>
                                 }
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
