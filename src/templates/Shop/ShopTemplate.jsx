@@ -10,24 +10,24 @@ import { useEffect } from 'react';
 const ShopTemplate = () => {
 
     const [defaultView, setDefaultView] = useState(true);
-    // const [index, setIndex] = useState(6);
-    // const [isCompleted,setIsCompleted] = useState(false);
+    const [index, setIndex] = useState(6);
+    const [isCompleted,setIsCompleted] = useState(false);
     const [price, setPrice] = useState();
     const [categories, setCategories] = useState();
     const [initialItems, setInitialItems] = useState(productsData);
 
     // Load More function
-    // const loadmore = () => {
-    //     const indexUpdate = index + 3;
-    //     setIndex(indexUpdate);
+    const loadmore = () => {
+        const indexUpdate = index + 3;
+        setIndex(indexUpdate);
 
-    //     if(index > productsData.length) {
-    //         setIsCompleted(true)
-    //     }
-    //     else {
-    //         setIsCompleted(false)
-    //     }
-    // } 
+        if(index > productsData.length) {
+            setIsCompleted(true)
+        }
+        else {
+            setIsCompleted(false)
+        }
+    } 
     
     // List View
     const listView = () => {
