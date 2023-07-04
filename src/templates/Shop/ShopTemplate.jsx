@@ -14,9 +14,8 @@ const ShopTemplate = () => {
     const [isCompleted,setIsCompleted] = useState(false);
     const [price, setPrice] = useState();
     const [categories, setCategories] = useState();
-    const initialItems  = productsData.slice(0,index);
-
-
+    const [updated, setUpdated] = useState([]);
+    const [initialItems, setInitialItems]  = useState(productsData);
 
     // Load More Function
     const loadmore = () => {
@@ -46,6 +45,17 @@ const ShopTemplate = () => {
         setPrice(sliderValue);
         setCategories(category);
     };
+    
+    const filterCategory = () => {
+        const category = categories?.filter(c => c);
+        const filtered = initialItems.filter( item => category?.includes(item.category));
+        // setInitialItems(filtered);
+    };
+
+    useEffect(() => {
+        filterCategory();
+    },[categories]);
+    
 
     return (
         <section className='shop-wrapper'>
