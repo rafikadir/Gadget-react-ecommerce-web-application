@@ -49,8 +49,6 @@ const ShopTemplate = () => {
 
     return (
         <section className='shop-wrapper'>
-            <h2 className="page-title text-center">Shop</h2>
-
             <div className="container">
                 <div className="row">
                     <div className="col-lg-3">
