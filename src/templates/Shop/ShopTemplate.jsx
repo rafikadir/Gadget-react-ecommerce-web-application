@@ -14,15 +14,17 @@ const ShopTemplate = () => {
     const [isCompleted,setIsCompleted] = useState(false);
     const [price, setPrice] = useState();
     const [categories, setCategories] = useState();
-    const [initialItems, setInitialItems] = useState(productsData);
+    const initialItems  = productsData.slice(0,index);
 
-    // Load More function
+
+
+    // Load More Function
     const loadmore = () => {
         const indexUpdate = index + 3;
         setIndex(indexUpdate);
 
         if(index > productsData.length) {
-            setIsCompleted(true)
+            setIsCompleted(true);
         }
         else {
             setIsCompleted(false)
@@ -31,11 +33,12 @@ const ShopTemplate = () => {
     
     // List View
     const listView = () => {
-        setDefaultView(false)
+        setDefaultView(false);
     }
+
     // Grid View
     const gridView = () => {
-        setDefaultView(true)
+        setDefaultView(true);
     }
 
     // Getting Filtered Price and Category
@@ -43,7 +46,6 @@ const ShopTemplate = () => {
         setPrice(sliderValue);
         setCategories(category);
     };
-
 
     return (
         <section className='shop-wrapper'>
@@ -100,13 +102,13 @@ const ShopTemplate = () => {
                             }
 
 
-                            {/* <div className="col-lg-12 text-center">
+                            <div className="col-lg-12 text-center">
                                 { isCompleted ?
                                     <button onClick={loadmore} className='load-more disabled' disabled>Finished</button>
                                     :
                                     <button  onClick={loadmore} className='load-more'>Load More</button>
                                 }
-                            </div> */}
+                            </div>
                         </div>
                     </div>
                 </div>
