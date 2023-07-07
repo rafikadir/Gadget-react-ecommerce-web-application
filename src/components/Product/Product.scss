@@ -10,6 +10,15 @@
     .product-img {
         background: #dee2e6;
         position: relative;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px 10px 0 0;
+
+        img {
+            max-width: 200px;
+        }
         
         .product-fav {
             position: absolute;
@@ -79,7 +88,7 @@
 
             .review-count {
                 font-size: 14px;
-                color: rgb(146, 153, 184);
+                color: $gray-color;
             }
         }
 
@@ -97,7 +106,7 @@
                 transition: .1s linear;
 
                 &:hover {
-                    background: $blue-color;
+                    background: $black-color;
                     color: $white-color;
                 }
 
@@ -108,9 +117,9 @@
             }  
 
             .buy-btn {
-                background: $blue-color;
+                background: $black-color;
                 color: $white-color;
-                border: 1px solid $blue-color;
+                border: 1px solid $black-color;
                 padding: 5px 15px;
                 border-radius: 5px;
                 width: 100px;

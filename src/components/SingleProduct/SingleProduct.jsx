@@ -1,8 +1,9 @@
 import './SingleProduct.scss';
-import img from '../../assets/img/products/13.png';
+import img from '../../assets/img/products/1.png';
 import ThemeButton from '../ThemeButton/ThemeBtn';
 
 const SingleProduct = () => {
+    
     return (
         <section className="single-product">
             <div className="container">

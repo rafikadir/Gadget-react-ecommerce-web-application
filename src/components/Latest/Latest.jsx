@@ -14,10 +14,6 @@ const Latest = () => {
         {
             'title': 'Best Selling',
             'content': <BestSelling/>
-        },
-        {
-            'title': 'New Special Offer',
-            'content': <NewArrival/>
         }
     ]
 

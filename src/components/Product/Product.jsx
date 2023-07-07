@@ -4,7 +4,7 @@ import {FiShoppingBag} from "react-icons/fi";
 import { Link } from 'react-router-dom';
 
 const Product = (products) => {
-    const {img, title, price, prevPrice, offPrice, rating} = products.products;
+    const {id,img, title, price, prevPrice, offPrice, rating } = products.products;
     
     return (
         <div className="product-box">
@@ -16,7 +16,7 @@ const Product = (products) => {
                 </button>
             </div>
             <div className="product-info">
-                <h3><Link className='product-title' to="/">{title}</Link></h3>
+                <h3><Link className='product-title' to={'/'+ id}>{title.slice(0,15)}...</Link></h3>
 
                 <div className="price-text">
                     <span className='price'>${price}</span>

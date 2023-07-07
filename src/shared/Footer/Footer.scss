@@ -1,23 +1,28 @@
 @import '../../assets/scss/style.scss';
 
 .footer {
-    background: $navy-color;
+    background: $black-color;
     padding: 50px 0;
 
     .company-info {
+        img {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+
         .company-contact {
             padding: 20px 0;
             list-style-type: none;
 
             li {
                 font-size: 17px;
-                color: #8A8FB9; 
+                color:  $gray-color; 
             }
         }
 
         .company-social {
             a {
-                color: $navy-color;
+                color: $white-color;
                 font-size: 26px;
                 margin-right: 5px;
             }
@@ -37,7 +42,7 @@
             li {
                 a {
                     font-size: 17px; 
-                    color: #8A8FB9;
+                    color: $gray-color;
                     margin-bottom: 10px;
                     transition: .4s;
 

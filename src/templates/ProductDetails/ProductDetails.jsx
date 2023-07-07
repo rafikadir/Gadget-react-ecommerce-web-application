@@ -1,9 +1,14 @@
 import './ProductDetails.scss';
 import ThemeBtn from '../../components/ThemeButton/ThemeBtn';
-import img from '../../assets/img/products/1.png';
 import TabsItem from '../../components/TabsItem/TabsItem';
+import { useParams } from 'react-router-dom';
+import productsData from '../../data/products.json';
 
 const ProductDetails = () => {
+
+    const {id} = useParams()
+
+    const product = productsData.find(item => item.id === parseInt(id));
 
     const tabContents = [
         {
@@ -21,12 +26,12 @@ const ProductDetails = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6">
-                        <img src={img} alt="product" />
+                        <img src={product?.img} alt="product" />
                     </div>
                     <div className="col-lg-6">
                         <div className="product-details-text">
                             <p>category</p>
-                            <h2>This is Product Title</h2>
+                            <h2>{id} This is Product Title</h2>
                             <p>50 Reviews</p>
 
                             <p>Indulge in the sheer brilliance of the MacBook Air, your ideal productivity partner! Unleash your creativity and conquer your to-do list with this stunning piece of technology.</p>

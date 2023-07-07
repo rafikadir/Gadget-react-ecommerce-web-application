@@ -1,137 +1,167 @@
 [
     {
-        "title" : "Suspended Seat",
-        "img" : "/src/assets/img/products/3.png",
+        "id": 1,
+        "title" : "Sony Playstation Portable PSP 3000",
+        "img" : "/src/assets/img/products/1.png",
         "price" : 1200,
         "prevPrice" : 620,
         "offPrice" : 55,
         "rating" : 45,
-        "category" : "suspended"
+        "category" : "suspended",
+        "slug" : "sony-playstation-portable-psp-3000"
     },
     {
-        "title" : "Floating Lounge",
-        "img" : "/src/assets/img/products/4.png",
+        "id": 2,
+        "title" : "SAMSUNG Galaxy Watch",
+        "img" : "/src/assets/img/products/2.png",
         "price" : 310,
         "prevPrice" : 410,
         "offPrice" : 40,
         "rating" : 50,
-        "category" : "floating"
+        "category" : "floating",
+        "slug" : "samsung-galaxy-watch"
     },
     {
-        "title" : "Balance Chair",
-        "img" : "/src/assets/img/products/2.png",
+        "id": 3,
+        "title" : "Apple 2020 MacBook Air Laptop",
+        "img" : "/src/assets/img/products/3.png",
         "price" : 250,
         "prevPrice" : 550,
         "offPrice" : 60,
         "rating" : 65,
-        "category" : "balance"
+        "category" : "balance",
+        "slug" : "apple-2020-macbook-air-laptop"
     },
     {
-        "title" : "Suspended Seat",
-        "img" : "/src/assets/img/products/3.png",
+        "id": 4,
+        "title" : "Fitbit Versa 4 Fitness Smartwatch",
+        "img" : "/src/assets/img/products/4.png",
         "price" : 450,
         "prevPrice" : 620,
         "offPrice" : 55,
         "rating" : 45,
-        "category" : "suspended"
+        "category" : "suspended",
+        "slug" : "fitbit-versa-4-fitness-smartwatch"
     },
     {
-        "title" : "Floating Lounge",
-        "img" : "/src/assets/img/products/4.png",
+        "id": 5,
+        "title" : "SAMSUNG Galaxy Watch",
+        "img" : "/src/assets/img/products/5.png",
         "price" : 310,
         "prevPrice" : 410,
         "offPrice" : 40,
         "rating" : 50,
-        "category" : "floating"
+        "category" : "floating",
+        "slug" : "samsung-galaxy-watch"
     },
     {
-        "title" : "Cantilever chair",
-        "img" : "/src/assets/img/products/5.png",
+        "id": 6,
+        "title" : "Dell XPS Laptops",
+        "img" : "/src/assets/img/products/6.png",
         "price" : 150,
         "prevPrice" : 650,
         "offPrice" : 50,
         "rating" : 55,
-        "category" : "cantilever"
+        "category" : "cantilever",
+        "slug" : "dell-xps-laptops"
     },
     {
-        "title" : "Balance Chair",
-        "img" : "/src/assets/img/products/6.png",
+        "id": 7,
+        "title" : "Portable Console PSP 4000",
+        "img" : "/src/assets/img/products/7.png",
         "price" : 230,
         "prevPrice" : 550,
         "offPrice" : 60,
         "rating" : 65,
-        "category" : "balance"
+        "category" : "balance",
+        "slug" : "portable-console-psp-4000"
     },
     {
-        "title" : "Balance Chair",
-        "img" : "/src/assets/img/products/2.png",
+        "id": 8,
+        "title" : "Gaming Console Portable PSP 3000",
+        "img" : "/src/assets/img/products/8.png",
         "price" : 130,
         "prevPrice" : 550,
         "offPrice" : 60,
         "rating" : 65,
-        "category" : "balance"
+        "category" : "balance",
+        "slug" : "gaming-console-portable-psp-3000"
     },
     {
-        "title" : "Cantilever chair",
-        "img" : "/src/assets/img/products/1.png",
+        "id": 9,
+        "title" : "Wireless Bluetooth Headphones",
+        "img" : "/src/assets/img/products/9.png",
         "price" : 150,
         "prevPrice" : 650,
         "offPrice" : 50,
         "rating" : 55,
-        "category" : "cantilever"
+        "category" : "cantilever",
+        "slug" : "wireless-bluetooth-headphones"
     },
     {
-        "title" : "Balance Chair",
-        "img" : "/src/assets/img/products/2.png",
+        "id": 10,
+        "title" : "Apple 2020 MacBook Air Laptop",
+        "img" : "/src/assets/img/products/10.png",
         "price" : 230,
         "prevPrice" : 550,
         "offPrice" : 60,
         "rating" : 65,
-        "category" : "cantilever"
+        "category" : "cantilever",
+        "slug" : "apple-2020-macbook-air-laptop"
     },
     {
-        "title" : "Suspended Seat",
-        "img" : "/src/assets/img/products/3.png",
+        "id": 11,
+        "title" : "Fitbit Versa 4 Fitness Smartwatch",
+        "img" : "/src/assets/img/products/11.png",
         "price" : 350,
         "prevPrice" : 620,
         "offPrice" : 55,
         "rating" : 45,
-        "category" : "suspended"
+        "category" : "suspended",
+        "slug" : "fitbit-versa-4-fitness-smartwatch"
     },
     {
-        "title" : "Floating Lounge",
-        "img" : "/src/assets/img/products/4.png",
+        "id": 12,
+        "title" : "SAMSUNG Galaxy Watch",
+        "img" : "/src/assets/img/products/1.png",
         "price" : 510,
         "prevPrice" : 810,
         "offPrice" : 40,
         "rating" : 50,
-        "category" : "floating"
+        "category" : "floating",
+        "slug" : "samsung-galaxy-watch"
     },
     {
-        "title" : "Cantilever chair",
-        "img" : "/src/assets/img/products/5.png",
+        "id": 13,
+        "title" : "Dell XPS Laptops",
+        "img" : "/src/assets/img/products/2.png",
         "price" : 750,
         "prevPrice" : 950,
         "offPrice" : 50,
         "rating" : 55,
-        "category" : "cantilever"
+        "category" : "cantilever",
+        "slug" : "dell-xps-laptops"
     },
     {
-        "title" : "Balance Chair",
-        "img" : "/src/assets/img/products/6.png",
+        "id": 14,
+        "title" : "Apple 2020 MacBook Air Laptop",
+        "img" : "/src/assets/img/products/3.png",
         "price" : 100,
         "prevPrice" : 450,
         "offPrice" : 60,
         "rating" : 65,
-        "category" : "balance"
+        "category" : "balance",
+        "slug" : "apple-2020-macbook-air-laptop"
     },
     {
-        "title" : "Cantilever chair",
-        "img" : "/src/assets/img/products/1.png",
+        "id": 15,
+        "title" : "SAMSUNG Galaxy Watch",
+        "img" : "/src/assets/img/products/4.png",
         "price" : 150,
         "prevPrice" : 650,
         "offPrice" : 50,
         "rating" : 55,
-        "category" : "cantilever"
+        "category" : "cantilever",
+        "slug" : "samsung-galaxy-watch"
     }
 ]

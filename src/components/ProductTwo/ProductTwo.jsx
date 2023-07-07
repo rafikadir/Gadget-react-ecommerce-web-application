@@ -23,7 +23,7 @@ const ProductTwo = (product) => {
                 </div>
             </div>
             <div className="product-text">
-                <h3><Link className='product-title' to="/">{title}</Link></h3>
+                <h3><Link className='product-title' to="/">{title.slice(0, 20,)}...</Link></h3>
                 <span className='product-price'>${price} <del>${prevPrice}</del></span>
             </div>
         </div>

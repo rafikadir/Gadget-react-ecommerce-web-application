@@ -7,9 +7,16 @@
 
     .product-img {
         position: relative;
-        padding: 20px;
         text-align: center;
         border-bottom: 1px solid #dddddd;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            max-width: 200px;
+        }
 
        .product-extra {
             position: absolute;

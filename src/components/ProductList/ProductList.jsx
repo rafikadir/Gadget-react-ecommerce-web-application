@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const ProductList = (products) => {
 
-    const {img, title, price, prevPrice, offPrice, rating} = products.products;
+    const {id, img, title, price, prevPrice, offPrice, rating} = products.products;
 
     return (
         <div className="product-list">
@@ -17,7 +17,9 @@ const ProductList = (products) => {
                 </button>
             </div>
             <div className="product-info">
-                <h3><Link className='product-title' to="/">{title}</Link></h3>
+                <h3>
+                    <Link className='product-title' to={'/' + id}>{title}</Link>
+                </h3>
 
                 <div className="price-text">
                     <span className='price'>${price}</span>
