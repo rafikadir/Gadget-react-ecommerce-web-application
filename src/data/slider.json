@@ -1,23 +1,15 @@
 [
     {
-        "title" : "New Furniture Collection Trends in 2023",
-        "subtitle" : "Best Furniture For Your Castle....",
+        "title" : "Welcome to the era of spatial computing.",
         "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo",
         "link" : "/",
         "image" : "src/assets/img/slider/1.png"
     },
     {
-        "title" : "20% off Furniture Collection for you",
+        "title" : "20% off in Gaming Collection",
         "subtitle" : "Best Furniture For Your Castle....",
         "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo",
         "link" : "/",
         "image" : "src/assets/img/slider/2.png"
-    },
-    {
-        "title" : "New Furniture Collection Trends in 2023",
-        "subtitle" : "Best Furniture For Your Castle....",
-        "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo",
-        "link" : "/",
-        "image": "src/assets/img/slider/1.png"
     }
 ]

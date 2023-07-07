@@ -1,14 +1,18 @@
 @import '../../assets/scss/style.scss';
 
 .slider-wrapper {
-    background: #F2F0FF;        
+    background: #dee2e6;   
+    margin: 25px;
+    border-radius: 25px;
+    padding: 50px 0;
+
     .slick-slider {
         position: relative;
 
         .single-slider {
             height: 100%;
             position: relative;
-            padding: 50px 0;
+            
     
             .slider-text {
                 span {
@@ -48,7 +52,7 @@
                     &::before {
                         content: '';
                         color: transparent;
-                        border: 2px solid $pink-color;
+                        border: 2px solid $black-color;
                         width: 10px;
                         height: 10px;
                         transform: rotate(45deg);
@@ -58,7 +62,7 @@
                 &.slick-active {
                     button {
                         &::before {
-                            background: $pink-color;
+                            background: $black-color;
                         }
                     }
                 }
