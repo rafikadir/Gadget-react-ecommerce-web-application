@@ -6,7 +6,7 @@ import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
 
 const ProductTwo = (product) => {
 
-    const {title, img, price, prevPrice} = product.product;
+    const {id,title, img, price, prevPrice} = product.product;
 
     return (
         <div className="product-two-box">
@@ -23,7 +23,7 @@ const ProductTwo = (product) => {
                 </div>
             </div>
             <div className="product-text">
-                <h3><Link className='product-title' to="/">{title.slice(0, 20,)}...</Link></h3>
+                <h3><Link className='product-title' to={"/" + id}>{title.slice(0, 20,)}...</Link></h3>
                 <span className='product-price'>${price} <del>${prevPrice}</del></span>
             </div>
         </div>

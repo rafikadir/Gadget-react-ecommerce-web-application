@@ -1,35 +1,41 @@
 [
     {
+        "id": 1,
         "title" : "Cantilever chair",
         "img" : "/src/assets/img/products/5.png",
         "price" : 150,
         "prevPrice" : 650
     },
     {
+        "id": 2,
         "title" : "Apple 2020 MacBook Air Laptop",
         "img" : "/src/assets/img/products/6.png",
         "price" : 130,
         "prevPrice" : 550
     },
     {
+        "id": 3,
         "title" : "Sony Playstation Portable PSP 3000",
         "img" : "/src/assets/img/products/1.png",
         "price" : 250,
         "prevPrice" : 620
     },
     {
+        "id": 4,
         "title" : "SAMSUNG Galaxy Watch",
         "img" : "/src/assets/img/products/2.png",
         "price" : 310,
         "prevPrice" : 410
     },
     {
+        "id": 5,
         "title" : "Cantilever chair",
         "img" : "/src/assets/img/products/3.png",
         "price" : 150,
         "prevPrice" : 650
     },
     {
+        "id": 6,
         "title" : "Apple 2020 MacBook Air Laptop",
         "img" : "/src/assets/img/products/6.png",
         "price" : 130,
