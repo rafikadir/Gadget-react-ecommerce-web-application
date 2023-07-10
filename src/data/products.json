@@ -7,7 +7,7 @@
         "prevPrice" : 620,
         "offPrice" : 55,
         "rating" : 45,
-        "category" : "suspended",
+        "category" : "gaming",
         "slug" : "sony-playstation-portable-psp-3000"
     },
     {
@@ -18,19 +18,19 @@
         "prevPrice" : 410,
         "offPrice" : 40,
         "rating" : 50,
-        "category" : "floating",
+        "category" : "watch",
         "slug" : "samsung-galaxy-watch"
     },
     {
         "id": 3,
-        "title" : "Apple 2020 MacBook Air Laptop",
+        "title" : "Apple watch",
         "img" : "/src/assets/img/products/3.png",
         "price" : 250,
         "prevPrice" : 550,
         "offPrice" : 60,
         "rating" : 65,
-        "category" : "balance",
-        "slug" : "apple-2020-macbook-air-laptop"
+        "category" : "watch",
+        "slug" : "apple-watch"
     },
     {
         "id": 4,
@@ -40,7 +40,7 @@
         "prevPrice" : 620,
         "offPrice" : 55,
         "rating" : 45,
-        "category" : "suspended",
+        "category" : "watch",
         "slug" : "fitbit-versa-4-fitness-smartwatch"
     },
     {
@@ -51,7 +51,7 @@
         "prevPrice" : 410,
         "offPrice" : 40,
         "rating" : 50,
-        "category" : "floating",
+        "category" : "watch",
         "slug" : "samsung-galaxy-watch"
     },
     {
@@ -62,7 +62,7 @@
         "prevPrice" : 650,
         "offPrice" : 50,
         "rating" : 55,
-        "category" : "cantilever",
+        "category" : "laptop",
         "slug" : "dell-xps-laptops"
     },
     {
@@ -73,7 +73,7 @@
         "prevPrice" : 550,
         "offPrice" : 60,
         "rating" : 65,
-        "category" : "balance",
+        "category" : "gaming",
         "slug" : "portable-console-psp-4000"
     },
     {
@@ -84,7 +84,7 @@
         "prevPrice" : 550,
         "offPrice" : 60,
         "rating" : 65,
-        "category" : "balance",
+        "category" : "gaming",
         "slug" : "gaming-console-portable-psp-3000"
     },
     {
@@ -95,7 +95,7 @@
         "prevPrice" : 650,
         "offPrice" : 50,
         "rating" : 55,
-        "category" : "cantilever",
+        "category" : "headphone",
         "slug" : "wireless-bluetooth-headphones"
     },
     {
@@ -106,7 +106,7 @@
         "prevPrice" : 550,
         "offPrice" : 60,
         "rating" : 65,
-        "category" : "cantilever",
+        "category" : "laptop",
         "slug" : "apple-2020-macbook-air-laptop"
     },
     {
@@ -117,7 +117,7 @@
         "prevPrice" : 620,
         "offPrice" : 55,
         "rating" : 45,
-        "category" : "suspended",
+        "category" : "watch",
         "slug" : "fitbit-versa-4-fitness-smartwatch"
     },
     {
@@ -128,7 +128,7 @@
         "prevPrice" : 810,
         "offPrice" : 40,
         "rating" : 50,
-        "category" : "floating",
+        "category" : "watch",
         "slug" : "samsung-galaxy-watch"
     },
     {
@@ -139,7 +139,7 @@
         "prevPrice" : 950,
         "offPrice" : 50,
         "rating" : 55,
-        "category" : "cantilever",
+        "category" : "laptop",
         "slug" : "dell-xps-laptops"
     },
     {
@@ -150,7 +150,7 @@
         "prevPrice" : 450,
         "offPrice" : 60,
         "rating" : 65,
-        "category" : "balance",
+        "category" : "laptop",
         "slug" : "apple-2020-macbook-air-laptop"
     },
     {
@@ -161,7 +161,7 @@
         "prevPrice" : 650,
         "offPrice" : 50,
         "rating" : 55,
-        "category" : "cantilever",
+        "category" : "watch",
         "slug" : "samsung-galaxy-watch"
     }
 ]

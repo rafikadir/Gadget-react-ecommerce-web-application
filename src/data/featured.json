@@ -3,60 +3,55 @@
         "id": 1,
         "title" : "Sony Playstation Portable PSP 3000",
         "img" : "/src/assets/img/products/1.png",
-        "price" : 150,
-        "prevPrice" : 650,
-        "offPrice" : 50,
-        "rating" : 55,
+        "price" : 1200,
+        "prevPrice" : 620,
+        "offPrice" : 55,
+        "rating" : 45,
+        "category" : "suspended",
         "slug" : "sony-playstation-portable-psp-3000"
     },
     {
         "id": 2,
-        "title" : "Apple 2020 MacBook Air Laptop",
-        "img" : "/src/assets/img/products/2.png",
-        "price" : 130,
-        "prevPrice" : 550,
-        "offPrice" : 60,
-        "rating" : 65,
-        "slug" : "apple-2020-macbook-air-laptop"
-    },
-    {
-        "id": 3,
-        "title" : "Fitbit Versa 4 Fitness Smartwatch",
-        "img" : "/src/assets/img/products/3.png",
-        "price" : 250,
-        "prevPrice" : 620,
-        "offPrice" : 55,
-        "rating" : 45,
-        "slug" : "fitbit-versa-4-fitness-smartwatch"
-    },
-    {
-        "id": 4,
         "title" : "SAMSUNG Galaxy Watch",
-        "img" : "/src/assets/img/products/4.png",
+        "img" : "/src/assets/img/products/2.png",
         "price" : 310,
         "prevPrice" : 410,
         "offPrice" : 40,
         "rating" : 50,
+        "category" : "floating",
         "slug" : "samsung-galaxy-watch"
     },
     {
-        "id": 5,
-        "title" : "Playstation Portable Console",
-        "img" : "/src/assets/img/products/1.png",
-        "price" : 150,
-        "prevPrice" : 650,
-        "offPrice" : 50,
-        "rating" : 55,
-        "slug" : "portable-portable-console"
-    },
-    {
-        "id": 6,
-        "title" : "Apple 2020 MacBook Air Laptop",
-        "img" : "/src/assets/img/products/2.png",
-        "price" : 130,
+        "id": 3,
+        "title" : "Apple watch",
+        "img" : "/src/assets/img/products/3.png",
+        "price" : 250,
         "prevPrice" : 550,
         "offPrice" : 60,
         "rating" : 65,
-        "slug" : "apple-2020-macbook-air-laptop"
+        "category" : "balance",
+        "slug" : "apple-watch"
+    },
+    {
+        "id": 4,
+        "title" : "Fitbit Versa 4 Fitness Smartwatch",
+        "img" : "/src/assets/img/products/4.png",
+        "price" : 450,
+        "prevPrice" : 620,
+        "offPrice" : 55,
+        "rating" : 45,
+        "category" : "suspended",
+        "slug" : "fitbit-versa-4-fitness-smartwatch"
+    }, 
+    {
+        "id": 1,
+        "title" : "Sony Playstation Portable PSP 3000",
+        "img" : "/src/assets/img/products/1.png",
+        "price" : 1200,
+        "prevPrice" : 620,
+        "offPrice" : 55,
+        "rating" : 45,
+        "category" : "suspended",
+        "slug" : "sony-playstation-portable-psp-3000"
     }
 ]

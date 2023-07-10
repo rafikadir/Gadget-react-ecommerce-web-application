@@ -3,12 +3,23 @@ import ThemeBtn from '../../components/ThemeButton/ThemeBtn';
 import TabsItem from '../../components/TabsItem/TabsItem';
 import { useParams } from 'react-router-dom';
 import productsData from '../../data/products.json';
+import { CiDeliveryTruck, CiTimer, CiWallet, CiUser} from "react-icons/ci";
+import { useState } from 'react';
+
 
 const ProductDetails = () => {
-
     const {id} = useParams()
-
     const product = productsData.find(item => item.id === parseInt(id));
+    const [quantityValue, setQuantityValue] = useState(1);
+
+    const handleIncrease = () => {
+        setQuantityValue(quantityValue + 1);
+    }
+    const handleDecrease = () => {
+        if (quantityValue>1){
+            setQuantityValue(quantityValue - 1);
+        }
+    }
 
     const tabContents = [
         {
@@ -30,22 +41,36 @@ const ProductDetails = () => {
                     </div>
                     <div className="col-lg-6">
                         <div className="product-details-text">
-                            <p>category</p>
-                            <h2>{id} This is Product Title</h2>
-                            <p>50 Reviews</p>
-
-                            <p>Indulge in the sheer brilliance of the MacBook Air, your ideal productivity partner! Unleash your creativity and conquer your to-do list with this stunning piece of technology.</p>
-                            <h4><del>$150</del> $250</h4>
+                            <p className="product-category">{product.category}</p>
+                            <h1 className="product-title">{product.title}</h1>
+                            <h2 className="product-price"><del>${product.prevPrice}</del> ${product.price}</h2>
+                            <div className="product-feature">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Feature 1</li>
+                                    <li>Feature 1</li>
+                                    <li>Feature 1</li>
+                                    <li>Feature 1</li>
+                                    <li>Feature 1</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="cart-option">
+                            <div className="cart-quantity">
+                                <button onClick={() => handleDecrease()}>-</button>
+                                <input type="text" value={quantityValue}/>
+                                <button onClick={() => handleIncrease()}>+</button>
+                            </div>
                             <ThemeBtn name="Buy Now" link="/"/>
                         </div>
                         <div className='why-choose-list'>
                             <ul>
-                                <li>Free Shipping</li>
-                                <li>24 hr Delivery</li>
-                                <li>Secure Payment</li>
-                                <li>Easy Return</li>
+                                <li><CiDeliveryTruck/> Free Shipping</li>
+                                <li><CiTimer/> 24 hr Delivery</li>
+                                <li><CiWallet/> Secure Payment</li>
+                                <li><CiUser/> Easy Return</li>
                             </ul>
-                        </div>  
+                        </div> 
                     </div>
                 </div>
 
