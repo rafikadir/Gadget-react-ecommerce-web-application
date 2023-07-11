@@ -1,0 +1,10 @@
+@import '../../assets/scss/style.scss';
+
+.product-info-list {
+    width: 100%;
+
+    td {
+        border: 1px solid $gray-color;
+        padding: 8px 15px;
+    }
+}

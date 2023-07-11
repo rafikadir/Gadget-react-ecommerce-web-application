@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import productsData from '../../data/products.json';
 import { CiDeliveryTruck, CiTimer, CiWallet, CiUser} from "react-icons/ci";
 import { useState } from 'react';
+import ProductInfo from '../../components/ProductInfo/ProductInfo';
 
 
 const ProductDetails = () => {
@@ -24,7 +25,7 @@ const ProductDetails = () => {
     const tabContents = [
         {
             'title': 'Product Information',
-            'content': "Indulge in the sheer brilliance of the MacBook Air, your ideal productivity partner! Unleash your creativity and conquer your to-do list with this stunning piece of technology. Impossibly thin and weighing just a featherlight, the MacBook Air is built for those who value both style and performance. The Retina display brings your content to life with incredible detail and vibrant colors. With its cutting-edge features like Touch ID and a powerful processor, you can work, play, and connect effortlessly. Elevate your computing experience with the MacBook Air – it's a game-changer!"
+            'content': <ProductInfo/>
         },
         {
             'title': 'Reviews',
@@ -35,12 +36,14 @@ const ProductDetails = () => {
     return (
         <section className="product-details">
             <div className="container">
-                <div className="row">
+                <div className="row align-items-center">
                     <div className="col-lg-6">
-                        <img src={product?.img} alt="product" />
+                        <div className="product-img">
+                            <img src={product?.img} alt="product" />
+                        </div>           
                     </div>
                     <div className="col-lg-6">
-                        <div className="product-details-text">
+                        <div className="product-info-text">
                             <p className="product-category">{product.category}</p>
                             <h1 className="product-title">{product.title}</h1>
                             <h2 className="product-price"><del>${product.prevPrice}</del> ${product.price}</h2>
@@ -75,7 +78,9 @@ const ProductDetails = () => {
                 </div>
 
                 <div className="row">
-                    <TabsItem tabContents={tabContents}/>
+                    <div className="product-details-text">
+                        <TabsItem tabContents={tabContents}/>
+                    </div>
                 </div>
             </div>
         </section>
