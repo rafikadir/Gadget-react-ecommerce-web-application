@@ -6,6 +6,8 @@ import productsData from '../../data/products.json';
 import { CiDeliveryTruck, CiTimer, CiWallet, CiUser} from "react-icons/ci";
 import { useState } from 'react';
 import ProductInfo from '../../components/ProductInfo/ProductInfo';
+import ReactImageMagnify from 'react-image-magnify';
+
 
 
 const ProductDetails = () => {
@@ -39,7 +41,19 @@ const ProductDetails = () => {
                 <div className="row align-items-center">
                     <div className="col-lg-6">
                         <div className="product-img">
-                            <img src={product?.img} alt="product" />
+                            <ReactImageMagnify {...{
+                                smallImage: {
+                                    isFluidWidth: true,
+                                    src: product?.img
+                                },
+                                largeImage: {
+                                    src: product?.img,
+                                    width: 600,
+                                    height: 450,
+                                    isHintEnabled: true
+                                },
+                                isHintEnabled: true
+                            }} />
                         </div>           
                     </div>
                     <div className="col-lg-6">
@@ -50,11 +64,11 @@ const ProductDetails = () => {
                             <div className="product-feature">
                                 <h4>Key Features:</h4>
                                 <ul>
-                                    <li>Feature 1</li>
-                                    <li>Feature 1</li>
-                                    <li>Feature 1</li>
-                                    <li>Feature 1</li>
-                                    <li>Feature 1</li>
+                                    <li>Lighweight</li>
+                                    <li>Waterproof</li>
+                                    <li>Easy carry</li>
+                                    <li>5 Varients</li>
+                                    <li>AC Adapter</li>
                                 </ul>
                             </div>
                         </div>

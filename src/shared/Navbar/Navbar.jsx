@@ -41,11 +41,10 @@ const Navbar = () => {
                             <button className="menu-icon">
                                 <AiOutlineUser />
                             </button>
-                            <button className="menu-icon">
+                            <Link to="/cart" className="menu-icon">
                                 <AiOutlineShoppingCart />
-
                                 <span className='cart-item'>5</span>
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
