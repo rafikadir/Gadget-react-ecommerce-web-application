@@ -1,6 +1,8 @@
 import './CartItems.scss';
 
 const CartItems = () => {
+
+
     return (
         <section className='cart-section'>
             <div className="container">
@@ -21,13 +23,6 @@ const CartItems = () => {
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>Pd</td>
-                                        <td>100</td>
-                                        <td>1</td>
-                                        <td>2500</td>
-                                        <td>Delete</td>
-                                    </tr>
                                     <tr>
                                         <td>Pd</td>
                                         <td>100</td>

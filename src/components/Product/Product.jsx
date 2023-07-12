@@ -4,8 +4,12 @@ import {FiShoppingBag} from "react-icons/fi";
 import { Link } from 'react-router-dom';
 
 const Product = (products) => {
-    const {id,img, title, price, prevPrice, offPrice, rating } = products.products;
+    const {id,img, title, price, prevPrice, offPrice, rating} = products.products;
     
+    const handleCart = () => {
+        console.log("item");
+    }
+
     return (
         <div className="product-box">
             <div className="product-img">
@@ -36,7 +40,7 @@ const Product = (products) => {
                 </div>
 
                 <div className='bottom-btn'>
-                    <button className='cart-btn'><FiShoppingBag/> Add to Cart</button>
+                    <button onClick={handleCart} className='cart-btn'><FiShoppingBag/>Add to Cart</button>
                     <Link className='buy-btn' to="/">Buy Now</Link>
                 </div>               
             </div>
