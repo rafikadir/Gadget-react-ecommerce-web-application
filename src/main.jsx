@@ -6,7 +6,6 @@ import * as bootstrap from 'bootstrap'
 import './index.scss';
 import App from './App.jsx'
 
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <React.StrictMode>

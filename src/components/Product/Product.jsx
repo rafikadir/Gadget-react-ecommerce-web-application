@@ -5,10 +5,6 @@ import { Link } from 'react-router-dom';
 
 const Product = (products) => {
     const {id,img, title, price, prevPrice, offPrice, rating} = products.products;
-    
-    const handleCart = () => {
-        console.log("item");
-    }
 
     return (
         <div className="product-box">
@@ -40,7 +36,7 @@ const Product = (products) => {
                 </div>
 
                 <div className='bottom-btn'>
-                    <button onClick={handleCart} className='cart-btn'><FiShoppingBag/>Add to Cart</button>
+                    <button className='cart-btn'><FiShoppingBag/>Add to Cart</button>
                     <Link className='buy-btn' to="/">Buy Now</Link>
                 </div>               
             </div>

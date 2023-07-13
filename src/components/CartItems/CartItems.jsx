@@ -1,8 +1,6 @@
 import './CartItems.scss';
 
 const CartItems = () => {
-
-
     return (
         <section className='cart-section'>
             <div className="container">
