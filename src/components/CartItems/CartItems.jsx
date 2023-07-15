@@ -1,6 +1,11 @@
+import { useContext } from 'react';
 import './CartItems.scss';
+import { CartContext } from '../../App';
 
 const CartItems = () => {
+
+    const {cartItems} = useContext(CartContext);
+
     return (
         <section className='cart-section'>
             <div className="container">
@@ -22,11 +27,13 @@ const CartItems = () => {
 
                                 <tbody>
                                     <tr>
-                                        <td>Pd</td>
+                                        <td>
+                                            <img src="" alt="pd" />
+                                        </td>
                                         <td>100</td>
                                         <td>1</td>
                                         <td>2500</td>
-                                        <td>Delete</td>
+                                        <td>delete</td>
                                     </tr>
                                 </tbody>
                             </table>

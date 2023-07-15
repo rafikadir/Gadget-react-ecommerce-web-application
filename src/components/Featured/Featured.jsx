@@ -6,7 +6,6 @@ import Slider from "react-slick";
 
 
 const Featured = () => {
-
     const settings = {
         dots: true,
         infinite: true,

@@ -4,22 +4,27 @@ import Contact from './pages/Contact';
 import Shop from './pages/Shop';
 import Product from './pages/Product';
 import Cart from './pages/Cart';
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 
-const CartContext = createContext();
+export const CartContext = createContext();
 
 function App() {
 
-  return (
-      <CartContext.Provider value='hello cart'>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/:id" element={<Product />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </CartContext.Provider>
+  const [cartItems, setCartItems] = useState([]);
+  const updateCart = (id) => {
+    setCartItems(id);
+  };
+
+  return ( 
+    <CartContext.Provider value={{cartItems, updateCart}}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/:id" element={<Product />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </CartContext.Provider>
   )
 }
 
