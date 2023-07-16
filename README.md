@@ -1,1 +1,1 @@
-## Furnish - React E-commerce Web Application
+## Gadget - React E-commerce Web Application
