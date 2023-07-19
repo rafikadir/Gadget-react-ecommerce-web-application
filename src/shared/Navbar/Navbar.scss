@@ -2,6 +2,12 @@
 
 .header-wrapper {
     background: $white-color;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    z-index: 999;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 8px 15px -5px, rgba(0, 0, 0, 0.1) 0px 0px 10px -8px;
 
     .navbar {
         .navbar-brand {

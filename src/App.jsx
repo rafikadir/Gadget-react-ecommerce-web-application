@@ -10,13 +10,22 @@ export const CartContext = createContext();
 
 function App() {
 
-  const [cartItems, setCartItems] = useState([]);
+  const [cartProducts, setCartProducts] = useState([]);
+
   const updateCart = (id) => {
-    setCartItems(id);
+    const checkProduct = cartProducts.includes(id);
+    if (!checkProduct) {
+      setCartProducts([id, ...cartProducts]);
+    }
+  };
+
+  const deleteItem = (id) => {
+    const updateCart = cartProducts.filter(cart => cart !== id);
+    setCartProducts(updateCart);
   };
 
   return ( 
-    <CartContext.Provider value={{cartItems, updateCart}}>
+    <CartContext.Provider value={{cartProducts, updateCart, deleteItem}}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />

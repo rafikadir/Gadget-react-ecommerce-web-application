@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext} from 'react';
 import './Product.scss';
 import { AiFillStar, AiOutlineStar, AiOutlineHeart } from "react-icons/ai";
 import {FiShoppingBag} from "react-icons/fi"; 
@@ -9,7 +9,7 @@ const Product = (products) => {
     const {id,img, title, price, prevPrice, offPrice, rating} = products.products;
 
     const {updateCart} = useContext(CartContext);
-  
+
     return (
         <div className="product-box">
             <div className="product-img">
@@ -40,7 +40,7 @@ const Product = (products) => {
                 </div>
 
                 <div className='bottom-btn'>
-                    <button onClick={()=> updateCart(id)} className='cart-btn'><FiShoppingBag/>Add to Cart</button>
+                    <button onClick={()=> updateCart(id)} className='cart-btn'><FiShoppingBag/>Add to Cart</button>        
                     <Link className='buy-btn' to="/">Buy Now</Link>
                 </div>               
             </div>

@@ -1,10 +1,12 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState} from 'react';
 import './CartItems.scss';
 import { CartContext } from '../../App';
+import productData from '../../data/products.json';
 
 const CartItems = () => {
 
-    const {cartItems} = useContext(CartContext);
+    const {cartProducts, deleteItem} = useContext(CartContext);
+    const [productsInCart, setProductsInCart] = useState([]);
 
     return (
         <section className='cart-section'>
@@ -25,16 +27,15 @@ const CartItems = () => {
                                     </tr>
                                 </thead>
 
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <img src="" alt="pd" />
-                                        </td>
-                                        <td>100</td>
-                                        <td>1</td>
-                                        <td>2500</td>
-                                        <td>delete</td>
-                                    </tr>
+                                <tbody>                                  
+                                    {productsInCart?.map((item, index) => <tr key={index}>
+                                            <td><img src={item.img} alt="product" className='pd-img'/></td>
+                                            <td>TH</td>
+                                            <td>1</td>
+                                            <td>2500</td>
+                                            <td><button onClick={()=>deleteItem(item)}>Remove</button></td>
+                                        </tr>
+                                    )}                                  
                                 </tbody>
                             </table>
 

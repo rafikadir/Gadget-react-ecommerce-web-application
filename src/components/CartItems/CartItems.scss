@@ -1,7 +1,7 @@
 @import '../../assets/scss/style.scss';
 
 .cart-section {
-    padding-top: 70px;
+    padding-top: 100px;
     padding-bottom: 70px;
 
     .title {
@@ -29,6 +29,10 @@
                 tr {
                     td {
                         padding: 10px 25px;
+
+                        .pd-img {
+                            max-width: 100px;
+                        }
                     }
                 }
             }

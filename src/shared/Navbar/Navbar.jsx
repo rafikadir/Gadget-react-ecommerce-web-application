@@ -2,8 +2,12 @@ import { Link } from 'react-router-dom';
 import './Navbar.scss';
 import { AiOutlineSearch, AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
 import logo from '../../assets/img/logo.png';
+import { useContext } from 'react';
+import { CartContext } from '../../App';
 
 const Navbar = () => {
+
+    const {cartProducts} = useContext(CartContext);
 
     const navbarItems = [
         {"name" : "Home", "link": "/"},
@@ -43,7 +47,7 @@ const Navbar = () => {
                             </button>
                             <Link to="/cart" className="menu-icon">
                                 <AiOutlineShoppingCart />
-                                <span className='cart-item'>5</span>
+                                <span className='cart-item'>{cartProducts.length}</span>
                             </Link>
                         </div>
                     </div>

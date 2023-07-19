@@ -9,7 +9,6 @@ import ProductInfo from '../../components/ProductInfo/ProductInfo';
 import ReactImageMagnify from 'react-image-magnify';
 
 
-
 const ProductDetails = () => {
     const {id} = useParams()
     const product = productsData.find(item => item.id === parseInt(id));
