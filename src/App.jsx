@@ -20,8 +20,8 @@ function App() {
   };
 
   const deleteItem = (id) => {
-    const updateCart = cartProducts.filter(cart => cart !== id);
-    setCartProducts(updateCart);
+    const removeCart = cartProducts.filter(cart => cart !== id);
+    setCartProducts(removeCart);
   };
 
   return ( 

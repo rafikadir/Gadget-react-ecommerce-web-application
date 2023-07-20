@@ -6,7 +6,16 @@ import productData from '../../data/products.json';
 const CartItems = () => {
 
     const {cartProducts, deleteItem} = useContext(CartContext);
-    const [productsInCart, setProductsInCart] = useState([]);
+    const [productsInCart, setProductsInCart] = useState();
+    
+    useEffect(() =>{
+      const pdId = cartProducts.map(pd =>{
+        const filterdPd = productData.find( product => product.id === pd);
+        return filterdPd
+      });
+      setProductsInCart(pdId);
+    },[cartProducts]);
+
 
     return (
         <section className='cart-section'>
@@ -28,12 +37,17 @@ const CartItems = () => {
                                 </thead>
 
                                 <tbody>                                  
-                                    {productsInCart?.map((item, index) => <tr key={index}>
-                                            <td><img src={item.img} alt="product" className='pd-img'/></td>
-                                            <td>TH</td>
+                                    {productsInCart?.map((item, index) =>
+                                        <tr key={index}>
+                                            <td>
+                                                <img src={item.img} alt="product" className='pd-img'/>
+                                            </td>
+                                            <td>{item.price}</td>
                                             <td>1</td>
-                                            <td>2500</td>
-                                            <td><button onClick={()=>deleteItem(item)}>Remove</button></td>
+                                            <td>{item.price}</td>
+                                            <td>
+                                                <button onClick={()=>deleteItem(item.id)}>Remove</button>
+                                            </td>
                                         </tr>
                                     )}                                  
                                 </tbody>
