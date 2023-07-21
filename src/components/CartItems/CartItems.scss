@@ -33,6 +33,14 @@
                         .pd-img {
                             max-width: 100px;
                         }
+
+                        .delete-cart {
+                            background: white;
+                            border: 0;
+                            color: red;
+                            font-size: 24px;
+                            padding: 0;
+                        }
                     }
                 }
             }
@@ -42,19 +50,41 @@
             padding-top: 50px;
 
             form {
-                .coupon-input {
-                    border: none;
-                    padding: 5px 10px;
-                    margin-right: 5px;
-                    background: #f0f0f0;
-                    height: 40px;
+                span {
+                    margin-bottom: 10px;
+                    display: inline-block;
                 }
-                .coupon-btn {
-                    height: 40px;
-                    padding: 5px 15px;
-                    border: none;
-                    background: $black-color;
-                    color: $white-color;
+
+                .input-box {
+                    display: flex;
+                    justify-content: start;
+
+                    .coupon-input {
+                        border: none;
+                        padding: 5px 10px;
+                        margin-right: 5px;
+                        background: #f0f0f0;
+                        height: 40px;
+                        text-transform: uppercase;
+                    }
+
+                    .coupon-btn {
+                        height: 40px;
+                        padding: 5px 15px;
+                        border: none;
+                        background: $black-color;
+                        color: $white-color;
+                    }
+                }
+
+                .invaild-coupon {
+                    color: red;
+                    margin-top: 10px;
+                    display: none; 
+                    
+                    &.hide {
+                        display: block;
+                    }
                 }
             }
         }

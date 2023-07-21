@@ -2,20 +2,48 @@ import { useContext, useEffect, useState} from 'react';
 import './CartItems.scss';
 import { CartContext } from '../../App';
 import productData from '../../data/products.json';
+import { AiOutlineDelete } from "react-icons/ai";
+
 
 const CartItems = () => {
 
     const {cartProducts, deleteItem} = useContext(CartContext);
     const [productsInCart, setProductsInCart] = useState();
+    const [total, setTotal] = useState();
+    const [getCoupon, setGetCoupon] = useState(false);
+    const [coupon, setCoupon] = useState(0);
+    let grandTotal = total - coupon;
     
     useEffect(() =>{
-      const pdId = cartProducts.map(pd =>{
-        const filterdPd = productData.find( product => product.id === pd);
-        return filterdPd
-      });
-      setProductsInCart(pdId);
+        const pdId = cartProducts.map(pd =>{
+            const filterdPd = productData.find(product => product.id === pd);
+            return filterdPd;
+        });
+        setProductsInCart(pdId);
     },[cartProducts]);
 
+    useEffect(()=>{
+        if (productsInCart) {
+            const total = productsInCart.reduce((acc, item) => acc + item.price, 0);
+            setTotal(total);
+        }
+    },[productsInCart])
+
+    const handleInput = (e) => {
+        if(productsInCart) {
+            if (e.target.value === "test20" || e.target.value === "TEST20") {
+                setGetCoupon(true);
+            }
+        }
+    }
+
+    const handleCoupon = (e) => {
+        if(getCoupon === true ){
+            const couponAmount = 20;
+            setCoupon(couponAmount);
+        }
+        e.preventDefault();
+    }
 
     return (
         <section className='cart-section'>
@@ -28,7 +56,8 @@ const CartItems = () => {
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Products</th>
+                                        <th>Image</th>
+                                        <th>Title</th>
                                         <th>Price</th>
                                         <th>Quantity</th>
                                         <th>Total</th>
@@ -37,36 +66,41 @@ const CartItems = () => {
                                 </thead>
 
                                 <tbody>                                  
-                                    {productsInCart?.map((item, index) =>
-                                        <tr key={index}>
-                                            <td>
-                                                <img src={item.img} alt="product" className='pd-img'/>
-                                            </td>
-                                            <td>{item.price}</td>
-                                            <td>1</td>
-                                            <td>{item.price}</td>
-                                            <td>
-                                                <button onClick={()=>deleteItem(item.id)}>Remove</button>
-                                            </td>
-                                        </tr>
+                                    {
+                                        productsInCart?.map((item, index) =>
+                                            <tr key={index}>
+                                                <td>
+                                                    <img src={item.img} alt="product" className='pd-img'/>
+                                                </td>
+                                                <td>{item.title}</td>
+                                                <td>{item.price}</td>
+                                                <td>1</td>
+                                                <td>{item.price}</td>
+                                                <td>
+                                                    <button onClick={()=>deleteItem(item.id)} className='delete-cart'><AiOutlineDelete/></button>
+                                                </td>
+                                            </tr>
                                     )}                                  
                                 </tbody>
                             </table>
 
                             <div className="cart-coupon">
-                                <form>
-                                    <input type="text"  placeholder='TEST20' className="coupon-input"/>
-                                    <button className='coupon-btn' disabled>Apply Coupon</button>
+                                <form onSubmit={handleCoupon}>
+                                    <span>* use <code>TEST20</code> to apply coupon</span>
+                                    <div className='input-box'>
+                                        <input type="text" onChange={handleInput} placeholder='TEST20' className="coupon-input"/>
+                                        <button className='coupon-btn' type='submit'>Apply Coupon</button>
+                                    </div>    
+                                    <span className="invaild-coupon">Invalid Coupon</span>               
                                 </form>
                             </div>
                         </div>
 
                         <div className="cart-total">
                             <ul>
-                                <li>Total: <span>$2500</span></li>
-                                <li>Shipping Cost: <span>$2500</span></li>
-                                <li>Coupon:<span>- $2500</span></li>
-                                <li>Grand Total: <span>$1500</span></li>
+                                <li>Total: <span>${total}</span></li>
+                                <li>Coupon:<span>${coupon}</span></li>
+                                <li>Grand Total: <span>${grandTotal}</span></li>
                             </ul>
 
                             <button className="checkout-btn">Proceed to Checkout</button>
