@@ -13,7 +13,7 @@ const CartItems = () => {
     const [total, setTotal] = useState();
     const [getCoupon, setGetCoupon] = useState(false);
     const [coupon, setCoupon] = useState(0);
-    let grandTotal = total - coupon;
+    let subTotal = total - coupon;
     
     useEffect(() =>{
         const pdId = cartProducts.map(pd =>{
@@ -105,7 +105,7 @@ const CartItems = () => {
                             <ul>
                                 <li>Total: <span>${total}</span></li>
                                 <li>Coupon:<span>${coupon}</span></li>
-                                <li>Grand Total: <span>${grandTotal}</span></li>
+                                <li>Sub Total: <span>${subTotal}</span></li>
                             </ul>
 
                             <Link to="/checkout" className="checkout-btn">Proceed to Checkout</Link>

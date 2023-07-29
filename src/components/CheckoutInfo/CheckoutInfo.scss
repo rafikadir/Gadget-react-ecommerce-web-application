@@ -1,26 +1,85 @@
 @import '../../assets/scss/style.scss';
 
 .checkout-area {
-    padding-top: 150px;
+    padding: 150px 0 100px;
+    background: rgba(3, 0, 71, 0.09);
 
     .address-wrapper {
-        background: #eceef3;
-        padding: 25px;
-        border-radius: 10px;
+        padding: 40px 30px;
+        background: $white-color;
 
         h3 {
-            font-size: 20px;
+            font-size: 25px;
+            margin-bottom: 30px;
         }
 
         .address-form {            
             .form-group {
+                margin-bottom: 25px;
+
                 label {
-                    margin-bottom: 0;
-                    font-size: 15px;
+                    margin-bottom: 2px;
+                    font-size: 14px;
                 }
 
                 .form-control {
                     margin-bottom: 15px;
+                    height: 45px;
+                    border-radius: 0;
+
+                    &:focus {
+                        border: 1px solid $black-color;
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .checkout-summary {
+        padding: 40px 30px;
+        background: $white-color;
+
+        h3 {
+            font-size: 25px;
+            margin-bottom: 30px;
+        }
+
+        ul {
+            list-style-type: none;
+
+            .checkout-total {
+                display: flex;
+                justify-content: space-between;
+                    
+                p {
+                    color: $black-color;
+                    font-size: 20px;
+                }
+
+                span {
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+            }
+
+            .checkout-payment {
+                display: flex;
+                flex-direction: column;
+
+                .payment-option {
+                    margin-bottom: 10px;
+
+                    label {
+                        margin-left: 10px;
+                    }
+                }
+
+                .order-btn {
+                    background: $black-color;
+                    border: 0;
+                    color: $white-color;
+                    padding: 12px 10px;
                 }
             }
         }
