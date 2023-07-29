@@ -1,0 +1,28 @@
+@import '../../assets/scss/style.scss';
+
+.checkout-area {
+    padding-top: 150px;
+
+    .address-wrapper {
+        background: #eceef3;
+        padding: 25px;
+        border-radius: 10px;
+
+        h3 {
+            font-size: 20px;
+        }
+
+        .address-form {            
+            .form-group {
+                label {
+                    margin-bottom: 0;
+                    font-size: 15px;
+                }
+
+                .form-control {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+}

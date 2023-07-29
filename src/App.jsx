@@ -5,6 +5,7 @@ import Shop from './pages/Shop';
 import Product from './pages/Product';
 import Cart from './pages/Cart';
 import { createContext, useState } from 'react';
+import Checkout from './pages/Checkout';
 
 export const CartContext = createContext();
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/:id" element={<Product />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </CartContext.Provider>
   )

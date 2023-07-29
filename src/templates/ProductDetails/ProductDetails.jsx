@@ -6,7 +6,6 @@ import productsData from '../../data/products.json';
 import { CiDeliveryTruck, CiTimer, CiWallet, CiUser} from "react-icons/ci";
 import { useState } from 'react';
 import ProductInfo from '../../components/ProductInfo/ProductInfo';
-import ReactImageMagnify from 'react-image-magnify';
 
 
 const ProductDetails = () => {
@@ -40,19 +39,7 @@ const ProductDetails = () => {
                 <div className="row align-items-center">
                     <div className="col-lg-6">
                         <div className="product-img">
-                            <ReactImageMagnify {...{
-                                smallImage: {
-                                    isFluidWidth: true,
-                                    src: product?.img
-                                },
-                                largeImage: {
-                                    src: product?.img,
-                                    width: 600,
-                                    height: 450,
-                                    isHintEnabled: true
-                                },
-                                isHintEnabled: true
-                            }} />
+                            <img src={product?.img} alt='product'/>
                         </div>           
                     </div>
                     <div className="col-lg-6">

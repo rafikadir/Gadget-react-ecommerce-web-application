@@ -3,6 +3,7 @@ import './CartItems.scss';
 import { CartContext } from '../../App';
 import productData from '../../data/products.json';
 import { AiOutlineDelete } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 
 
 const CartItems = () => {
@@ -41,6 +42,10 @@ const CartItems = () => {
         if(getCoupon === true ){
             const couponAmount = 20;
             setCoupon(couponAmount);
+        }
+
+        else {
+            alert("invalid")
         }
         e.preventDefault();
     }
@@ -88,7 +93,7 @@ const CartItems = () => {
                                 <form onSubmit={handleCoupon}>
                                     <span>* use <code>TEST20</code> to apply coupon</span>
                                     <div className='input-box'>
-                                        <input type="text" onChange={handleInput} placeholder='TEST20' className="coupon-input"/>
+                                        <input type="text" onChange={handleInput} placeholder='TEST20' className="coupon-input" required/>
                                         <button className='coupon-btn' type='submit'>Apply Coupon</button>
                                     </div>    
                                     <span className="invaild-coupon">Invalid Coupon</span>               
@@ -103,7 +108,7 @@ const CartItems = () => {
                                 <li>Grand Total: <span>${grandTotal}</span></li>
                             </ul>
 
-                            <button className="checkout-btn">Proceed to Checkout</button>
+                            <Link to="/checkout" className="checkout-btn">Proceed to Checkout</Link>
                         </div>
                     </div>
                 </div>
