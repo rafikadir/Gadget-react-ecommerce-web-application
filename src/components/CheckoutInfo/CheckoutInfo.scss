@@ -26,12 +26,20 @@
                     margin-bottom: 15px;
                     height: 45px;
                     border-radius: 0;
+                    background: rgba(3, 0, 71, 0.09);
 
                     &:focus {
                         border: 1px solid $black-color;
                         box-shadow: none;
                     }
                 }
+            }
+
+            .delivery-btn {
+                background: $black-color;
+                color: $white-color;
+                border: 1px solid $black-color;
+                padding: 10px 20px;
             }
         }
     }
@@ -60,26 +68,6 @@
                 span {
                     font-size: 20px;
                     font-weight: 500;
-                }
-            }
-
-            .checkout-payment {
-                display: flex;
-                flex-direction: column;
-
-                .payment-option {
-                    margin-bottom: 10px;
-
-                    label {
-                        margin-left: 10px;
-                    }
-                }
-
-                .order-btn {
-                    background: $black-color;
-                    border: 0;
-                    color: $white-color;
-                    padding: 12px 10px;
                 }
             }
         }

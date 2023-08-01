@@ -1,0 +1,36 @@
+@import '../../assets/scss/style.scss';
+
+.login-section {
+    padding: 150px 0 100px;
+
+    h3 {
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+    
+    .login-wrapper, 
+    .signup-wrapper {
+        .login-form,
+        .signup-form {
+            .form-group {
+                margin-bottom: 20px;
+
+                label {
+                    margin-bottom: 2px;
+                    font-size: 14px;
+                }
+
+                .form-control {
+                    margin-bottom: 15px;
+                    height: 45px;
+                    border-radius: 0;
+
+                    &:focus {
+                        border: 1px solid $black-color;
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+    }
+}
