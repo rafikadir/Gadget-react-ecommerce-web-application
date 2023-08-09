@@ -40,8 +40,8 @@ const Product = (products) => {
                 </div>
 
                 <div className='bottom-btn'>
-                    <button onClick={()=> updateCart(id)} className='cart-btn'><FiShoppingBag/>Add to Cart</button>        
                     <Link className='buy-btn' to="/">Buy Now</Link>
+                    <button onClick={()=> updateCart(id)} className='cart-btn'><FiShoppingBag/>Add to Cart</button>        
                 </div>               
             </div>
         </div>
