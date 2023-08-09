@@ -1,14 +1,15 @@
-import "./Login.scss";
+import "./signin.scss";
 import {createUserWithEmailAndPassword} from "firebase/auth";
 import {auth} from '../../auth/firebase';
-import loginImg from "../../assets/img/lock.jpg";
 import {useState} from "react";
 
-const Login = () => {
+
+const signin = () => {
+    const [isLoggedIn, SetIsLoggedIn] = useState(false);
     const [user, setUser] = useState({
         name: "",
         email: "",
-        password: ""  
+        password: "" 
     });
 
     const handleSubmit = (e) => {
@@ -34,14 +35,18 @@ const Login = () => {
     }
 
     return (
-        <section className='login-section'>
+        <section className='signin-section'>
             <div className="container">
-                <div className="login-wrapper">
-                    <form className="login-form" onSubmit={handleSubmit}>
-                        <input type="text" name="name" onBlur={handleChange} placeholder="Name" className="form-control"/>
+                <div className="signin-wrapper">
+                    <form className="signin-form" onSubmit={handleSubmit}>
+                        {
+                            isLoggedIn ? "" : <input type="text" name="name" onBlur={handleChange} placeholder="Name" className="form-control"/>
+                        }
                         <input type="email" name="email" onBlur={handleChange} placeholder="Email" className="form-control"/>
                         <input type="password" name="password" onBlur={handleChange} placeholder="Password" className="form-control"/>
-                        <input type="submit" value="Sign Up" className="login-btn"/>
+                        {
+                            isLoggedIn ? <input type="submit" value="Sign In" className="signin-btn"/> : <input type="submit" value="Sign Up" className="signin-btn"/>
+                        }
                     </form>
                 </div>
             </div>
@@ -49,4 +54,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default signin;
