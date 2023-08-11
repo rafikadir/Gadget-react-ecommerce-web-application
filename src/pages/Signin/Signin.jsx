@@ -1,39 +1,50 @@
 import "./signin.scss";
-import {createUserWithEmailAndPassword} from "firebase/auth";
+import {createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import {auth} from '../../auth/firebase';
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {FcGoogle} from "react-icons/fc";
+import { CartContext } from "../../App";
 
 const Signin = () => {
-    const [isSignedIn, SetIsSignedIn] = useState(false);
+    const {SetIsLoggedIn} = useContext(CartContext);
+    const [isNewUser, SetIsNewUser] = useState(false);
+    // New User Information
     const [user, setUser] = useState({
         name: "",
         email: "",
-        password: "",
-        passwordCheck: ""
+        password: ""
     });
 
+    // Sign In Accout
+  
+    // New Account Create
     const handleSubmit = (e) => {
-        
-        if(user.password === user.passwordCheck){
-            console.log("Match");
+        if (!isNewUser) {
+            if(user.email && user.password){
+                createUserWithEmailAndPassword(auth, user.email, user.password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    SetIsLoggedIn(true);
+                    console.log(user);
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorCode,errorMessage);
+                });
+            }
         }
-        else {
-            console.log("Not Matched");
+        
+        if (isNewUser) {
+            onAuthStateChanged(auth, (user) => {
+                if (user.uid) {
+                    SetIsLoggedIn(true);
+                } else {
+                    console.log("else")
+                }
+            });
         }
 
-        if(user.email && user.password){
-            // createUserWithEmailAndPassword(auth, user.email, user.password)
-            // .then((userCredential) => {
-            //     const user = userCredential.user;
-            //     console.log(user);
-            // })
-            // .catch((error) => {
-            //     const errorCode = error.code;
-            //     const errorMessage = error.message;
-            //     console.log(errorCode,errorMessage);
-            // });
-        }
         e.preventDefault();
     }
 
@@ -43,8 +54,8 @@ const Signin = () => {
         setUser(newUser);
     }
 
-    const toggleSignin = () => {
-        SetIsSignedIn(!isSignedIn);
+    const checkNewUser = () => {
+        SetIsNewUser(!isNewUser);
     }
 
     return (
@@ -52,45 +63,51 @@ const Signin = () => {
             <div className="container">
                 <div className="signin-wrapper">
                     <form className="signin-form" onSubmit={handleSubmit}>
-                        { isSignedIn ? <h2 className="form-title">Sing In</h2> : <h2 className="form-title">Create Account</h2>}
+                        { 
+                            isNewUser ? 
+                            <h2 className="form-title">Sing In</h2> 
+                            : 
+                            <h2 className="form-title">Create Account</h2>
+                        }
                         {
-                            isSignedIn ? "" : 
+                            isNewUser ? "" : 
                             <div className="input-container">
-                                <input type="text" name="name" onBlur={handleChange} placeholder="Name" className="form-control"/>
-                                <span className="input-alert">Enter your name</span>
+                                <input type="text" name="name" onBlur={handleChange} placeholder="Name" className="form-control" required/>
                             </div>
                         }
                         <div className="input-container">
-                            <input type="email" name="email" onBlur={handleChange} placeholder="Email" className="form-control"/>
-                            <span className="input-alert">Enter your email</span>
+                            <input type="email" name="email" onBlur={handleChange} placeholder="Email" className="form-control" required/>
                         </div>
 
                         <div className="input-container">
-                            <input type="password" name="password" onBlur={handleChange} placeholder="Password" className="form-control"/>
-                            <span className="input-alert">Password must be 6 characters</span>
+                            <input type="password" name="password" onChange={handleChange} placeholder="Password" className="form-control" required/>
+                            <span className="input-alert hide">Password must be 6 characters</span>
                         </div>
                         {
-                            isSignedIn ? "" : 
-                            <div className="input-container">
-                                <input type="password" name="passwordCheck" onBlur={handleChange} placeholder="Re-enter Password" className="form-control"/>
-                                <span className="input-alert">Password not macthed</span>
-                            </div>
-                        }
-                        {
-                            isSignedIn ? <input type="submit" value="Sign In" className="signin-btn"/> : <input type="submit" value="Sign Up" className="signin-btn"/>
+                            isNewUser ? <input type="submit" value="Sign In" className="signin-btn"/> : <input type="submit" value="Sign Up" className="signin-btn"/>
                         }
                     </form>
 
                     <div className="social-singin">
-                        <button className="social-btn">
-                            <FcGoogle/>
-                            Sign Up with Google
-                        </button>
+                        {
+                            isNewUser ? 
+                            <button className="social-btn">
+                                <FcGoogle/>
+                                Sign In with Google
+                            </button> 
+                            : 
+                            <button className="social-btn">
+                                <FcGoogle/>
+                                Sign Up with Google
+                            </button>
+                        }
                     </div>
                     {
-                        isSignedIn ? <p>Don&apos;t have an account? <button className="toggleSignIn" onClick={toggleSignin}>Sign Up</button></p>
+                        isNewUser ? 
+                        
+                        <p>Don&apos;t have an account? <button className="toggleSignIn" onClick={checkNewUser}>Sign Up</button></p>
                         : 
-                        <p>Already have an account? <button className="toggleSignIn" onClick={toggleSignin}>Sign In</button></p>
+                        <p>Already have an account? <button className="toggleSignIn" onClick={checkNewUser}>Sign In</button></p>
                     }
                 </div>
             </div>

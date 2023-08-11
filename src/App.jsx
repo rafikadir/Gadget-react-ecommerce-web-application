@@ -8,12 +8,14 @@ import { createContext, useState } from 'react';
 import Checkout from './pages/Checkout';
 import Payment from './pages/Payment';
 import Signin from './pages/Signin/Signin';
+import PrivateOutlet from './components/PrivateOutlet/PrivateOutlet';
 
 export const CartContext = createContext();
 
 function App() {
 
   const [cartProducts, setCartProducts] = useState([]);
+  const [isLoggedIn, SetIsLoggedIn] = useState(false)
 
   const updateCart = (id) => {
     const checkProduct = cartProducts.includes(id);
@@ -28,14 +30,16 @@ function App() {
   };
 
   return ( 
-    <CartContext.Provider value={{cartProducts, updateCart, deleteItem}}>
+    <CartContext.Provider value={{cartProducts, updateCart, deleteItem, SetIsLoggedIn, isLoggedIn}}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/:id" element={<Product />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/*" element={<PrivateOutlet/>}>
+          <Route path="checkout" element={<Checkout />} />
+        </Route>
         <Route path="/payment" element={<Payment />} />
         <Route path="/signin" element={<Signin />} />
       </Routes>

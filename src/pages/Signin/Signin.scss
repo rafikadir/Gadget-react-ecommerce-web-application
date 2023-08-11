@@ -38,6 +38,10 @@
                     color: red;
                     font-weight: 500;
                     letter-spacing: .1px;
+                    
+                    &.hide {
+                        display: none;
+                    }
                 }
             }
     
@@ -47,6 +51,7 @@
                 border: 1px solid $black-color;
                 color: $white-color;
                 padding: 10px 30px;
+                width: 100%;
 
                 &:hover {
                     background: #606060;

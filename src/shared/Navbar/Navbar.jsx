@@ -39,12 +39,9 @@ const Navbar = () => {
                         </ul>
 
                         <div className="header-right">
-                            <button className="menu-icon">
-                                <AiOutlineSearch />
-                            </button>
-                            <button className="menu-icon">
-                                <AiOutlineUser />
-                            </button>
+                            <Link to="/" className="header-user">
+                                Hello, Sign In
+                            </Link>
                             <Link to="/cart" className="menu-icon">
                                 <AiOutlineShoppingCart />
                                 <span className='cart-item'>{cartProducts.length}</span>
