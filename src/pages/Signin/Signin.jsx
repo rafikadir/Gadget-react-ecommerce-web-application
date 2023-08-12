@@ -20,6 +20,16 @@ const Signin = () => {
     // New Account Create
     const handleSubmit = (e) => {
         if (!isNewUser) {
+            onAuthStateChanged(auth, (user) => {
+                if (user.uid) {
+                    SetIsLoggedIn(true);
+                } else {
+                    console.log("else")
+                }
+            });
+        }
+        
+        if (isNewUser) {
             if(user.email && user.password){
                 createUserWithEmailAndPassword(auth, user.email, user.password)
                 .then((userCredential) => {
@@ -33,16 +43,6 @@ const Signin = () => {
                     console.log(errorCode,errorMessage);
                 });
             }
-        }
-        
-        if (isNewUser) {
-            onAuthStateChanged(auth, (user) => {
-                if (user.uid) {
-                    SetIsLoggedIn(true);
-                } else {
-                    console.log("else")
-                }
-            });
         }
 
         e.preventDefault();
@@ -64,13 +64,13 @@ const Signin = () => {
                 <div className="signin-wrapper">
                     <form className="signin-form" onSubmit={handleSubmit}>
                         { 
-                            isNewUser ? 
+                            !isNewUser ? 
                             <h2 className="form-title">Sing In</h2> 
                             : 
                             <h2 className="form-title">Create Account</h2>
                         }
                         {
-                            isNewUser ? "" : 
+                            !isNewUser ? "" : 
                             <div className="input-container">
                                 <input type="text" name="name" onBlur={handleChange} placeholder="Name" className="form-control" required/>
                             </div>
@@ -84,13 +84,17 @@ const Signin = () => {
                             <span className="input-alert hide">Password must be 6 characters</span>
                         </div>
                         {
-                            isNewUser ? <input type="submit" value="Sign In" className="signin-btn"/> : <input type="submit" value="Sign Up" className="signin-btn"/>
+                            !isNewUser ? <input type="submit" value="Sign In" className="signin-btn"/> : <input type="submit" value="Sign Up" className="signin-btn"/>
                         }
                     </form>
 
                     <div className="social-singin">
+                        <div className="social-divider">
+                            <span>OR CONTINUE WITH</span>
+                        </div>
+
                         {
-                            isNewUser ? 
+                            !isNewUser ? 
                             <button className="social-btn">
                                 <FcGoogle/>
                                 Sign In with Google
@@ -103,7 +107,7 @@ const Signin = () => {
                         }
                     </div>
                     {
-                        isNewUser ? 
+                        !isNewUser ? 
                         
                         <p>Don&apos;t have an account? <button className="toggleSignIn" onClick={checkNewUser}>Sign Up</button></p>
                         : 

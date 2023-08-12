@@ -1,19 +1,19 @@
 import { Link } from 'react-router-dom';
 import './Navbar.scss';
-import { AiOutlineSearch, AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
+import {AiOutlineShoppingCart } from "react-icons/ai";
 import logo from '../../assets/img/logo.png';
 import { useContext } from 'react';
 import { CartContext } from '../../App';
 
 const Navbar = () => {
 
-    const {cartProducts} = useContext(CartContext);
+    const {cartProducts, isLoggedIn} = useContext(CartContext);
 
     const navbarItems = [
         {"name" : "Home", "link": "/"},
         {"name" : "Shop", "link": "/shop"},
-        {"name" : "Account", "link": "/"},
         {"name" : "Contact", "link": "/contact"},
+        {"name" : "Account", "link": "/"}
     ];
 
     return (
@@ -37,16 +37,25 @@ const Navbar = () => {
                                 ))
                             }
                         </ul>
+                    </div>
 
-                        <div className="header-right">
-                            <Link to="/" className="header-user">
-                                Hello, Sign In
+                    <div className="header-right">
+                        <Link to="/cart" className="menu-cart">
+                            <AiOutlineShoppingCart />
+                            <span className='cart-item'>{cartProducts.length}</span>
+                        </Link>
+
+                        {
+                            isLoggedIn ? 
+                            <Link to="/account" className="header-account">
+                                <span>Hi, Name</span> Account
                             </Link>
-                            <Link to="/cart" className="menu-icon">
-                                <AiOutlineShoppingCart />
-                                <span className='cart-item'>{cartProducts.length}</span>
+                            :
+                            <Link to="/signin" className="header-signin">
+                                Sign In
                             </Link>
-                        </div>
+                        }
+                        
                     </div>
                 </div>
             </nav>
