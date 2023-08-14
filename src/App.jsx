@@ -9,6 +9,9 @@ import Checkout from './pages/Checkout';
 import Payment from './pages/Payment';
 import Signin from './pages/Signin/Signin';
 import PrivateOutlet from './components/PrivateOutlet/PrivateOutlet';
+ import User from './pages/User/User';
+import Dashbaord from './components/Dashboard/Dashbaord';
+import Profile from './components/Profile/Profile';
 
 export const CartContext = createContext();
 
@@ -39,6 +42,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/*" element={<PrivateOutlet/>}>
           <Route path="checkout" element={<Checkout />} />
+          <Route path="user" element={<User />}/>
         </Route>
         <Route path="/payment" element={<Payment />} />
         <Route path="/signin" element={<Signin />} />

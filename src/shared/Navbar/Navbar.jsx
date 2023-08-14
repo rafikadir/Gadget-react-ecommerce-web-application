@@ -23,6 +23,7 @@ const Navbar = () => {
                     <Link className="navbar-brand" to="/">
                         <img src={logo} alt="logo" />
                     </Link>
+
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -47,8 +48,8 @@ const Navbar = () => {
 
                         {
                             isLoggedIn ? 
-                            <Link to="/account" className="header-account">
-                                <span>Hi, Name</span> Account
+                            <Link to="/user" className="header-account">
+                                Account
                             </Link>
                             :
                             <Link to="/signin" className="header-signin">

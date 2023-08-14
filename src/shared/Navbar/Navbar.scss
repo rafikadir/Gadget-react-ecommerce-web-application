@@ -31,6 +31,7 @@
 
     .header-right {
         display: flex;
+        align-items: center;
 
         .header-signin, .header-account {
             color: #eceef3;
@@ -46,10 +47,12 @@
             flex-direction: column;
             justify-content: center;
             align-items: start;
+            font-size: 15px;
 
             span {
                 font-size: 12px;
                 display: block;
+                letter-spacing: .5px;
             }
         }
 
