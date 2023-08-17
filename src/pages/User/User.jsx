@@ -5,19 +5,22 @@ import './User.scss';
 import Dashbaord from '../../components/Dashboard/Dashbaord';
 import Profile from '../../components/Profile/Profile';
 import Order from '../../components/Order/Order';
+import { RxDashboard } from "react-icons/rx";
+import { BiUser } from "react-icons/bi";
+import { BsCart2 } from "react-icons/bs";
+import { useState } from 'react';
 
 const User = () => {
-
+    
     const {url} = useParams();
     const sidebarNav = [
-        { "name" : "Dashboard", "link" : "dashboard", "section": <Dashbaord/>},
-        { "name" : "Profile", "link" : "profile", "section": <Profile/>},
-        { "name" : "Orders", "link" : "order", "section": <Order/>}
+        { "name" : "Dashboard", "link" : "dashboard", "icon" : <RxDashboard/>, "section": <Dashbaord/>},
+        { "name" : "Profile", "link" : "profile", "icon" : <BiUser/>, "section": <Profile/>},
+        { "name" : "Orders", "link" : "order", "icon" : <BsCart2/>, "section": <Order/>}
     ];
 
     const selectedElem = sidebarNav.find(nav => nav.link === url);
  
-
     return (
         <>  
             <Navbar/>
@@ -25,12 +28,18 @@ const User = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-4">
-                            <div className="user-item">
+                            <div className="user-sidebar">
                                 <ul>
                                     {
                                         sidebarNav.map((singleNav, index) => 
                                             <li key={index}>
-                                                <Link to={`/user/${singleNav.link}`} url={singleNav.link}>{singleNav.name}</Link>
+                                                <Link 
+                                                    to={`/user/${singleNav.link}`} 
+                                                    className={`user-link ${url === singleNav.link ? 'active' : ''}`}
+                                                >
+                                                    {singleNav.icon}
+                                                    {singleNav.name}
+                                                </Link>
                                             </li>
                                         )
                                     }
@@ -38,10 +47,11 @@ const User = () => {
                             </div>
                         </div>
                         <div className="col-lg-8">
-                            <h1>show page {url}</h1>
-                            {
-                                selectedElem ? selectedElem.section : <Dashbaord/>
-                            }
+                            <div className="user-content">
+                                {
+                                    selectedElem ? selectedElem.section : <Dashbaord/>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

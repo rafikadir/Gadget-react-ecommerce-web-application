@@ -1,3 +1,41 @@
+@import '../../assets/scss/variables.scss';
+
 .user-profile {
     padding: 100px 0;
+    background: #dee2e6;
+
+    .user-sidebar {
+        background: $white-color;
+        padding: 30px;
+
+        ul {
+            li {
+                list-style: none;
+                
+                .user-link {
+                    color: $gray-color;
+                    font-size: 18px;
+                    padding: 5px 10px;
+                    margin-bottom: 3px;
+                    display: block;
+
+                    svg {
+                        margin-right: 10px;
+                        top: -2px;
+                        position: relative;
+                    }
+
+                    &.active {
+                        color: $black-color;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+
+    .user-content {
+        background: $white-color;
+        padding: 30px;
+    }
 }
