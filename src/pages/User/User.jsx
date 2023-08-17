@@ -1,20 +1,22 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Footer from '../../shared/Footer/Footer';
 import Navbar from '../../shared/Navbar/Navbar';
 import './User.scss';
 import Dashbaord from '../../components/Dashboard/Dashbaord';
 import Profile from '../../components/Profile/Profile';
+import Order from '../../components/Order/Order';
 
 const User = () => {
 
-    const profileElments = [
-        {
-            "item" : <Dashbaord/>
-        },
-        {
-            "item" : <Profile/>
-        }
+    const {url} = useParams();
+    const sidebarNav = [
+        { "name" : "Dashboard", "link" : "dashboard", "section": <Dashbaord/>},
+        { "name" : "Profile", "link" : "profile", "section": <Profile/>},
+        { "name" : "Orders", "link" : "order", "section": <Order/>}
     ];
+
+    const selectedElem = sidebarNav.find(nav => nav.link === url);
+ 
 
     return (
         <>  
@@ -25,18 +27,21 @@ const User = () => {
                         <div className="col-lg-4">
                             <div className="user-item">
                                 <ul>
-                                    <li><Link to="#dashboard">Dashboard</Link></li>
-                                    <li><Link to="#profile">Personal Info</Link></li>
-                                    <li><Link to="#order">Orders</Link></li>
-                                    <li><Link to="#">Wishlist</Link></li>
-                                    <li><a href="#">Address</a></li>
-                                    <li><a href="#">Logout</a></li>
+                                    {
+                                        sidebarNav.map((singleNav, index) => 
+                                            <li key={index}>
+                                                <Link to={`/user/${singleNav.link}`} url={singleNav.link}>{singleNav.name}</Link>
+                                            </li>
+                                        )
+                                    }
                                 </ul>
                             </div>
                         </div>
                         <div className="col-lg-8">
-                            <Dashbaord/>
-                            <Profile/>
+                            <h1>show page {url}</h1>
+                            {
+                                selectedElem ? selectedElem.section : <Dashbaord/>
+                            }
                         </div>
                     </div>
                 </div>
