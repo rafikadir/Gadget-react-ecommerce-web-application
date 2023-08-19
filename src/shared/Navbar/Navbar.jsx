@@ -48,11 +48,11 @@ const Navbar = () => {
 
                         {
                             isLoggedIn ? 
-                            <Link to="/user" className="header-account">
+                            <Link to="user" className="header-account">
                                 Account
                             </Link>
                             :
-                            <Link to="/signin" className="header-signin">
+                            <Link to="signin" className="header-signin">
                                 Sign In
                             </Link>
                         }

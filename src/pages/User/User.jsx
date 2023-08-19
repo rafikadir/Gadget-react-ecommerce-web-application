@@ -8,7 +8,7 @@ import Order from '../../components/Order/Order';
 import { RxDashboard } from "react-icons/rx";
 import { BiUser } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const User = () => {
     
@@ -20,7 +20,7 @@ const User = () => {
     ];
 
     const selectedElem = sidebarNav.find(nav => nav.link === url);
- 
+
     return (
         <>  
             <Navbar/>

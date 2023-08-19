@@ -1,0 +1,27 @@
+.dashboard-section {
+    .dashboard-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .dashboard-text {
+            p {
+                margin-bottom: 5px;
+                font-size: 18px;
+            }
+            h2 {
+                font-size: 25px;
+            }
+        }
+        .dashboard-img {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            border-radius: 50%;
+
+            img {
+                max-width: 100px;
+            }
+        }
+    }
+}
