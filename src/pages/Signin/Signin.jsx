@@ -1,41 +1,51 @@
 import "./signin.scss";
-import {createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {auth} from '../../auth/firebase';
 import {useContext, useState} from "react";
 import {FcGoogle} from "react-icons/fc";
 import { CartContext } from "../../App";
+import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
-    const {SetIsLoggedIn} = useContext(CartContext);
+    const {SetIsLoggedIn, SetUserInfo} = useContext(CartContext);
     const [isNewUser, SetIsNewUser] = useState(false);
+    const navigate = useNavigate();
     // New User Information
     const [user, setUser] = useState({
         name: "",
         email: "",
         password: ""
     });
-
-    // Sign In Accout
   
-    // New Account Create
+    // Account Create or Signin
     const handleSubmit = (e) => {
+        // Login
         if (!isNewUser) {
-            onAuthStateChanged(auth, (user) => {
+            signInWithEmailAndPassword(auth, user.email, user.password)
+            .then((userCredential) => {
+                const user = userCredential.user;
                 if (user.uid) {
                     SetIsLoggedIn(true);
+                    SetUserInfo(user);
+                    navigate("/user");
                 } else {
-                    console.log("else")
+                    console.log("Error!!")
                 }
-            });
+            })        
         }
         
+        // New Account Create
         if (isNewUser) {
-            if(user.email && user.password){
+            if(user.email && user.password && user.name){
                 createUserWithEmailAndPassword(auth, user.email, user.password)
-                .then((userCredential) => {
-                    const user = userCredential.user;
+                .then( async (userCredential) => {
+                    const newUser = userCredential.user;
+                    await updateProfile(newUser,{
+                        displayName: user.name,
+                    });
+                    navigate("/user");
                     SetIsLoggedIn(true);
-                    console.log(user);
+                    SetUserInfo(newUser);
                 })
                 .catch((error) => {
                     const errorCode = error.code;

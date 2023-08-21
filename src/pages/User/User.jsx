@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Footer from '../../shared/Footer/Footer';
 import Navbar from '../../shared/Navbar/Navbar';
 import './User.scss';
@@ -9,8 +9,14 @@ import { RxDashboard } from "react-icons/rx";
 import { BiUser } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
 import { useEffect, useState } from 'react';
+import { CartContext } from '../../App';
+import { useContext } from 'react';
+import { getAuth, signOut } from 'firebase/auth';
 
 const User = () => {
+    const auth = getAuth();
+    const {isLoggedIn, SetIsLoggedIn} = useContext(CartContext);
+    const navigate = useNavigate();
     
     const {url} = useParams();
     const sidebarNav = [
@@ -20,6 +26,17 @@ const User = () => {
     ];
 
     const selectedElem = sidebarNav.find(nav => nav.link === url);
+
+    const handleSignout = () => {
+        if (isLoggedIn) {
+            signOut(auth).then(() => {
+                SetIsLoggedIn(false);
+                navigate("/");
+            }).catch((error) => {
+                console.log(error)
+            });
+        }
+    }
 
     return (
         <>  
@@ -44,6 +61,12 @@ const User = () => {
                                         )
                                     }
                                 </ul>
+                                {
+                                    isLoggedIn ? 
+                                    <button onClick={handleSignout}>Sign Out</button>
+                                    : 
+                                    ""
+                                }
                             </div>
                         </div>
                         <div className="col-lg-8">

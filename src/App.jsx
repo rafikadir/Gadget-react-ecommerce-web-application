@@ -16,7 +16,8 @@ export const CartContext = createContext();
 function App() {
 
   const [cartProducts, setCartProducts] = useState([]);
-  const [isLoggedIn, SetIsLoggedIn] = useState(false)
+  const [isLoggedIn, SetIsLoggedIn] = useState(false);
+  const [userInfo, SetUserInfo] = useState();
 
   const updateCart = (id) => {
     const checkProduct = cartProducts.includes(id);
@@ -31,7 +32,7 @@ function App() {
   };
 
   return ( 
-    <CartContext.Provider value={{cartProducts, updateCart, deleteItem, SetIsLoggedIn, isLoggedIn}}>
+    <CartContext.Provider value={{cartProducts, updateCart, deleteItem, SetIsLoggedIn, isLoggedIn, userInfo, SetUserInfo}}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
