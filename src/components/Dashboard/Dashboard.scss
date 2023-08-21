@@ -30,11 +30,12 @@
 
     .dashboard-data {
         .single-data {
-            background: #dee2e6;
+            border: 1px solid #dee2e6;
             padding: 20px;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
+            border-radius: 10px;
             
             .icon {
                 display: inline-block;

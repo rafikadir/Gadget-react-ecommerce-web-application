@@ -6,6 +6,7 @@ import Dashbaord from '../../components/Dashboard/Dashbaord';
 import Profile from '../../components/Profile/Profile';
 import Order from '../../components/Order/Order';
 import { RxDashboard } from "react-icons/rx";
+import { FiLogOut } from "react-icons/fi";
 import { BiUser } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
 import { useEffect, useState } from 'react';
@@ -61,12 +62,10 @@ const User = () => {
                                         )
                                     }
                                 </ul>
-                                {
-                                    isLoggedIn ? 
-                                    <button onClick={handleSignout}>Sign Out</button>
-                                    : 
-                                    ""
-                                }
+                                <button className='signout-btn' onClick={handleSignout}>
+                                    <FiLogOut/>
+                                    Sign Out
+                                </button>
                             </div>
                         </div>
                         <div className="col-lg-8">

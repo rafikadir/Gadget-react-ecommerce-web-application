@@ -32,6 +32,21 @@
                 }
             }
         }
+
+        .signout-btn {
+            border: none;
+            background: $blue-color;
+            width: 100%;
+            margin-top: 20px;
+            color: $white-color;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+            &:hover {
+                background: $black-color;
+            }
+        }
     }
 
     .user-content {

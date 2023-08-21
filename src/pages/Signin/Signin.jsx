@@ -9,6 +9,10 @@ import { useNavigate } from "react-router-dom";
 const Signin = () => {
     const {SetIsLoggedIn, SetUserInfo} = useContext(CartContext);
     const [isNewUser, SetIsNewUser] = useState(false);
+    const [wrongPass, SetWrongPass] = useState(false);
+    const [wrongUser, SetWrongUser] = useState(false);
+    const [haveUser, setHaveUser] = useState(false);
+
     const navigate = useNavigate();
     // New User Information
     const [user, setUser] = useState({
@@ -28,10 +32,17 @@ const Signin = () => {
                     SetIsLoggedIn(true);
                     SetUserInfo(user);
                     navigate("/user");
-                } else {
-                    console.log("Error!!")
                 }
-            })        
+            })
+            .catch((error)=>{
+                const errorCode = error.code;
+                if (errorCode === "auth/user-not-found") {
+                    SetWrongUser(true);
+                }
+                if (errorCode === "auth/wrong-password") {
+                    SetWrongPass(true);
+                }
+            })     
         }
         
         // New Account Create
@@ -49,8 +60,9 @@ const Signin = () => {
                 })
                 .catch((error) => {
                     const errorCode = error.code;
-                    const errorMessage = error.message;
-                    console.log(errorCode,errorMessage);
+                    if (errorCode === "auth/email-already-in-use") {
+                        setHaveUser(true);
+                    }
                 });
             }
         }
@@ -62,6 +74,9 @@ const Signin = () => {
         const newUser = {...user};
         newUser[e.target.name] = e.target.value;
         setUser(newUser);
+        SetWrongPass(false);
+        SetWrongUser(false);
+        setHaveUser(false);
     }
 
     const checkNewUser = () => {
@@ -87,11 +102,13 @@ const Signin = () => {
                         }
                         <div className="input-container">
                             <input type="email" name="email" onBlur={handleChange} placeholder="Email" className="form-control" required/>
+                            <span className={`input-alert ${wrongUser ? "" : "hide"}`}>User Not Found !!</span>
+                            <span className={`input-alert ${haveUser ? "" : "hide"}`}>E-mail Already Registered !! Please Sign In</span>
                         </div>
 
                         <div className="input-container">
                             <input type="password" name="password" onChange={handleChange} placeholder="Password" className="form-control" required/>
-                            <span className="input-alert hide">Password must be 6 characters</span>
+                            <span className={`input-alert ${wrongPass ? "" : "hide"}`}>Wrong Password</span>
                         </div>
                         {
                             !isNewUser ? <input type="submit" value="Sign In" className="signin-btn"/> : <input type="submit" value="Sign Up" className="signin-btn"/>
@@ -100,7 +117,7 @@ const Signin = () => {
 
                     <div className="social-singin">
                         <div className="social-divider">
-                            <span>OR CONTINUE WITH</span>
+                            <span>OR</span>
                         </div>
 
                         {
