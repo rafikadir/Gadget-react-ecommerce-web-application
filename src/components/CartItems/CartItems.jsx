@@ -8,13 +8,15 @@ import { Link } from 'react-router-dom';
 
 const CartItems = () => {
 
-    const {cartProducts, deleteItem} = useContext(CartContext);
+    const {cartProducts, deleteItem, SetOrderInfo} = useContext(CartContext);
     const [productsInCart, setProductsInCart] = useState();
     const [total, setTotal] = useState();
     const [getCoupon, setGetCoupon] = useState(false);
     const [coupon, setCoupon] = useState(0);
-    let subTotal = total - coupon;
-    
+    const [subTotal, SetSubTotal] = useState();
+
+
+    //  Cart Prducts
     useEffect(() =>{
         const pdId = cartProducts.map(pd =>{
             const filterdPd = productData.find(product => product.id === pd);
@@ -23,6 +25,7 @@ const CartItems = () => {
         setProductsInCart(pdId);
     },[cartProducts]);
 
+    // Calculate Total
     useEffect(()=>{
         if (productsInCart) {
             const total = productsInCart.reduce((acc, item) => acc + item.price, 0);
@@ -30,6 +33,7 @@ const CartItems = () => {
         }
     },[productsInCart])
 
+    //  Handle Coupon
     const handleInput = (e) => {
         if(productsInCart) {
             if (e.target.value === "test20" || e.target.value === "TEST20") {
@@ -37,18 +41,22 @@ const CartItems = () => {
             }
         }
     }
-
     const handleCoupon = (e) => {
-        if(getCoupon === true ){
+        if(getCoupon === true){
             const couponAmount = 20;
             setCoupon(couponAmount);
         }
 
         else {
-            alert("invalid")
+            alert("Invalid")
         }
         e.preventDefault();
     }
+
+    // Sub Total
+    useEffect(()=>{
+        SetSubTotal(total - coupon); 
+    },[coupon, total])
 
     return (
         <section className='cart-section'>

@@ -2,7 +2,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "./Sliders.scss";
-import ThemeBtn from "../ThemeButton/ThemeBtn";
 import slidersData from '../../data/slider.json';
 
 const Sliders = () => {
@@ -32,8 +31,6 @@ const Sliders = () => {
                                             <span>{item.subtitle}</span>
                                             <h2>{item.title}</h2>
                                             <p>{item.description}</p>
-                                            
-                                            <ThemeBtn name="Shop Now" link={item.link}/>
                                         </div>
                                     </div>
                                     <div className="col-lg-6">

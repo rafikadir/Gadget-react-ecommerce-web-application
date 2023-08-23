@@ -40,7 +40,7 @@ const Product = (products) => {
                 </div>
 
                 <div className='bottom-btn'>
-                    <Link className='buy-btn' to="/">Buy Now</Link>
+                    <button className="buy-btn">Buy Now</button>
                     <button onClick={()=> updateCart(id)} className='cart-btn'><FiShoppingBag/>Add to Cart</button>        
                 </div>               
             </div>

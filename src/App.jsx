@@ -1,4 +1,4 @@
-import { Route, Routes, redirect } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Shop from './pages/Shop';
@@ -18,6 +18,7 @@ function App() {
   const [cartProducts, setCartProducts] = useState([]);
   const [isLoggedIn, SetIsLoggedIn] = useState(false);
   const [userInfo, SetUserInfo] = useState();
+  const [orderInfo, SetOrderInfo] = useState();
 
   const updateCart = (id) => {
     const checkProduct = cartProducts.includes(id);
@@ -32,7 +33,17 @@ function App() {
   };
 
   return ( 
-    <CartContext.Provider value={{cartProducts, updateCart, deleteItem, SetIsLoggedIn, isLoggedIn, userInfo, SetUserInfo}}>
+    <CartContext.Provider value={{cartProducts, 
+      updateCart, 
+      deleteItem, 
+      SetIsLoggedIn, 
+      isLoggedIn, 
+      userInfo, 
+      SetUserInfo,
+      SetOrderInfo,
+      orderInfo
+    }}
+    >
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />

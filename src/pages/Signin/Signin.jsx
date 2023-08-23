@@ -31,7 +31,7 @@ const Signin = () => {
                 if (user.uid) {
                     SetIsLoggedIn(true);
                     SetUserInfo(user);
-                    navigate("/user");
+                    navigate();
                 }
             })
             .catch((error)=>{
