@@ -66,8 +66,8 @@ const Dashbaord = () => {
                                     <FiPackage/>
                                 </div>
                                 <div>
-                                    <p>Cart</p>
-                                    <h3>0</h3>
+                                    <p>Complete Order</p>
+                                    <h3>50</h3>
                                 </div>
                             </div>
                         </div>

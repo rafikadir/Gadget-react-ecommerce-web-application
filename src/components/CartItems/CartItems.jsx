@@ -15,8 +15,7 @@ const CartItems = () => {
     const [coupon, setCoupon] = useState(0);
     const [subTotal, SetSubTotal] = useState();
 
-
-    //  Cart Prducts
+    // Cart Prducts
     useEffect(() =>{
         const pdId = cartProducts.map(pd =>{
             const filterdPd = productData.find(product => product.id === pd);
@@ -33,7 +32,7 @@ const CartItems = () => {
         }
     },[productsInCart])
 
-    //  Handle Coupon
+    // Handle Coupon
     const handleInput = (e) => {
         if(productsInCart) {
             if (e.target.value === "test20" || e.target.value === "TEST20") {

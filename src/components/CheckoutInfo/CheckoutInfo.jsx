@@ -57,7 +57,6 @@ const CheckoutInfo = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <input type="submit" value="Continue to Payment" className="delivery-btn"/>
                             </form>
                         </div>
                     </div>
@@ -65,12 +64,18 @@ const CheckoutInfo = () => {
                     <div className="col-lg-5">
                         <div className="checkout-summary">
                             <h3>Your Order</h3>
-
                             <ul>
                                 <li className='checkout-total'>
                                     <p>Sub Total</p><span>$1500</span>
                                 </li>
                             </ul>
+                        </div>
+
+                        <div className="payment-info">
+                            <h3>Select Payment Option</h3>
+                            <button className="payment-btn">
+                                Place Order
+                            </button>
                         </div>
                     </div>
                 </div>

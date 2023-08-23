@@ -28,7 +28,6 @@ const Sliders = () => {
                                 <div className="row align-items-center">
                                     <div className="col-lg-6">
                                         <div className="slider-text">
-                                            <span>{item.subtitle}</span>
                                             <h2>{item.title}</h2>
                                             <p>{item.description}</p>
                                         </div>

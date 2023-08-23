@@ -22,7 +22,7 @@ const User = () => {
     const {url} = useParams();
     const sidebarNav = [
         { "name" : "Dashboard", "link" : "dashboard", "icon" : <RxDashboard/>, "section": <Dashbaord/>},
-        { "name" : "Profile", "link" : "profile", "icon" : <BiUser/>, "section": <Profile/>},
+        { "name" : "Edit Profile", "link" : "profile", "icon" : <BiUser/>, "section": <Profile/>},
         { "name" : "Orders", "link" : "order", "icon" : <BsCart2/>, "section": <Order/>}
     ];
 

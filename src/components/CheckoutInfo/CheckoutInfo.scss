@@ -34,19 +34,13 @@
                     }
                 }
             }
-
-            .delivery-btn {
-                background: $black-color;
-                color: $white-color;
-                border: 1px solid $black-color;
-                padding: 10px 20px;
-            }
         }
     }
 
     .checkout-summary {
         padding: 40px 30px;
         background: $white-color;
+        margin-bottom: 20px;
 
         h3 {
             font-size: 25px;
@@ -70,6 +64,25 @@
                     font-weight: 500;
                 }
             }
+        }
+    }
+
+    .payment-info {
+        padding: 40px 30px;
+        background: $white-color;
+
+        h3 {
+            font-size: 25px;
+            margin-bottom: 30px;
+        }
+
+        .payment-btn {
+            background: $black-color;
+            color: $white-color;
+            border: 1px solid $black-color;
+            padding: 10px 20px;
+            border-radius: 5px;
+            width: 100%;
         }
     }
 }
