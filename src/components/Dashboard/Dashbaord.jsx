@@ -16,8 +16,8 @@ const Dashbaord = () => {
                     </div>
                     <div className="dashboard-img">
                         {
-                            userInfo.photoURL ? 
-                            userInfo.photoURL
+                            userInfo?.photoURL ? 
+                            userInfo?.photoURL
                             : 
                             <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="user"/>
                         }
@@ -69,6 +69,34 @@ const Dashbaord = () => {
                                     <p>Complete Order</p>
                                     <h3>50</h3>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="dashboard-account">
+                                <h3>Your Information:</h3>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Name:</strong></td>
+                                            <td>Md Rafi Kadir</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Phone:</strong></td>
+                                            <td>+8801788615327</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>E-mail:</strong></td>
+                                            <td>rafikadir2000@gmail.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Address:</strong></td>
+                                            <td>City: West Columbia, State: South Carolina, Zip Code: 29169, Country: United States</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
