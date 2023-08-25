@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const CartItems = () => {
 
-    const {cartProducts, deleteItem, SetOrderInfo} = useContext(CartContext);
+    const {cartProducts, deleteItem} = useContext(CartContext);
     const [productsInCart, setProductsInCart] = useState();
     const [total, setTotal] = useState();
     const [getCoupon, setGetCoupon] = useState(false);
@@ -19,7 +19,7 @@ const CartItems = () => {
     useEffect(() =>{
         const pdId = cartProducts.map(pd =>{
             const filterdPd = productData.find(product => product.id === pd);
-            return filterdPd;
+            return {...filterdPd, quantity: 1};
         });
         setProductsInCart(pdId);
     },[cartProducts]);
@@ -57,6 +57,20 @@ const CartItems = () => {
         SetSubTotal(total - coupon); 
     },[coupon, total])
 
+    // Cart Quantity
+    const handleDecrease = (index) => {
+        const latestCart = [...productsInCart];
+        if (latestCart[index].quantity >1) {
+            latestCart[index].quantity -= 1;
+            setProductsInCart(latestCart);
+        }
+    }
+    const handleIncrease = (index) => {
+        const latestCart = [...productsInCart];
+        latestCart[index].quantity += 1;
+        setProductsInCart(latestCart);
+    }
+    
     return (
         <section className='cart-section'>
             <div className="container">
@@ -86,7 +100,11 @@ const CartItems = () => {
                                                 </td>
                                                 <td>{item.title}</td>
                                                 <td>{item.price}</td>
-                                                <td>1</td>
+                                                <td>
+                                                    <button onClick={()=>handleDecrease(index)} disabled={item.quantity === 1}>-</button>
+                                                    <input type="number" value={item.quantity} readOnly/>
+                                                    <button onClick={()=> handleIncrease(index)}>+</button>
+                                                </td>
                                                 <td>{item.price}</td>
                                                 <td>
                                                     <button onClick={()=>deleteItem(item.id)} className='delete-cart'><AiOutlineDelete/></button>

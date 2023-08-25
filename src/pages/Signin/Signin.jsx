@@ -1,5 +1,5 @@
 import "./signin.scss";
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup  } from "firebase/auth";
 import {auth} from '../../auth/firebase';
 import {useContext, useState} from "react";
 import {FcGoogle} from "react-icons/fc";
@@ -12,6 +12,7 @@ const Signin = () => {
     const [wrongPass, SetWrongPass] = useState(false);
     const [wrongUser, SetWrongUser] = useState(false);
     const [haveUser, setHaveUser] = useState(false);
+    const provider = new GoogleAuthProvider();
 
     const navigate = useNavigate();
     // New User Information
@@ -31,7 +32,6 @@ const Signin = () => {
                 if (user.uid) {
                     SetIsLoggedIn(true);
                     SetUserInfo(user);
-                    navigate();
                 }
             })
             .catch((error)=>{
@@ -68,6 +68,23 @@ const Signin = () => {
         }
 
         e.preventDefault();
+    }
+
+    // Google Sign In
+    const handleGoogleSingin = () => {
+        signInWithPopup(auth, provider)
+        .then((result) => {
+            // const credential = GoogleAuthProvider.credentialFromResult(result);
+            const user = result.user;
+            if (user.uid) {
+                SetIsLoggedIn(true);
+                SetUserInfo(user);
+                navigate();
+            }
+        
+        }).catch((error) => {
+            console.log(error)
+        });
     }
 
     const handleChange = (e) => {
@@ -122,12 +139,12 @@ const Signin = () => {
 
                         {
                             !isNewUser ? 
-                            <button className="social-btn">
+                            <button onClick={handleGoogleSingin} className="social-btn">
                                 <FcGoogle/>
                                 Sign In with Google
                             </button> 
                             : 
-                            <button className="social-btn">
+                            <button onClick={handleGoogleSingin} className="social-btn">
                                 <FcGoogle/>
                                 Sign Up with Google
                             </button>
