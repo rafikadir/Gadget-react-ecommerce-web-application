@@ -33,7 +33,8 @@ function App() {
   };
 
   return ( 
-    <CartContext.Provider value={{cartProducts, 
+    <CartContext.Provider value={{
+      cartProducts, 
       updateCart, 
       deleteItem, 
       SetIsLoggedIn, 
@@ -41,7 +42,7 @@ function App() {
       userInfo, 
       SetUserInfo,
       SetOrderInfo,
-      orderInfo
+      orderInfo,
     }}
     >
       <Routes>

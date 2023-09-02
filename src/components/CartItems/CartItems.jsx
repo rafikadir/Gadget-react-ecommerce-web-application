@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const CartItems = () => {
 
-    const {cartProducts, deleteItem} = useContext(CartContext);
+    const {cartProducts, deleteItem, SetOrderInfo} = useContext(CartContext);
     const [productsInCart, setProductsInCart] = useState();
     const [getCoupon, setGetCoupon] = useState(false);
     const [coupon, setCoupon] = useState(0);
@@ -22,6 +22,7 @@ const CartItems = () => {
             return {...filterdPd, quantity: 1};
         });
         setProductsInCart(pdId);
+        SetOrderInfo(pdId);
     },[cartProducts]);    
 
     // Calculate Total
