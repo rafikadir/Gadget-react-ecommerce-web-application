@@ -2,13 +2,9 @@ import { useContext } from 'react';
 import './CheckoutInfo.scss';
 import { useForm } from "react-hook-form";
 import { CartContext } from '../../App';
-import products from '../../data/products.json';
 
 const CheckoutInfo = () => {
-    const {cartProducts,orderInfo} = useContext(CartContext);
-    console.log(orderInfo);
-    const filtered = products.filter((pd, index) => pd.id === cartProducts[index]);
- 
+    const {orderInfo} = useContext(CartContext);
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
@@ -100,13 +96,21 @@ const CheckoutInfo = () => {
                     <div className="col-lg-5">
                         <div className="checkout-summary">
                             <h3>Your Order</h3>
-                            <ul>
+                            <ul className='order-info'>
                                 {
-
+                                    orderInfo?.map((singleOrder, index) => 
+                                    <li key={index} className='single-order'>
+                                        <div className='pd-info'>
+                                            <div className='pd-img'>
+                                                <img src={singleOrder.img} alt="product" />
+                                            </div>
+                                            <span>{singleOrder.title}</span>
+                                            <span className='quantity'>x {singleOrder.quantity}</span>
+                                        </div>
+                                        
+                                        <span className='price'>${singleOrder.price * singleOrder.quantity}</span>
+                                    </li>)
                                 }
-                                <li className='checkout-total'>
-                                    <p>Sub Total</p><span>$1500</span>
-                                </li>
                             </ul>
                         </div>
                     </div>
