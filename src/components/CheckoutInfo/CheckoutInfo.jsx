@@ -1,11 +1,7 @@
-import { Link } from 'react-router-dom';
 import './CheckoutInfo.scss';
 import { useForm } from "react-hook-form";
-import { FiLogIn } from 'react-icons/fi';
-import {useState} from 'react';
 
 const CheckoutInfo = () => {
-    const [isChecked, setIsChecked] = useState(false);
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data);
@@ -15,23 +11,15 @@ const CheckoutInfo = () => {
         console.log(e.target.value);
     }
 
-    const handleAccountCreate = () => {
-        setIsChecked(!isChecked);
-    }
-
     return (
         <section className="checkout-area">
             <div className="container">
-                <div className="return-user">
-                    <p><FiLogIn/> Returning customer? <Link to="/signin">Click here to Sign In</Link></p>
-                </div>
-                
-                <form onSubmit={handleSubmit(onSubmit)} className="address-form">
+            <div className="address-wrapper">
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="row">
                         <div className="col-lg-7">
-                            <div className="address-wrapper">
-                                <h3>Delivery Information:</h3>
-
+                            <div className="address-form">
+                            <h3>Shipping Information:</h3>
                                 <div className="form-group">
                                     <label className="form-label">Full Name *</label>
                                     <input type='text' placeholder='Full Name' className="form-control" {...register("fullName")} required/>
@@ -75,11 +63,6 @@ const CheckoutInfo = () => {
                                         </div>
                                     </div>
                                 </div>
-
-                                <div className="form-group create-account">
-                                    <input type="checkbox" name="create-account" id="create-account" onChange={handleAccountCreate} checked={isChecked}/>
-                                    <label htmlFor="create-account">Create an Account</label>
-                                </div>
                             </div>
                         </div>
 
@@ -118,6 +101,7 @@ const CheckoutInfo = () => {
                         </div>
                     </div>
                 </form>
+            </div>
             </div>
         </section>
     );

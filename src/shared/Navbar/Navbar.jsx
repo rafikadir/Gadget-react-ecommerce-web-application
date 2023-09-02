@@ -45,18 +45,10 @@ const Navbar = () => {
                             <AiOutlineShoppingCart />
                             <span className='cart-item'>{cartProducts.length}</span>
                         </Link>
-
-                        {
-                            isLoggedIn ? 
-                            <Link to="/user" className="header-account">
-                                Account
-                            </Link>
-                            :
-                            <Link to="/signin" className="header-signin">
-                                Sign In
-                            </Link>
-                        }
                         
+                        <Link to="/user" className="header-account">
+                            Account
+                        </Link>
                     </div>
                 </div>
             </nav>

@@ -10,10 +10,10 @@ const CartItems = () => {
 
     const {cartProducts, deleteItem} = useContext(CartContext);
     const [productsInCart, setProductsInCart] = useState();
-    const [total, setTotal] = useState();
     const [getCoupon, setGetCoupon] = useState(false);
     const [coupon, setCoupon] = useState(0);
     const [subTotal, SetSubTotal] = useState();
+    const [grandTotal, SetGrandTotal] = useState();
 
     // Cart Prducts
     useEffect(() =>{
@@ -22,15 +22,16 @@ const CartItems = () => {
             return {...filterdPd, quantity: 1};
         });
         setProductsInCart(pdId);
-    },[cartProducts]);
+    },[cartProducts]);    
 
     // Calculate Total
     useEffect(()=>{
         if (productsInCart) {
-            const total = productsInCart.reduce((acc, item) => acc + item.price, 0);
-            setTotal(total);
+            const itemTotalCal = productsInCart.reduce((acc, item)=> acc + item.price * item.quantity, 0);
+            SetSubTotal(itemTotalCal);
         }
     },[productsInCart])
+    
 
     // Handle Coupon
     const handleInput = (e) => {
@@ -54,8 +55,8 @@ const CartItems = () => {
 
     // Sub Total
     useEffect(()=>{
-        SetSubTotal(total - coupon); 
-    },[coupon, total])
+        SetGrandTotal(subTotal - coupon); 
+    },[coupon, subTotal])
 
     // Cart Quantity
     const handleDecrease = (index) => {
@@ -70,6 +71,7 @@ const CartItems = () => {
         latestCart[index].quantity += 1;
         setProductsInCart(latestCart);
     }
+    
     
     return (
         <section className='cart-section'>
@@ -86,7 +88,7 @@ const CartItems = () => {
                                         <th>Title</th>
                                         <th>Price</th>
                                         <th>Quantity</th>
-                                        <th>Total</th>
+                                        <th>Item Total</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -105,7 +107,7 @@ const CartItems = () => {
                                                     <input type="number" value={item.quantity} readOnly/>
                                                     <button onClick={()=> handleIncrease(index)}>+</button>
                                                 </td>
-                                                <td>{item.price}</td>
+                                                <td>{item.price * item.quantity}</td>
                                                 <td>
                                                     <button onClick={()=>deleteItem(item.id)} className='delete-cart'><AiOutlineDelete/></button>
                                                 </td>
@@ -128,9 +130,9 @@ const CartItems = () => {
 
                         <div className="cart-total">
                             <ul>
-                                <li>Total: <span>${total}</span></li>
-                                <li>Coupon:<span>${coupon}</span></li>
                                 <li>Sub Total: <span>${subTotal}</span></li>
+                                <li>Coupon:<span>${coupon}</span></li>
+                                <li>Grand Total: <span>${grandTotal}</span></li>
                             </ul>
 
                             <Link to="/checkout" className="checkout-btn">Proceed to Checkout</Link>

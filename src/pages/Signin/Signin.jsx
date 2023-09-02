@@ -74,7 +74,6 @@ const Signin = () => {
     const handleGoogleSingin = () => {
         signInWithPopup(auth, provider)
         .then((result) => {
-            // const credential = GoogleAuthProvider.credentialFromResult(result);
             const user = result.user;
             if (user.uid) {
                 SetIsLoggedIn(true);
