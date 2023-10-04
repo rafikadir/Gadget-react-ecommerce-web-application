@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import './CheckoutInfo.scss';
 import { useForm } from "react-hook-form";
 import { CartContext } from '../../App';
+import StripeContainer from '../Stripe/StripeContainer';
 
 const CheckoutInfo = () => {
     const {orderInfo} = useContext(CartContext);
@@ -71,26 +72,40 @@ const CheckoutInfo = () => {
                             <div className="payment-info">
                                 <h3>Select Payment Option</h3>
 
-                                <ul className="payment-list">
-                                    <li>
+                                <div className="payment-list">
+                                    <div>
                                         <input type="radio" name="select-payment" id="cod" value="cod" onChange={handleSelect}/>
                                         <label htmlFor="cod">Cash On Delivery</label>
-                                    </li>
-                                    <li>
+                                        <div className='payment-text'>
+                                            <p>Pay when your order arrives at your doorstep. Easy, convenient, and no need for cards or online transactions.</p>
+                                        </div>
+                                    </div>
+                                    <div>
                                         <input type="radio" name="select-payment" id="bank-transfar" value="bank" onChange={handleSelect}/>
                                         <label htmlFor="bank-transfar">Bank Transfar</label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" name="select-payment" id="stripe" value="strpe" onChange={handleSelect}/>
+                                        <div className='payment-text'>
+                                            <ul>
+                                                <li><strong>Bank Name:</strong> Demo Bank</li>
+                                                <li><strong>Account Holder:</strong> Ecommerce Store</li>
+                                                <li><strong>Account Number:</strong> 1234567890</li>
+                                                <li><strong>Branch:</strong> Virtual Branch</li>
+                                                <li><strong>IFSC Code:</strong> DEMO12345</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="select-payment" id="stripe" value="stripe" onChange={handleSelect}/>
                                         <label htmlFor="stripe">Stripe / Credit Card / VISA</label>
-                                    </li>
-                                </ul>
+
+                                    </div>
+                                </div>
 
                                 <button type='submit' className="payment-btn">
                                     Place Order
                                 </button>
                             </div>
                         </form>
+                        <StripeContainer/>
                     </div>
 
                     <div className="col-lg-5">

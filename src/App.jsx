@@ -51,11 +51,11 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/:id" element={<Product />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/*" element={<PrivateOutlet/>}> 
+        {/* <Route path="/*" element={<PrivateOutlet/>}>  */}
           <Route path="checkout" element={<Checkout />} />
           <Route path="user" element={<User />}/>
           <Route path="user/:url" element={<User />}/>
-        </Route>
+        {/* </Route> */}
         <Route path="/payment" element={<Payment />} />
         <Route path="/signin" element={<Signin />} />
       </Routes>
