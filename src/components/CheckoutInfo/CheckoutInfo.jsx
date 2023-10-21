@@ -2,11 +2,10 @@ import { useContext } from 'react';
 import './CheckoutInfo.scss';
 import { useForm } from "react-hook-form";
 import { CartContext } from '../../App';
-import StripeContainer from '../Stripe/StripeContainer';
 
 const CheckoutInfo = () => {
     const {orderInfo} = useContext(CartContext);
-
+    
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data);
@@ -105,7 +104,6 @@ const CheckoutInfo = () => {
                                 </button>
                             </div>
                         </form>
-                        <StripeContainer/>
                     </div>
 
                     <div className="col-lg-5">
