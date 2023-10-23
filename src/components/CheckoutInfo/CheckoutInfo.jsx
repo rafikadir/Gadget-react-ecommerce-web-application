@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import './CheckoutInfo.scss';
 import { useForm } from "react-hook-form";
 import { CartContext } from '../../App';
+import PaymentContainer from '../Stripe/PaymentContainer';
 
 const CheckoutInfo = () => {
     const {orderInfo} = useContext(CartContext);
@@ -79,25 +80,15 @@ const CheckoutInfo = () => {
                                             <p>Pay when your order arrives at your doorstep. Easy, convenient, and no need for cards or online transactions.</p>
                                         </div>
                                     </div>
-                                    <div>
-                                        <input type="radio" name="select-payment" id="bank-transfar" value="bank" onChange={handleSelect}/>
-                                        <label htmlFor="bank-transfar">Bank Transfar</label>
-                                        <div className='payment-text'>
-                                            <ul>
-                                                <li><strong>Bank Name:</strong> Demo Bank</li>
-                                                <li><strong>Account Holder:</strong> Ecommerce Store</li>
-                                                <li><strong>Account Number:</strong> 1234567890</li>
-                                                <li><strong>Branch:</strong> Virtual Branch</li>
-                                                <li><strong>IFSC Code:</strong> DEMO12345</li>
-                                            </ul>
-                                        </div>
-                                    </div>
+
                                     <div>
                                         <input type="radio" name="select-payment" id="stripe" value="stripe" onChange={handleSelect}/>
-                                        <label htmlFor="stripe">Stripe / Credit Card / VISA</label>
-
+                                        <label htmlFor="stripe">Stripe / Card</label>
                                     </div>
                                 </div>
+
+                              
+                                <PaymentContainer/>
 
                                 <button type='submit' className="payment-btn">
                                     Place Order

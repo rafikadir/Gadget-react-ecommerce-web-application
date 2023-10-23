@@ -6,7 +6,6 @@ import Product from './pages/Product';
 import Cart from './pages/Cart';
 import { createContext, useState } from 'react';
 import Checkout from './pages/Checkout';
-import Payment from './pages/Payment';
 import Signin from './pages/Signin/Signin';
 import PrivateOutlet from './components/PrivateOutlet/PrivateOutlet';
 import User from './pages/User/User';
@@ -56,7 +55,6 @@ function App() {
           <Route path="user" element={<User />}/>
           <Route path="user/:url" element={<User />}/>
         {/* </Route> */}
-        <Route path="/payment" element={<Payment />} />
         <Route path="/signin" element={<Signin />} />
       </Routes>
     </CartContext.Provider>

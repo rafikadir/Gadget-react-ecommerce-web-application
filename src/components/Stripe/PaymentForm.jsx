@@ -1,53 +1,73 @@
 import {
     PaymentElement,
-    LinkAuthenticationElement,
     useStripe,
     useElements
   } from "@stripe/react-stripe-js";
+import { useEffect, useState } from "react";
 
 const PaymentForm = () => {
-    const stripe = useStripe();
-    const elements = useElements();
-    const [isLoading, setIsLoading] = useState(false);
+  const stripe = useStripe();
+  const elements = useElements();
 
-    useEffect(() => {
-        if (!stripe) {
-          return;
-        }
-      },[]);
+  const [message, setMessage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-    
-        if (!stripe || !elements) {
-          return;
-        }
-        setIsLoading(true);
-        const { error } = await stripe.confirmPayment({
-          elements,
-          confirmParams: {
-            return_url: "http://localhost:3000",
-          },
+  useEffect(() => {
+    if (!stripe) {
+      return;
+    }
+    const clientSecret = new URLSearchParams(window.location.search).get(
+      "payment_intent_client_secret"
+    );
+
+    if (!clientSecret) {
+      return;
+    }
+
+  }, [stripe]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!stripe || !elements) {
+      return;
+    }
+
+    setIsLoading(true);
+
+    const { error } = await stripe.confirmPayment({
+      elements,
+      confirmParams: {
+        return_url: "http://localhost:5173",
+      },
     });
 
-    const paymentElementOptions = {
-        layout: "tabs"
+    if (error.type === "card_error" || error.type === "validation_error") {
+      setMessage(error.message);
+    } else {
+      setMessage("An unexpected error occurred.");
     }
-    
 
-    return (
-        <>
-            <form id="payment-form" onSubmit={handleSubmit}>
-          
-                <PaymentElement id="payment-element" options={paymentElementOptions}/>
-                <button disabled={isLoading || !stripe || !elements} id="submit">
-                    <span id="button-text">
-                    {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
-                    </span>
-                </button>
-            </form>
-        </>
-    );
+    setIsLoading(false);
+  };
+  const paymentElementOptions = {
+    layout: "tabs"
+  }
+
+  return (
+      <>
+        <form id="payment-form" onSubmit={handleSubmit}>
+            <PaymentElement options={paymentElementOptions}/>
+
+            <button disabled={isLoading || !stripe || !elements} id="submit">
+                <span id="button-text">
+                {isLoading ? <div className="spinner" id="spinner"></div> : "Place Order"}
+                </span>
+            </button>
+            {message && <div id="payment-message">{message}</div>}
+        </form>
+      </>
+  );
 };
 
 export default PaymentForm;
