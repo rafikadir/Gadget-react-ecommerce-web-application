@@ -1,28 +1,18 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import './CheckoutInfo.scss';
 import { useForm } from "react-hook-form";
 import { CartContext } from '../../App';
-import PaymentContainer from '../Stripe/PaymentContainer';
-import { BsCreditCard, BsBoxSeam } from "react-icons/bs";
-
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutInfo = () => {
     const {orderInfo} = useContext(CartContext);    
     const { register, handleSubmit } = useForm();
-    const [isStripeSelected, setIsStripeSelected] = useState(false);
+    const navigate = useNavigate();
 
     const onSubmit = data => {
-        console.log("data got")
+        console.log(data);
+        navigate("/payment")
     };
-
-    const handleSelect = (e) => {
-        if (e.target.value === "stripe") {
-            setIsStripeSelected(true);
-        }
-        else {
-            setIsStripeSelected(false);
-        }
-    }
 
     return (
         <section className="checkout-area">
@@ -74,36 +64,13 @@ const CheckoutInfo = () => {
                                             <input type='Zip Code' placeholder= 'Zip Code' className="form-control" {...register("Zip")} required/>
                                         </div>
                                     </div>
-                                </div>
-                                                            
-                                <button type='submit' className="address-btn">
-                                    Save information
-                                </button>
+                                </div>                          
                             </div>
-                        </form> 
 
-                        <div className="payment-info">
-                            <h3>Select Payment Option</h3>
-
-                            <div className="payment-list">       
-                                <label  className="payment-option" htmlFor="cod">
-                                    <div>
-                                        <BsBoxSeam/>
-                                        <span>Cash On Delivery</span>
-                                    </div>                                     
-                                    <input type="radio" name="paymentMethod" id="cod" value="cod" onChange={handleSelect}/>
-                                </label> 
-
-                                <label className="payment-option" htmlFor="stripe">
-                                    <div>
-                                        <BsCreditCard/>
-                                        <span>Stripe / Card</span>
-                                    </div>                                      
-                                    <input type="radio" name="paymentMethod" id="stripe" value="stripe" onChange={handleSelect}/>
-                                </label>
-                            </div>
-                            {isStripeSelected ? <PaymentContainer/> : ""}                                                                                                                                                                                                                                                                                                                                     
-                        </div>                 
+                            <button type='submit' className='address-btn'>
+                               Continue to Payment
+                            </button>  
+                        </form>            
                     </div>
 
                     <div className="col-lg-5">

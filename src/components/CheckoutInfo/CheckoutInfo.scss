@@ -44,15 +44,6 @@
                 }
             }
         }
-        
-        .address-btn {
-            background: $black-color;
-            color: $white-color;
-            border: 1px solid $black-color;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
     }
 
     .payment-info {
@@ -94,6 +85,15 @@
                 } 
             }
         }
+    }
+
+    .address-btn {
+        background: $black-color;
+        color: $white-color;
+        border: 1px solid $black-color;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin-top: 20px;
     }
 
     .checkout-summary {
