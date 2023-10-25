@@ -34,8 +34,6 @@ const PaymentForm = () => {
       return;
     }
 
-    setIsLoading(true);
-
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
@@ -48,9 +46,8 @@ const PaymentForm = () => {
     } else {
       setMessage("An unexpected error occurred.");
     }
-
-    setIsLoading(false);
   };
+  
   const paymentElementOptions = {
     layout: "tabs"
   }
@@ -59,10 +56,9 @@ const PaymentForm = () => {
       <>
         <form id="payment-form" onSubmit={handleSubmit}>
           <PaymentElement options={paymentElementOptions}/>
-          <button disabled={isLoading || !stripe || !elements} id="submit">
-              <span id="button-text">
-              {isLoading ? <div className="spinner" id="spinner"></div> : "Place Order"}
-              </span>
+
+          <button disabled={!stripe || !elements} id="submit">
+            Confirm Order
           </button>
         </form>
       </>

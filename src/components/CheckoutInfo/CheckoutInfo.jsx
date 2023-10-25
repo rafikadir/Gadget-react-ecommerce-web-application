@@ -80,30 +80,30 @@ const CheckoutInfo = () => {
                                     Save information
                                 </button>
                             </div>
+                        </form> 
 
-                            <div className="payment-info">
-                                <h3>Select Payment Option</h3>
+                        <div className="payment-info">
+                            <h3>Select Payment Option</h3>
 
-                                <div className="payment-list">       
-                                    <label  className="payment-option" htmlFor="cod">
-                                        <div>
-                                            <BsBoxSeam/>
-                                            <span>Cash On Delivery</span>
-                                        </div>                                     
-                                        <input type="radio" name="paymentMethod" id="cod" value="cod" onChange={handleSelect}/>
-                                    </label> 
+                            <div className="payment-list">       
+                                <label  className="payment-option" htmlFor="cod">
+                                    <div>
+                                        <BsBoxSeam/>
+                                        <span>Cash On Delivery</span>
+                                    </div>                                     
+                                    <input type="radio" name="paymentMethod" id="cod" value="cod" onChange={handleSelect}/>
+                                </label> 
 
-                                    <label className="payment-option" htmlFor="stripe">
-                                        <div>
-                                            <BsCreditCard/>
-                                            <span>Stripe / Card</span>
-                                        </div>                                      
-                                        <input type="radio" name="paymentMethod" id="stripe" value="stripe" onChange={handleSelect}/>
-                                    </label>
-                                </div>
-                                {isStripeSelected ? <PaymentContainer/> : ""}                                                                                                                                                                                                                                                                                                                                     
+                                <label className="payment-option" htmlFor="stripe">
+                                    <div>
+                                        <BsCreditCard/>
+                                        <span>Stripe / Card</span>
+                                    </div>                                      
+                                    <input type="radio" name="paymentMethod" id="stripe" value="stripe" onChange={handleSelect}/>
+                                </label>
                             </div>
-                        </form>                  
+                            {isStripeSelected ? <PaymentContainer/> : ""}                                                                                                                                                                                                                                                                                                                                     
+                        </div>                 
                     </div>
 
                     <div className="col-lg-5">
