@@ -1,19 +1,27 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import './CheckoutInfo.scss';
 import { useForm } from "react-hook-form";
 import { CartContext } from '../../App';
 import PaymentContainer from '../Stripe/PaymentContainer';
+import { BsCreditCard, BsBoxSeam } from "react-icons/bs";
+
 
 const CheckoutInfo = () => {
-    const {orderInfo} = useContext(CartContext);
-    
+    const {orderInfo} = useContext(CartContext);    
     const { register, handleSubmit } = useForm();
+    const [isStripeSelected, setIsStripeSelected] = useState(false);
+
     const onSubmit = data => {
-        console.log(data);
+        console.log("data got")
     };
 
     const handleSelect = (e) => {
-        console.log(e.target.value);
+        if (e.target.value === "stripe") {
+            setIsStripeSelected(true);
+        }
+        else {
+            setIsStripeSelected(false);
+        }
     }
 
     return (
@@ -67,34 +75,35 @@ const CheckoutInfo = () => {
                                         </div>
                                     </div>
                                 </div>
+                                                            
+                                <button type='submit' className="address-btn">
+                                    Save information
+                                </button>
                             </div>
 
                             <div className="payment-info">
                                 <h3>Select Payment Option</h3>
 
-                                <div className="payment-list">
-                                    <div>
-                                        <input type="radio" name="select-payment" id="cod" value="cod" onChange={handleSelect}/>
-                                        <label htmlFor="cod">Cash On Delivery</label>
-                                        <div className='payment-text'>
-                                            <p>Pay when your order arrives at your doorstep. Easy, convenient, and no need for cards or online transactions.</p>
-                                        </div>
-                                    </div>
+                                <div className="payment-list">       
+                                    <label  className="payment-option" htmlFor="cod">
+                                        <div>
+                                            <BsBoxSeam/>
+                                            <span>Cash On Delivery</span>
+                                        </div>                                     
+                                        <input type="radio" name="paymentMethod" id="cod" value="cod" onChange={handleSelect}/>
+                                    </label> 
 
-                                    <div>
-                                        <input type="radio" name="select-payment" id="stripe" value="stripe" onChange={handleSelect}/>
-                                        <label htmlFor="stripe">Stripe / Card</label>
-                                    </div>
+                                    <label className="payment-option" htmlFor="stripe">
+                                        <div>
+                                            <BsCreditCard/>
+                                            <span>Stripe / Card</span>
+                                        </div>                                      
+                                        <input type="radio" name="paymentMethod" id="stripe" value="stripe" onChange={handleSelect}/>
+                                    </label>
                                 </div>
-
-                              
-                                <PaymentContainer/>
-
-                                <button type='submit' className="payment-btn">
-                                    Place Order
-                                </button>
+                                {isStripeSelected ? <PaymentContainer/> : ""}                                                                                                                                                                                                                                                                                                                                     
                             </div>
-                        </form>
+                        </form>                  
                     </div>
 
                     <div className="col-lg-5">

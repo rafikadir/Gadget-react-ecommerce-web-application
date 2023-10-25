@@ -4,6 +4,7 @@ import {
     useElements
   } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
+import ThemeBtn from "../ThemeButton/ThemeBtn";
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -57,14 +58,12 @@ const PaymentForm = () => {
   return (
       <>
         <form id="payment-form" onSubmit={handleSubmit}>
-            <PaymentElement options={paymentElementOptions}/>
-
-            <button disabled={isLoading || !stripe || !elements} id="submit">
-                <span id="button-text">
-                {isLoading ? <div className="spinner" id="spinner"></div> : "Place Order"}
-                </span>
-            </button>
-            {message && <div id="payment-message">{message}</div>}
+          <PaymentElement options={paymentElementOptions}/>
+          <button disabled={isLoading || !stripe || !elements} id="submit">
+              <span id="button-text">
+              {isLoading ? <div className="spinner" id="spinner"></div> : "Place Order"}
+              </span>
+          </button>
         </form>
       </>
   );
