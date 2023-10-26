@@ -4,7 +4,6 @@ import {
     useElements
   } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
-import ThemeBtn from "../ThemeButton/ThemeBtn";
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -17,6 +16,7 @@ const PaymentForm = () => {
     if (!stripe) {
       return;
     }
+    
     const clientSecret = new URLSearchParams(window.location.search).get(
       "payment_intent_client_secret"
     );

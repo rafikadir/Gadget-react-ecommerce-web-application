@@ -9,7 +9,7 @@ import Checkout from './pages/Checkout';
 import Signin from './pages/Signin/Signin';
 import PrivateOutlet from './components/PrivateOutlet/PrivateOutlet';
 import User from './pages/User/User';
-import Payment from './pages/Payment';
+import Payment from './pages/Payment/Payment';
 
 export const CartContext = createContext();
 
