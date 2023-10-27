@@ -55,7 +55,17 @@ const PaymentForm = () => {
   return (
       <>
         <form id="payment-form" onSubmit={handleSubmit}>
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
           <PaymentElement options={paymentElementOptions}/>
+          <button >
+            Confirm Order
+          </button>
         </form>
       </>
   );
