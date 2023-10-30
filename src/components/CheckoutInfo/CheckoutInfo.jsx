@@ -2,24 +2,21 @@ import { useContext } from 'react';
 import './CheckoutInfo.scss';
 import { useForm } from "react-hook-form";
 import { CartContext } from '../../App';
-import { useNavigate } from 'react-router-dom';
 
 const CheckoutInfo = () => {
     const {orderInfo} = useContext(CartContext);    
     const { register, handleSubmit } = useForm();
-    const navigate = useNavigate();
 
     const onSubmit = data => {
         console.log(data);
-        navigate("/payment")
     };
 
     return (
         <section className="checkout-area">
             <div className="container">
-                <div className="row">
-                    <div className="col-lg-7">
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="row">
+                        <div className="col-lg-7">
                             <div className="address-form">
                                 <h3>Shipping Information</h3>
                                 <div className="form-group">
@@ -65,36 +62,37 @@ const CheckoutInfo = () => {
                                         </div>
                                     </div>
                                 </div>                          
+                            </div> 
+                        </div>
+
+                        <div className="col-lg-5">
+                            <div className="checkout-summary">
+                                <h3>Order Summary</h3>
+
+                                <ul className='order-info'>
+                                    {
+                                        orderInfo?.map((singleOrder, index) => 
+                                        <li key={index} className='single-order'>
+                                            <div className='pd-info'>
+                                                <div className='pd-img'>
+                                                    <img src={singleOrder.img} alt="product" />
+                                                </div>
+                                                <span>{singleOrder.title}</span>
+                                                <span className='quantity'>x {singleOrder.quantity}</span>
+                                            </div>
+                                            
+                                            <span className='price'>${singleOrder.price * singleOrder.quantity}</span>
+                                        </li>)
+                                    }
+                                </ul>
                             </div>
 
-                            <button type='submit' className='address-btn'>
-                               Continue to Payment
-                            </button>  
-                        </form>            
-                    </div>
+                            <div className="payment-form">
 
-                    <div className="col-lg-5">
-                        <div className="checkout-summary">
-                            <h3>Your Order</h3>
-                            <ul className='order-info'>
-                                {
-                                    orderInfo?.map((singleOrder, index) => 
-                                    <li key={index} className='single-order'>
-                                        <div className='pd-info'>
-                                            <div className='pd-img'>
-                                                <img src={singleOrder.img} alt="product" />
-                                            </div>
-                                            <span>{singleOrder.title}</span>
-                                            <span className='quantity'>x {singleOrder.quantity}</span>
-                                        </div>
-                                        
-                                        <span className='price'>${singleOrder.price * singleOrder.quantity}</span>
-                                    </li>)
-                                }
-                            </ul>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </div>  
+                </form>            
             </div>
         </section>
     );

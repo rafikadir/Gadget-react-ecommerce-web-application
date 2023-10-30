@@ -1,0 +1,164 @@
+@import '../../assets/scss/variables.scss';
+
+.checkout-wrapper {
+    padding-top: 150px;
+
+    .address-form {
+        border-radius: 10px;
+        margin-bottom: 20px;
+        background: $white-color;
+        padding: 30px;
+
+        h3 {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+
+            label {
+                margin-bottom: 5px;
+                font-size: 16px;
+                color: $black-color;
+            }
+
+            .form-control {
+                margin-bottom: 15px;
+                height: 45px;
+                border-radius: 5px;
+                border: 0px transparent;
+                background: rgba(3, 0, 71, 0.035);
+                color: $black-color;
+                font-weight: 500;
+
+                &:focus {
+                    box-shadow: none;
+                }
+
+                &::placeholder {
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+    
+    .payment-info {
+        border-radius: 10px;
+        background: $white-color;
+        padding: 30px;
+
+        h3 {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .payment-list {
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+
+            .payment-option {
+                padding: 10px 20px;
+                border: 1px solid #e5e5e5;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+
+                svg {
+                    font-size: 18px;
+                    top: -1px;
+                    position: relative;
+                }
+                span {
+                    margin-left: 8px;
+                }
+                input { 
+                    accent-color: $black-color; 
+                    width: 15px;
+                } 
+            }
+        }
+    }
+    
+    .address-btn {
+        background: $black-color;
+        color: $white-color;
+        border: 1px solid $black-color;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+    
+    .checkout-summary {
+            padding: 30px;
+            border-radius: 10px;
+    
+            h3 {
+                font-size: 20px;
+                margin-bottom: 30px;
+                text-transform: uppercase;
+            }
+    
+            .order-info {
+                list-style-type: none;
+                display: flex;
+                flex-direction: column;
+    
+                .single-order {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 30px;
+                    justify-content: space-between;
+    
+                    .pd-info {
+                        display: flex;
+                        align-items: center;
+    
+                        .pd-img {
+                            width: 60px;
+                            height: 60px;
+                            background: rgba(3, 0, 71, 0.09);
+                            text-align: center;
+                            display: flex;
+                            place-items: center;
+                            justify-content: center;
+                            border-radius: 10px;
+                            margin-right: 20px;
+            
+                            img {
+                                max-width: 50px;
+                            }
+                        }
+    
+                        .quantity {
+                            margin-left: 10px;
+                            color: $gray-color;
+                            font-size: 18px;
+                        }
+                    }
+                    
+                    .price {
+                        font-weight: 500;
+                    }
+                }
+    
+        }
+    }
+
+    .payment-form {
+        padding: 30px;
+        border-radius: 10px;
+    
+        h3 {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        } 
+    }
+}

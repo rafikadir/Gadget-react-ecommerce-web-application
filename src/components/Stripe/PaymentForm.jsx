@@ -1,16 +1,15 @@
 import {
-    PaymentElement,
-    useStripe,
-    useElements
-  } from "@stripe/react-stripe-js";
+  PaymentElement,
+  useStripe,
+  useElements
+} from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 
 const PaymentForm = () => {
   const stripe = useStripe();
-  const elements = useElements();
 
+  const elements = useElements();
   const [message, setMessage] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (!stripe) {
@@ -55,17 +54,7 @@ const PaymentForm = () => {
   return (
       <>
         <form id="payment-form" onSubmit={handleSubmit}>
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
           <PaymentElement options={paymentElementOptions}/>
-          <button >
-            Confirm Order
-          </button>
         </form>
       </>
   );

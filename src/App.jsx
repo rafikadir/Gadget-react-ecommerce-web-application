@@ -5,7 +5,7 @@ import Shop from './pages/Shop';
 import Product from './pages/Product';
 import Cart from './pages/Cart';
 import { createContext, useState } from 'react';
-import Checkout from './pages/Checkout';
+import Checkout from './pages/Checkout/Checkout';
 import Signin from './pages/Signin/Signin';
 import PrivateOutlet from './components/PrivateOutlet/PrivateOutlet';
 import User from './pages/User/User';
