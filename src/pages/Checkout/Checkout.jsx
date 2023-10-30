@@ -1,50 +1,17 @@
-import "./Checkout.scss";
 import { useContext } from 'react';
-import Footer from "../../shared/Footer/Footer";
-import Navbar from "../../shared/Navbar/Navbar";
-import { Elements,
-        useElements,
-        useStripe,
-        PaymentElement
-    } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
-import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { CartContext } from '../../App';
-import PaymentForm from "../../components/Stripe/PaymentForm";
-
-
-const stripePromise = await loadStripe("pk_test_51HudH6KhSDYVMKMnPwZecMbHokm2AAkPL3aZ1J33Uhlm7Qx83mgPyx6mMgm8pL8cRB9tczC0BZ5RyuRSF5XBBDdr00FHFjgv2X");
-
+import Navbar from "../../shared/Navbar/Navbar";
+import Footer from "../../shared/Footer/Footer";
+import "./Checkout.scss";
 
 const Checkout = () => {
-    const [clientSecret, setClientSecret] = useState("");
     const {orderInfo} = useContext(CartContext);    
     const { register, handleSubmit } = useForm();
 
-    // Getting Res from Stripe Server Side
-    useEffect(() => {
-        fetch("http://localhost:3000/create-payment-intent",{
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({}),
-        })
-        .then((res) => res.json())
-        .then((data) => setClientSecret(data.clientSecret));
-    }, []);
-    const appearance = {
-        theme: 'stripe'
-    };
-    const options = {
-        clientSecret,
-        appearance
-    };
-
-
     // Handle form Submission
-    const onSubmit = async (data,e) => {
+    const onSubmit = (data,e) => {
         e.preventDefault();
-
         console.log(data);
     };
 
@@ -53,9 +20,9 @@ const Checkout = () => {
             <Navbar/>
             <section className="checkout-wrapper"> 
                 <div className="container">
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="row">
-                            <div className="col-lg-7">
+                    <div className="row">
+                        <div className="col-lg-7">
+                            <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="address-form">
                                     <h3>Shipping Information</h3>
                                     <div className="form-group">
@@ -102,49 +69,32 @@ const Checkout = () => {
                                         </div>
                                     </div>                          
                                 </div> 
-                            </div>
+                                <button>Continue to Payment</button>
+                            </form>   
+                        </div>
+                        <div className="col-lg-5">
+                            <div className="checkout-summary">
+                                <h3>Order Summary</h3>
 
-                            <div className="col-lg-5">
-                                <div className="checkout-summary">
-                                    <h3>Order Summary</h3>
-
-                                    <ul className='order-info'>
-                                        {
-                                            orderInfo?.map((singleOrder, index) => 
-                                            <li key={index} className='single-order'>
-                                                <div className='pd-info'>
-                                                    <div className='pd-img'>
-                                                        <img src={singleOrder.img} alt="product" />
-                                                    </div>
-                                                    <span>{singleOrder.title}</span>
-                                                    <span className='quantity'>x {singleOrder.quantity}</span>
-                                                </div>
-                                                
-                                                <span className='price'>${singleOrder.price * singleOrder.quantity}</span>
-                                            </li>)
-                                        }
-                                    </ul>
-                                </div>
-
-                                <div className="payment-form">
-                                    <h3>Payment Option</h3>
-                                    
+                                <ul className='order-info'>
                                     {
-                                        clientSecret && stripePromise && ( 
-                                            <Elements stripe={stripePromise} options={options}>     
-                                                <PaymentForm/>
-                                                {/* <button>Pay Now</button> */}
-                                            </Elements>
-                                        )
+                                        orderInfo?.map((singleOrder, index) => 
+                                        <li key={index} className='single-order'>
+                                            <div className='pd-info'>
+                                                <div className='pd-img'>
+                                                    <img src={singleOrder.img} alt="product" />
+                                                </div>
+                                                <span>{singleOrder.title}</span>
+                                                <span className='quantity'>x {singleOrder.quantity}</span>
+                                            </div>
+                                            
+                                            <span className='price'>${singleOrder.price * singleOrder.quantity}</span>
+                                        </li>)
                                     }
-
-                                    <button>
-                                        Place Order
-                                    </button>
-                                </div>
+                                </ul>
                             </div>
-                        </div>  
-                    </form>   
+                        </div>
+                    </div>  
                 </div>
             </section>
             <Footer/>
