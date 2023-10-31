@@ -6,61 +6,80 @@
     top: 0;
     width: 100%;
     left: 0;
-    z-index: 999;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 5px 4px -5px, rgba(0, 0, 0, 0.1) 0px 0px 5px -8px;
+    z-index: 99999;
+    padding: 20px 0;
 
-    .navbar {
-        .navbar-brand {
+    .header-top {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-column-gap: 20px;
+
+        .header-logo {
             img {
                 max-width: 150px;
             }
         }
 
-        .navbar-nav {
-            .nav-item {
-                list-style-type: none;
+        .header-search {
+            position: relative;
+            width: 100%;
 
-                .nav-link {
-                    color: $black-color;
-                    font-size: 18px;
-                    margin: 5px 10px;
-                }
+            input {
+                background: #f1f1f1;
+                border: none;
+                padding: 10px 20px;
+                width: 100%;
+                border-radius: 10px;
+            }
+
+            .search-btn {
+                position: absolute;
+                background: none;
+                top: 3px;
+                right: 10px;
+                border: none;
+                font-size: 20px;
             }
         }
-    }
 
-    .header-right {
-        display: flex;
-        align-items: center;
-
-        .header-account {
-            color: #eceef3;
-            background: $black-color;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin: 0 5px;
-        }
-
-        .menu-cart {
-            margin: 0 10px;
-            text-align: center;
-            font-size: 22px;
-            position: relative;
-            width: 40px;
-            height: 40px;
-            border-radius: 5px;
-            color: $black-color;
-
-            .cart-item {
-                position: absolute;
-                top: -8px;
-                right: -5px;
-                font-size: 14px;
-                background: #e9ecef;
+        .header-right {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+    
+            .header-account {
+                color: #eceef3;
+                background: $black-color;
+                padding: 10px 20px;
+                border-radius: 5px;
+                margin: 0 5px;
+    
+                svg {
+                    margin-right: 10px;
+                }
+            }
+    
+            .header-cart {
+                margin: 0 15px;
+                text-align: center;
+                font-size: 22px;
+                position: relative;
+                width: 40px;
+                height: 40px;
+                border-radius: 5px;
                 color: $black-color;
-                width: 18px;
-                height: 18px;
-                border-radius: 50px;
+    
+                .cart-item {
+                    position: absolute;
+                    top: -8px;
+                    right: -5px;
+                    font-size: 14px;
+                    background: #e9ecef;
+                    color: $black-color;
+                    width: 18px;
+                    height: 18px;
+                    border-radius: 50px;
+                }
             }
         }
     }
