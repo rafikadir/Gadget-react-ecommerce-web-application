@@ -1,17 +1,20 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { CartContext } from '../../App';
 import Navbar from "../../shared/Navbar/Navbar";
 import Footer from "../../shared/Footer/Footer";
 import "./Checkout.scss";
+import { useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
     const {orderInfo} = useContext(CartContext);    
     const { register, handleSubmit } = useForm();
+    const navigate = useNavigate();
 
     // Handle form Submission
     const onSubmit = (data,e) => {
         e.preventDefault();
+        navigate("/payment");
         console.log(data);
     };
 

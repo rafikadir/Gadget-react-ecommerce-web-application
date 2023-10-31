@@ -55,6 +55,7 @@ const PaymentForm = () => {
       <>
         <form id="payment-form" onSubmit={handleSubmit}>
           <PaymentElement options={paymentElementOptions}/>
+          <button type="submit">Confirm Order</button>
         </form>
       </>
   );

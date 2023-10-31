@@ -10,9 +10,9 @@ import ProductInfo from '../../components/ProductInfo/ProductInfo';
 
 const ProductDetails = () => {
     const {id} = useParams()
-    const product = productsData.find(item => item.id === parseInt(id));
+    const product = productsData?.find(item => item.id === parseInt(id));
     const [quantityValue, setQuantityValue] = useState(1);
-
+    console.log(product)
     const handleIncrease = () => {
         setQuantityValue(quantityValue + 1);
     }
