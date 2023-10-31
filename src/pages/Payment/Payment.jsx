@@ -5,6 +5,7 @@ import Navbar from "../../shared/Navbar/Navbar";
 import Footer from "../../shared/Footer/Footer";
 import PaymentForm from "./PaymentForm";
 import "./Payment.scss";
+import OrderSummary from "../../components/OrderSummary/OrderSummary";
 
 const stripePromise = await loadStripe("pk_test_51HudH6KhSDYVMKMnPwZecMbHokm2AAkPL3aZ1J33Uhlm7Qx83mgPyx6mMgm8pL8cRB9tczC0BZ5RyuRSF5XBBDdr00FHFjgv2X");
 
@@ -47,7 +48,7 @@ const Payment = () => {
                   }
                 </div>
                 <div className="col-lg-5">
-
+                  <OrderSummary/>
                 </div>
               </div>
             </div>

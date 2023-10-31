@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import './CheckoutInfo.scss';
 import { useForm } from "react-hook-form";
 import { CartContext } from '../../App';
+import OrderSummary from '../OrderSummary/OrderSummary';
 
 const CheckoutInfo = () => {
     const {orderInfo} = useContext(CartContext);    
@@ -63,33 +64,6 @@ const CheckoutInfo = () => {
                                     </div>
                                 </div>                          
                             </div> 
-                        </div>
-
-                        <div className="col-lg-5">
-                            <div className="checkout-summary">
-                                <h3>Order Summary</h3>
-
-                                <ul className='order-info'>
-                                    {
-                                        orderInfo?.map((singleOrder, index) => 
-                                        <li key={index} className='single-order'>
-                                            <div className='pd-info'>
-                                                <div className='pd-img'>
-                                                    <img src={singleOrder.img} alt="product" />
-                                                </div>
-                                                <span>{singleOrder.title}</span>
-                                                <span className='quantity'>x {singleOrder.quantity}</span>
-                                            </div>
-                                            
-                                            <span className='price'>${singleOrder.price * singleOrder.quantity}</span>
-                                        </li>)
-                                    }
-                                </ul>
-                            </div>
-
-                            <div className="payment-form">
-
-                            </div>
                         </div>
                     </div>  
                 </form>            

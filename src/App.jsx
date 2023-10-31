@@ -10,6 +10,7 @@ import Signin from './pages/Signin/Signin';
 import PrivateOutlet from './components/PrivateOutlet/PrivateOutlet';
 import User from './pages/User/User';
 import Payment from './pages/Payment/Payment';
+import ThankYou from './pages/ThankYou/ThankYou';
 
 export const CartContext = createContext();
 
@@ -56,6 +57,7 @@ function App() {
           <Route path="user" element={<User />}/>
           <Route path="user/:url" element={<User />}/>
           <Route path="payment" element={<Payment />}/>
+          <Route path="success" element={<ThankYou />}/>
         {/* </Route> */}
         <Route path="/signin" element={<Signin />} />
       </Routes>

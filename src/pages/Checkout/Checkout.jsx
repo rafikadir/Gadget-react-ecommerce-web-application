@@ -5,6 +5,7 @@ import Navbar from "../../shared/Navbar/Navbar";
 import Footer from "../../shared/Footer/Footer";
 import "./Checkout.scss";
 import { useNavigate } from 'react-router-dom';
+import OrderSummary from '../../components/OrderSummary/OrderSummary';
 
 const Checkout = () => {
     const {orderInfo} = useContext(CartContext);    
@@ -76,26 +77,7 @@ const Checkout = () => {
                             </form>   
                         </div>
                         <div className="col-lg-5">
-                            <div className="checkout-summary">
-                                <h3>Order Summary</h3>
-
-                                <ul className='order-info'>
-                                    {
-                                        orderInfo?.map((singleOrder, index) => 
-                                        <li key={index} className='single-order'>
-                                            <div className='pd-info'>
-                                                <div className='pd-img'>
-                                                    <img src={singleOrder.img} alt="product" />
-                                                </div>
-                                                <span>{singleOrder.title}</span>
-                                                <span className='quantity'>x {singleOrder.quantity}</span>
-                                            </div>
-                                            
-                                            <span className='price'>${singleOrder.price * singleOrder.quantity}</span>
-                                        </li>)
-                                    }
-                                </ul>
-                            </div>
+                            <OrderSummary/>
                         </div>
                     </div>  
                 </div>
