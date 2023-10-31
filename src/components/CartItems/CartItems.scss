@@ -10,9 +10,6 @@
     }
 
     .cart-box {
-        padding: 20px;
-        box-shadow: rgba(50, 50, 93, 0.30) 0px 5px 15px -5px, rgba(0, 0, 0, 0.1) 0px 8px 16px -8px;
-
         table {
             width: 100%;
 
@@ -45,75 +42,29 @@
                 }
             }
         }
-
-        .cart-coupon {
-            padding-top: 50px;
-
-            form {
-                span {
-                    margin-bottom: 10px;
-                    display: inline-block;
-                }
-
-                .input-box {
-                    display: flex;
-                    justify-content: start;
-
-                    .coupon-input {
-                        border: none;
-                        padding: 5px 10px;
-                        margin-right: 5px;
-                        background: #f0f0f0;
-                        height: 40px;
-                        text-transform: uppercase;
-                    }
-
-                    .coupon-btn {
-                        height: 40px;
-                        padding: 5px 15px;
-                        border: none;
-                        background: $black-color;
-                        color: $white-color;
-                    }
-                }
-
-                .invaild-coupon {
-                    color: red;
-                    margin-top: 10px;
-                    display: none; 
-                    
-                    &.hide {
-                        display: block;
-                    }
-                }
-            }
-        }
     }
 
     .cart-total {
-      display: flex;
-      flex-direction: column;
-      align-items: end;
-      text-align: right;
-      padding-top: 100px;
+        border: 1px solid #d4d4d4;
+        border-radius: 10px;
+        padding: 20px;
 
-      ul {
-        padding: 0;
-        margin: 0;
+        h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
 
-        li {
-            list-style: none;
-            font-size: 18px;
-            margin-bottom: 5px;
-            font-weight: 500;
+        p {
+            color: $black-color;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
             span {
-                width: 80px;
-                display: inline-block;
-                font-weight: 400;
+                font-size: 20px;
+                font-weight: 600;
             }
-        }
-      }
+        } 
 
       .checkout-btn {
         background-color: $black-color;
@@ -122,6 +73,7 @@
         padding: 8px 25px;
         transition: .3s linear;
         margin-top: 25px;
+        width: 100%;
 
         &:hover {
             background: $white-color;

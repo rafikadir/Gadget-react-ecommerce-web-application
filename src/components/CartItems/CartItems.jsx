@@ -10,9 +10,6 @@ const CartItems = () => {
 
     const {cartProducts, deleteItem, SetOrderInfo} = useContext(CartContext);
     const [productsInCart, setProductsInCart] = useState();
-    const [getCoupon, setGetCoupon] = useState(false);
-    const [coupon, setCoupon] = useState(0);
-    const [subTotal, SetSubTotal] = useState();
     const [grandTotal, SetGrandTotal] = useState();
 
     // Cart Prducts
@@ -29,35 +26,9 @@ const CartItems = () => {
     useEffect(()=>{
         if (productsInCart) {
             const itemTotalCal = productsInCart.reduce((acc, item)=> acc + item.price * item.quantity, 0);
-            SetSubTotal(itemTotalCal);
+            SetGrandTotal(itemTotalCal);
         }
     },[productsInCart])
-    
-
-    // Handle Coupon
-    const handleInput = (e) => {
-        if(productsInCart) {
-            if (e.target.value === "test20" || e.target.value === "TEST20") {
-                setGetCoupon(true);
-            }
-        }
-    }
-    const handleCoupon = (e) => {
-        if(getCoupon === true){
-            const couponAmount = 20;
-            setCoupon(couponAmount);
-        }
-
-        else {
-            alert("Invalid")
-        }
-        e.preventDefault();
-    }
-
-    // Sub Total
-    useEffect(()=>{
-        SetGrandTotal(subTotal - coupon); 
-    },[coupon, subTotal])
 
     // Cart Quantity
     const handleDecrease = (index) => {
@@ -80,7 +51,7 @@ const CartItems = () => {
                 <h2 className='title'>Cart</h2>
 
                 <div className="row">
-                    <div className="col-lg-12">
+                    <div className="col-lg-9">
                         <div className="cart-box">
                             <table>
                                 <thead>
@@ -116,26 +87,13 @@ const CartItems = () => {
                                     )}                                  
                                 </tbody>
                             </table>
-
-                            <div className="cart-coupon">
-                                <form onSubmit={handleCoupon}>
-                                    <span>* use <code>TEST20</code> to apply coupon</span>
-                                    <div className='input-box'>
-                                        <input type="text" onChange={handleInput} placeholder='TEST20' className="coupon-input" required/>
-                                        <button className='coupon-btn' type='submit'>Apply Coupon</button>
-                                    </div>    
-                                    <span className="invaild-coupon">Invalid Coupon</span>               
-                                </form>
-                            </div>
                         </div>
+                    </div>
 
+                    <div className="col-lg-3">             
                         <div className="cart-total">
-                            <ul>
-                                <li>Sub Total: <span>${subTotal}</span></li>
-                                <li>Coupon:<span>${coupon}</span></li>
-                                <li>Grand Total: <span>${grandTotal}</span></li>
-                            </ul>
-
+                            <h3>Cart Summary</h3>
+                            <p>Total: <span>${grandTotal}</span></p>
                             <Link to="/checkout" className="checkout-btn">Proceed to Checkout</Link>
                         </div>
                     </div>
