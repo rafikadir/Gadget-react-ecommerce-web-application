@@ -39,7 +39,7 @@ const Product = (products) => {
                     <span className='review-count'>{rating} Reviews</span>
                 </div>
 
-                <div className='bottom-btn'>
+                <div className='bottom-btn'>   
                     <button className="buy-btn">Buy Now</button>
                     <button onClick={()=> updateCart(id)} className='cart-btn'><FiShoppingBag/>Add to Cart</button>        
                 </div>               

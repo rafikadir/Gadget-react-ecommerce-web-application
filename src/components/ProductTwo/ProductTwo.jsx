@@ -1,12 +1,14 @@
 import './ProductTwo.scss';
-import pd from '../../assets/img/products/7.png';
 import { Link } from 'react-router-dom';
 import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
+import { CartContext } from '../../App';
+import { useContext } from 'react';
 
 
 const ProductTwo = (product) => {
 
     const {id,title, img, price, prevPrice} = product.product;
+    const {updateCart} = useContext(CartContext);
 
     return (
         <div className="product-two-box">
@@ -14,7 +16,7 @@ const ProductTwo = (product) => {
                 <img src={img} alt="" />
 
                 <div className="product-extra">
-                    <button className="product-cart">
+                    <button onClick={()=> updateCart(id)} className="product-cart">
                         <AiOutlineShoppingCart/>
                     </button>
                     <button className="product-fav">

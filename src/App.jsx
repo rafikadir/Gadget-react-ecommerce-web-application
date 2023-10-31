@@ -15,7 +15,6 @@ import ThankYou from './pages/ThankYou/ThankYou';
 export const CartContext = createContext();
 
 function App() {
-
   const [cartProducts, setCartProducts] = useState([]);
   const [isLoggedIn, SetIsLoggedIn] = useState(false);
   const [userInfo, SetUserInfo] = useState();
@@ -33,7 +32,7 @@ function App() {
     setCartProducts(removeCart);
   };
 
-  return ( 
+  return (
     <CartContext.Provider value={{
       cartProducts, 
       updateCart, 

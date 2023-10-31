@@ -48,7 +48,7 @@ const CartItems = () => {
     return (
         <section className='cart-section'>
             <div className="container">
-                <h2 className='title'>Cart</h2>
+                <h2 className='title'>Shopping Cart</h2>
 
                 <div className="row">
                     <div className="col-lg-9">
@@ -56,8 +56,7 @@ const CartItems = () => {
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Image</th>
-                                        <th>Title</th>
+                                        <th>Product</th>
                                         <th>Price</th>
                                         <th>Quantity</th>
                                         <th>Item Total</th>
@@ -71,13 +70,15 @@ const CartItems = () => {
                                             <tr key={index}>
                                                 <td>
                                                     <img src={item.img} alt="product" className='pd-img'/>
+                                                    {item.title}
                                                 </td>
-                                                <td>{item.title}</td>
                                                 <td>{item.price}</td>
                                                 <td>
-                                                    <button onClick={()=>handleDecrease(index)} disabled={item.quantity === 1}>-</button>
-                                                    <input type="number" value={item.quantity} readOnly/>
-                                                    <button onClick={()=> handleIncrease(index)}>+</button>
+                                                    <div className='cart-quantity'>
+                                                        <button className='quantity-btn' onClick={()=>handleDecrease(index)} disabled={item.quantity === 1}>-</button>
+                                                        <input type="number" value={item.quantity} readOnly/>
+                                                        <button className='quantity-btn' onClick={()=> handleIncrease(index)}>+</button>
+                                                    </div>
                                                 </td>
                                                 <td>{item.price * item.quantity}</td>
                                                 <td>
