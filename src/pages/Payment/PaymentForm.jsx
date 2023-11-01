@@ -3,16 +3,13 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect} from "react";
 import Button from "../../components/Button/Button";
 
 const PaymentForm = () => {
   const stripe = useStripe();
 
   const elements = useElements();
-  const [message, setMessage] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!stripe) {
@@ -44,9 +41,7 @@ const PaymentForm = () => {
     });
 
     if (error.type === "card_error" || error.type === "validation_error") {
-      setMessage(error.message);
-    } else {
-      setMessage("An unexpected error occurred.");
+      console.log(error);
     }
   };
   

@@ -26,7 +26,7 @@ const Checkout = () => {
             <section className="checkout-wrapper"> 
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-8">
+                        <div className="col-lg-7">
                                 <div className="address-form">
                             <form onSubmit={handleSubmit(onSubmit)}>
                                     <h3>Shipping Information</h3>
@@ -73,11 +73,11 @@ const Checkout = () => {
                                             </div>
                                         </div>
                                     </div>                          
-                                    <Button name="Continue to Payemnt" type="submit"/>
+                                    <Button name="Save & Go to Payemnt" type="submit"/>
                                 </form>   
                             </div> 
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-lg-5">
                             <OrderSummary/>
                         </div>
                     </div>  

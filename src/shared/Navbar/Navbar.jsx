@@ -8,7 +8,8 @@ import { FaUserAlt } from "react-icons/fa";
 import { BiSearchAlt } from "react-icons/bi";
 
 const Navbar = () => {
-    const {cartProducts, isLoggedIn} = useContext(CartContext);
+    const {cartProducts, isLoggedIn, userInfo} = useContext(CartContext);
+    const {displayName} = userInfo;
 
     return (
         <div className='header-wrapper'>
@@ -32,7 +33,9 @@ const Navbar = () => {
                     
                     <Link to="/user" className="header-account">
                         <FaUserAlt/>
-                        My Account
+                        {
+                            isLoggedIn ? displayName : "My Account"
+                        } 
                     </Link>
                 </div>
             </div>

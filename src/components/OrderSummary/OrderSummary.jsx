@@ -1,9 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState,useEffect } from "react";
 import { CartContext } from "../../App";
 import "./OrderSummary.scss";
 
 const OrderSummary = () => {
     const {orderInfo} = useContext(CartContext);   
+    const [total, setTotal] = useState();
+    useEffect(() => {
+        const totalAmmount = orderInfo?.reduce((total, singleOrder) => total + singleOrder.price * singleOrder.quantity,0);
+        setTotal(totalAmmount);
+    }, [orderInfo]);
 
     return (
         <div className="checkout-summary">
@@ -25,6 +30,11 @@ const OrderSummary = () => {
                 </li>)
             }
         </ul>
+
+        <div className="total-ammount">
+            <p>Total</p>
+            <span>$ {total}</span>
+        </div>
     </div>
     );
 };
