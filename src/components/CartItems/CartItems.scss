@@ -10,6 +10,8 @@
     }
 
     .cart-box {
+        padding-right: 50px;
+
         table {
             width: 100%;
 
@@ -92,22 +94,5 @@
                 font-weight: 500;
             }
         } 
-
-      .checkout-btn {
-        background-color: $black-color;
-        color: $white-color;
-        border: 1px solid $black-color;
-        padding: 8px 25px;
-        transition: .3s linear;
-        margin-top: 25px;
-        width: 100%;
-        text-align: center;
-        border-radius: 8px;
-
-        &:hover {
-            background: $white-color;
-            color: $black-color;
-        }
-      }
     }
 }

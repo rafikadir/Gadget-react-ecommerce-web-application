@@ -1,0 +1,27 @@
+@import '../../assets/scss/style.scss';
+
+.default-btn {
+    background-color: $black-color;
+    color: $white-color;
+    border: 1px solid $black-color;
+    padding: 8px 25px;
+    transition: .3s linear;
+    margin-top: 25px;
+    text-align: center;
+    border-radius: 8px;
+
+    &:hover {
+        background: $white-color;
+        color: $black-color;
+    }
+
+    svg {
+        margin-right: 10px;
+        position: relative;
+        top: -2px;
+    }
+
+    &.full-width {
+        width: 100%;
+    }
+}

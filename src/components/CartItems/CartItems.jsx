@@ -4,6 +4,7 @@ import { CartContext } from '../../App';
 import productData from '../../data/products.json';
 import { AiOutlineDelete } from "react-icons/ai";
 import { Link } from 'react-router-dom';
+import LinkBtn from '../LinkBtn/LinkBtn';
 
 
 const CartItems = () => {
@@ -51,7 +52,7 @@ const CartItems = () => {
                 <h2 className='title'>Shopping Cart</h2>
 
                 <div className="row">
-                    <div className="col-lg-9">
+                    <div className="col-lg-8">
                         <div className="cart-box">
                             <table>
                                 <thead>
@@ -91,11 +92,11 @@ const CartItems = () => {
                         </div>
                     </div>
 
-                    <div className="col-lg-3">             
+                    <div className="col-lg-4">             
                         <div className="cart-total">
                             <h3>Cart Summary</h3>
                             <p>Total: <span>${grandTotal}</span></p>
-                            <Link to="/checkout" className="checkout-btn">Proceed to Checkout</Link>
+                            <LinkBtn name="Go to Checkout" link="/checkout"/>
                         </div>
                     </div>
                 </div>

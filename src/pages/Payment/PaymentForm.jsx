@@ -5,6 +5,7 @@ import {
 } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "../../components/Button/Button";
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -57,7 +58,7 @@ const PaymentForm = () => {
       <>
         <form id="payment-form" onSubmit={handleSubmit}>
           <PaymentElement options={paymentElementOptions}/>
-          <button type="submit">Confirm Order</button>
+          <Button name="Place Order"/>
         </form>
       </>
   );

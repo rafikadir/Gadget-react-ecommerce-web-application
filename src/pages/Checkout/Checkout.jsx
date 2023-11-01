@@ -6,6 +6,7 @@ import Footer from "../../shared/Footer/Footer";
 import "./Checkout.scss";
 import { useNavigate } from 'react-router-dom';
 import OrderSummary from '../../components/OrderSummary/OrderSummary';
+import Button from '../../components/Button/Button';
 
 const Checkout = () => {
     const {orderInfo} = useContext(CartContext);    
@@ -25,9 +26,9 @@ const Checkout = () => {
             <section className="checkout-wrapper"> 
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-7">
-                            <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="col-lg-8">
                                 <div className="address-form">
+                            <form onSubmit={handleSubmit(onSubmit)}>
                                     <h3>Shipping Information</h3>
                                     <div className="form-group">
                                         <label className="form-label">Full Name</label>
@@ -72,11 +73,11 @@ const Checkout = () => {
                                             </div>
                                         </div>
                                     </div>                          
-                                </div> 
-                                <button>Continue to Payment</button>
-                            </form>   
+                                    <Button name="Continue to Payemnt" type="submit"/>
+                                </form>   
+                            </div> 
                         </div>
-                        <div className="col-lg-5">
+                        <div className="col-lg-4">
                             <OrderSummary/>
                         </div>
                     </div>  

@@ -1,6 +1,6 @@
 import './SingleProduct.scss';
 import img from '../../assets/img/products/1.png';
-import ThemeButton from '../ThemeButton/ThemeBtn';
+import ThemeButton from '../LinkBtn/LinkBtn';
 
 const SingleProduct = () => {
     

@@ -1,5 +1,5 @@
 import './ProductDetails.scss';
-import ThemeBtn from '../../components/ThemeButton/ThemeBtn';
+import ThemeBtn from '../../components/LinkBtn/LinkBtn';
 import TabsItem from '../../components/TabsItem/TabsItem';
 import { useParams } from 'react-router-dom';
 import productsData from '../../data/products.json';

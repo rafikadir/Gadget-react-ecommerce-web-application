@@ -4,6 +4,7 @@ import { AiFillStar, AiOutlineStar, AiOutlineHeart } from "react-icons/ai";
 import {FiShoppingBag} from "react-icons/fi"; 
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../App';
+import Button from '../Button/Button';
 
 const Product = (products) => {
     const {id,img, title, price, prevPrice, offPrice, rating} = products.products;
@@ -38,11 +39,12 @@ const Product = (products) => {
                     </ul>
                     <span className='review-count'>{rating} Reviews</span>
                 </div>
-
-                <div className='bottom-btn'>   
-                    <button className="buy-btn">Buy Now</button>
-                    <button onClick={()=> updateCart(id)} className='cart-btn'><FiShoppingBag/>Add to Cart</button>        
-                </div>               
+                <Button 
+                    name="Add to Cart" 
+                    onClick={()=> updateCart(id)}
+                    icon={<FiShoppingBag/>}
+                    fullWidth={true}
+                />   
             </div>
         </div>
     );

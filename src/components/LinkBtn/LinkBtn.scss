@@ -1,11 +1,15 @@
 @import '../../assets/scss/style.scss';
 
-.theme-btn {
-    background: $black-color;
+.link-btn {
+    background-color: $black-color;
     color: $white-color;
-    padding: 10px 45px;
-    transition: .5s;
     border: 1px solid $black-color;
+    padding: 8px 25px;
+    transition: .3s linear;
+    margin-top: 25px;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
 
     &:hover {
         background: $white-color;
