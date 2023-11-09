@@ -4,17 +4,19 @@ import {auth} from '../../auth/firebase';
 import {useContext, useState} from "react";
 import {FcGoogle} from "react-icons/fc";
 import { CartContext } from "../../App";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Signin = () => {
+
     const {SetIsLoggedIn, SetUserInfo} = useContext(CartContext);
     const [isNewUser, SetIsNewUser] = useState(false);
     const [wrongPass, SetWrongPass] = useState(false);
     const [wrongUser, SetWrongUser] = useState(false);
     const [haveUser, setHaveUser] = useState(false);
     const provider = new GoogleAuthProvider();
-
     const navigate = useNavigate();
+    const location = useLocation();
+    
     // New User Information
     const [user, setUser] = useState({
         name: "",
@@ -24,12 +26,12 @@ const Signin = () => {
   
     // Account Create or Signin
     const handleSubmit = (e) => {
-        // Login
+        // Login Previous User
         if (!isNewUser) {
             signInWithEmailAndPassword(auth, user.email, user.password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                if (user.uid) {
+                if(user.uid) {
                     SetIsLoggedIn(true);
                     SetUserInfo(user);
                 }
@@ -78,7 +80,13 @@ const Signin = () => {
             if (user.uid) {
                 SetIsLoggedIn(true);
                 SetUserInfo(user);
-                navigate();
+
+                if (location.pathname === "/checkout") {
+                    navigate("/checkout");
+                }
+                else {
+                    navigate("/user");
+                }
             }
         
         }).catch((error) => {

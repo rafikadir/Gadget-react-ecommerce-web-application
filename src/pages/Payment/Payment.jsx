@@ -31,7 +31,6 @@ const Payment = () => {
       appearance
     };
   
-
     return (
       <>
           <Navbar/>

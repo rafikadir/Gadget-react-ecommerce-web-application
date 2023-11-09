@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom';
-import './Navbar.scss';
-import {AiOutlineShoppingCart } from "react-icons/ai";
-import logo from '../../assets/img/logo.png';
 import { useContext } from 'react';
 import { CartContext } from '../../App';
 import { FaUserAlt } from "react-icons/fa";
 import { BiSearchAlt } from "react-icons/bi";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import logo from '../../assets/img/logo.png';
+import './Navbar.scss';
 
 const Navbar = () => {
-    const {cartProducts, isLoggedIn, userInfo} = useContext(CartContext);
-    const {displayName} = userInfo;
+    const {cartProducts, userInfo} = useContext(CartContext);
 
     return (
         <div className='header-wrapper'>
@@ -34,7 +33,7 @@ const Navbar = () => {
                     <Link to="/user" className="header-account">
                         <FaUserAlt/>
                         {
-                            isLoggedIn ? displayName : "My Account"
+                            userInfo ? userInfo.displayName : "My Account"
                         } 
                     </Link>
                 </div>

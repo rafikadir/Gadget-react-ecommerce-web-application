@@ -3,12 +3,11 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
-import { useEffect} from "react";
+import { useEffect, useState} from "react";
 import Button from "../../components/Button/Button";
 
 const PaymentForm = () => {
   const stripe = useStripe();
-
   const elements = useElements();
 
   useEffect(() => {
