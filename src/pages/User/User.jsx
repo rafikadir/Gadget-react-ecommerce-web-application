@@ -3,7 +3,6 @@ import { RxDashboard } from "react-icons/rx";
 import { FiLogOut } from "react-icons/fi";
 import { BiUser } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
-import { useEffect, useState } from 'react';
 import { CartContext } from '../../App';
 import { useContext } from 'react';
 import { getAuth, signOut } from 'firebase/auth';
@@ -15,12 +14,11 @@ import Profile from '../../components/Profile/Profile';
 import Order from '../../components/Order/Order';
 import './User.scss';
 
-
 const User = () => {
     const auth = getAuth();
     const {isLoggedIn, SetIsLoggedIn} = useContext(CartContext);
     const navigate = useNavigate();
-    
+
     const {url} = useParams();
     const sidebarNav = [
         { "name" : "Dashboard", "link" : "dashboard", "icon" : <RxDashboard/>, "section": <Dashbaord/>},
@@ -33,6 +31,7 @@ const User = () => {
     const handleSignout = () => {
         if (isLoggedIn) {
             signOut(auth).then(() => {
+                localStorage.removeItem("user");
                 SetIsLoggedIn(false);
                 navigate("/");
             }).catch((error) => {

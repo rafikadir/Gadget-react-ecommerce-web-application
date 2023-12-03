@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext} from 'react';
 import { CartContext } from '../../App';
 import { FaUserAlt } from "react-icons/fa";
 import { BiSearchAlt } from "react-icons/bi";
@@ -33,8 +33,8 @@ const Navbar = () => {
                     <Link to="/user" className="header-account">
                         <FaUserAlt/>
                         {
-                            userInfo ? userInfo.displayName : "My Account"
-                        } 
+                            userInfo?.uid ? userInfo.displayName : "Account"
+                        }
                     </Link>
                 </div>
             </div>

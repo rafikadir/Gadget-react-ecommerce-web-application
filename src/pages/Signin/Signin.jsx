@@ -8,7 +8,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const Signin = () => {
 
-    const {SetIsLoggedIn, SetUserInfo} = useContext(CartContext);
+    const {SetUserInfo, SetIsLoggedIn} = useContext(CartContext);
     const [isNewUser, SetIsNewUser] = useState(false);
     const [wrongPass, SetWrongPass] = useState(false);
     const [wrongUser, SetWrongUser] = useState(false);
@@ -16,7 +16,7 @@ const Signin = () => {
     const provider = new GoogleAuthProvider();
     const navigate = useNavigate();
     const location = useLocation();
-    
+  
     // New User Information
     const [user, setUser] = useState({
         name: "",
@@ -32,8 +32,9 @@ const Signin = () => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 if(user.uid) {
-                    SetIsLoggedIn(true);
+                    localStorage.setItem("user", JSON.stringify(user));
                     SetUserInfo(user);
+                    SetIsLoggedIn(true);
                 }
             })
             .catch((error)=>{
@@ -57,8 +58,9 @@ const Signin = () => {
                         displayName: user.name,
                     });
                     navigate("/user");
+                    localStorage.setItem("user", JSON.stringify(user));
+                    SetUserInfo(user);
                     SetIsLoggedIn(true);
-                    SetUserInfo(newUser);
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -78,8 +80,9 @@ const Signin = () => {
         .then((result) => {
             const user = result.user;
             if (user.uid) {
-                SetIsLoggedIn(true);
+                localStorage.setItem("user", JSON.stringify(user));
                 SetUserInfo(user);
+                SetIsLoggedIn(true);
 
                 if (location.pathname === "/checkout") {
                     navigate("/checkout");

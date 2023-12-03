@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import './Dashboard.scss';
 import {FiShoppingCart,FiHeart,FiInbox,FiPackage} from "react-icons/fi";
 import { CartContext } from '../../App';

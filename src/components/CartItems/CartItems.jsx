@@ -96,6 +96,7 @@ const CartItems = () => {
                         <div className="cart-total">
                             <h3>Cart Summary</h3>
                             <p>Total: <span>${grandTotal}</span></p>
+
                             <LinkBtn name="Go to Checkout" link="/checkout"/>
                         </div>
                     </div>

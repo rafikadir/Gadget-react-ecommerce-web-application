@@ -4,7 +4,7 @@ import Contact from './pages/Contact';
 import Shop from './pages/Shop';
 import Product from './pages/Product';
 import Cart from './pages/Cart';
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import Checkout from './pages/Checkout/Checkout';
 import Signin from './pages/Signin/Signin';
 import PrivateOutlet from './components/PrivateOutlet/PrivateOutlet';
@@ -17,8 +17,9 @@ export const CartContext = createContext();
 function App() {
   const [cartProducts, setCartProducts] = useState([]);
   const [isLoggedIn, SetIsLoggedIn] = useState(false);
-  const [userInfo, SetUserInfo] = useState();
   const [orderInfo, SetOrderInfo] = useState();
+  const [isNewUser, SetIsNewUser] = useState(false);
+  const [userInfo, SetUserInfo] = useState();
 
   const updateCart = (id) => {
     const checkProduct = cartProducts.includes(id);
@@ -32,11 +33,26 @@ function App() {
     setCartProducts(removeCart);
   };
 
+  useEffect(() => {
+    const storedData = localStorage.getItem("user");
+    if (storedData) {
+      const userData = JSON.parse(storedData);
+      SetUserInfo(userData);
+      SetIsLoggedIn(true);
+    }
+    else {
+      SetIsLoggedIn(false);
+      SetUserInfo("");
+    }
+  },[]);
+
   return (
     <CartContext.Provider value={{
       cartProducts, 
       updateCart, 
       deleteItem, 
+      isNewUser,
+      SetIsNewUser,
       SetIsLoggedIn, 
       isLoggedIn, 
       userInfo, 

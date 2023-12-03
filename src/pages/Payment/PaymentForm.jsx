@@ -3,7 +3,7 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
-import { useEffect, useState} from "react";
+import { useEffect} from "react";
 import Button from "../../components/Button/Button";
 
 const PaymentForm = () => {
@@ -35,7 +35,7 @@ const PaymentForm = () => {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "http://localhost:5173/success",
+        return_url: "http://localhost:5173/user",
       },
     });
 
