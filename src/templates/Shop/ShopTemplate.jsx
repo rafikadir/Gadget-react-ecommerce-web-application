@@ -4,40 +4,20 @@ import { BsFillGrid3X3GapFill, BsListUl } from "react-icons/bs";
 import Product from '../../components/Product/Product';
 import productsData from '../../data/products.json';
 import {useState } from 'react';
-import ProductList from '../../components/ProductList/ProductList';
 import { useEffect } from 'react';
 
 const ShopTemplate = () => {
 
     const [defaultView, setDefaultView] = useState(true);
     const [index, setIndex] = useState(6);
-    const [isCompleted,setIsCompleted] = useState(false);
     const [price, setPrice] = useState();
     const [categories, setCategories] = useState();
     const [updated, setUpdated] = useState([]);
-    const [initialItems, setInitialItems]  = useState(productsData);
-
-    // Load More Function
-    const loadmore = () => {
-        const indexUpdate = index + 3;
-        setIndex(indexUpdate);
-
-        if(index > productsData.length) {
-            setIsCompleted(true);
-        }
-        else {
-            setIsCompleted(false)
-        }
-    } 
+    const [initialItems, setInitialItems]  = useState(productsData); 
     
     // List View
     const listView = () => {
         setDefaultView(false);
-    }
-
-    // Grid View
-    const gridView = () => {
-        setDefaultView(true);
     }
 
     // Getting Filtered Price and Category
@@ -46,17 +26,6 @@ const ShopTemplate = () => {
         setCategories(category);
     };
     
-    const filterCategory = () => {
-        const category = categories?.filter(c => c);
-        const filtered = initialItems.filter( item => category?.includes(item.category));
-        // setInitialItems(filtered);
-    };
-
-    useEffect(() => {
-        filterCategory();
-    },[categories]);
-    
-
     return (
         <section className='shop-wrapper'>
             <div className="container">
@@ -108,15 +77,6 @@ const ShopTemplate = () => {
                                     }
                                 </>
                             }
-
-
-                            <div className="col-lg-12 text-center">
-                                { isCompleted ?
-                                    <button onClick={loadmore} className='load-more disabled' disabled>Finished</button>
-                                    :
-                                    <button  onClick={loadmore} className='load-more'>Load More</button>
-                                }
-                            </div>
                         </div>
                     </div>
                 </div>

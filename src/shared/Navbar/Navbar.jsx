@@ -8,7 +8,7 @@ import logo from '../../assets/img/logo.png';
 import './Navbar.scss';
 
 const Navbar = () => {
-    const {cartProducts, userInfo} = useContext(CartContext);
+    const {cartProducts, userInfo, isLoggedIn} = useContext(CartContext);
 
     return (
         <div className='header-wrapper'>
@@ -33,7 +33,7 @@ const Navbar = () => {
                     <Link to="/user" className="header-account">
                         <FaUserAlt/>
                         {
-                            userInfo?.uid ? userInfo.displayName : "Account"
+                            isLoggedIn ? userInfo.displayName : "Account"
                         }
                     </Link>
                 </div>
