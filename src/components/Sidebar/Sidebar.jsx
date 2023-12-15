@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 
 
 const Sidebar = ({sendData}) => {
-
     const [sliderValue, setSliderValue] = useState(1200);
     const [categories, setCategories] = useState([]);
 
@@ -16,7 +15,6 @@ const Sidebar = ({sendData}) => {
         setSliderValue(sliderValue.target.value);
         sendData(sliderValue.target.value);
     }
-
     
     const updateCategory = (e) => {
         const selectedCategory = e.target.value;
@@ -60,103 +58,6 @@ const Sidebar = ({sendData}) => {
                             <input type="checkbox" value="balance" onChange={updateCategory}/>
                             Balance
                         </label>
-                    </div>
-                </div>
-               
-                <div className="brand-filter filter-item">
-                    <h3>Brand</h3>
-                    
-                    <div className='brand-list'>
-                        <label>
-                            <input type="checkbox"/>
-                            one
-                        </label>
-                        <label>
-                            <input type="checkbox"/>
-                            two
-                        </label>
-                        <label>
-                            <input type="checkbox"/>
-                            three
-                        </label>
-                        <label>
-                            <input type="checkbox"/>
-                            four
-                        </label>
-                        <label>
-                            <input type="checkbox"/>
-                            five
-                        </label>
-                    </div>
-                </div>
-
-                <div className="rating-filter filter-item">
-                    <h3>Rating</h3>
-                    
-                    <div className="rating-box">
-                        <input type="checkbox"/>
-                        <div className='single-rating'>
-                            <ul>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                            </ul>
-                            <span className="rating-count">25</span>
-                        </div>
-                    </div>
-                    <div className="rating-box">
-                        <input type="checkbox"/>
-                        <div className='single-rating'>
-                            <ul>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                            </ul>
-                            <span className="rating-count">20</span>
-                        </div>
-                    </div>
-                    <div className="rating-box">
-                        <input type="checkbox"/>
-                        <div className='single-rating'>
-                            <ul>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                            </ul>
-                            <span className="rating-count">9</span>
-                        </div>
-                    </div>
-                    <div className="rating-box">
-                        <input type="checkbox"/>
-                        <div className='single-rating'>
-                            <ul>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                            </ul>
-                            <span className="rating-count">3</span>
-                        </div>
-                    </div>
-                    <div className="rating-box">
-                        <input type="checkbox"/>
-                        <div className='single-rating'>
-                            <ul>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                                <li><AiFillStar/></li>
-                            </ul>
-                            <span className="rating-count">0</span>
-                        </div>
                     </div>
                 </div>
             </div>

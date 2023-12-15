@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
-import Shop from './pages/Shop';
+import Shop from './pages/Shop/Shop';
 import Product from './pages/Product';
 import Cart from './pages/Cart';
 import { createContext, useEffect, useState } from 'react';
