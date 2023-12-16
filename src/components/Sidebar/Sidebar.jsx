@@ -1,15 +1,9 @@
 import './Sidebar.scss';
-import { AiFillStar } from "react-icons/ai";
-import { useState, useEffect } from 'react';
-
+import { useState} from 'react';
 
 const Sidebar = ({sendData}) => {
-    const [sliderValue, setSliderValue] = useState(1200);
+    const [sliderValue, setSliderValue] = useState(1800);
     const [categories, setCategories] = useState([]);
-
-    useEffect(() => {
-        sendData(sliderValue,categories);
-    },[sliderValue,categories]);
 
     const updateValue = (sliderValue) => {
         setSliderValue(sliderValue.target.value);
@@ -21,10 +15,13 @@ const Sidebar = ({sendData}) => {
         if(categories.includes(selectedCategory)){
             setCategories(categories.filter((category) => category !== selectedCategory));
         }
+        
         else {
             setCategories([...categories, selectedCategory]);
         }
-    }    
+
+        sendData(sliderValue, categories);
+    }
 
     return (
         <div className='sidebar-wrapper'>
@@ -43,20 +40,16 @@ const Sidebar = ({sendData}) => {
                     
                     <div className='category-list'>
                         <label>
-                            <input type="checkbox" value="cantilever" onChange={updateCategory}/>
-                            Cantilever
+                            <input type="checkbox" value="gaming" onChange={updateCategory}/>
+                            Gaming
                         </label>
                         <label>
-                            <input type="checkbox" value="suspended" onChange={updateCategory}/>
-                            Suspended
+                            <input type="checkbox" value="watch" onChange={updateCategory}/>
+                            Watch
                         </label>
                         <label>
-                            <input type="checkbox" value="floating" onChange={updateCategory}/>
-                            Floating
-                        </label>
-                        <label>
-                            <input type="checkbox" value="balance" onChange={updateCategory}/>
-                            Balance
+                            <input type="checkbox" value="laptop" onChange={updateCategory}/>
+                            Laptop
                         </label>
                     </div>
                 </div>
