@@ -9,19 +9,11 @@ const Sidebar = ({sendData}) => {
         setSliderValue(sliderValue.target.value);
         sendData(sliderValue.target.value);
     }
-    
+ 
     const updateCategory = (e) => {
-        const selectedCategory = e.target.value;
-        if(categories.includes(selectedCategory)){
-            setCategories(categories.filter((category) => category !== selectedCategory));
-        }
-        
-        else {
-            setCategories([...categories, selectedCategory]);
-        }
-
-        sendData(sliderValue, categories);
+        const updatedCategory = e.target.value
     }
+
 
     return (
         <div className='sidebar-wrapper'>

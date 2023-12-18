@@ -8,22 +8,27 @@ import Footer from '../../shared/Footer/Footer';
 
 const Shop = () => {
     const [filteredItems, setFilteredItems] = useState(productsData);
-    
+    const [price, setPrice] = useState(1800);
+    const [categories, setCategories] = useState([]);
+
     // Getting Filtered Price and Category
-    const receiveData = (sliderValue, categories) => {
-        console.log(categories);
-
-        // Apply filters to products
-        const filteredProducts = productsData.filter(item => {
-            const priceCondition = sliderValue ? item.price <= sliderValue : true;
-            const categoryCondition = categories ? categories.includes(item.category) : true;
-
-            return priceCondition && categoryCondition;
-        });
-
-        setFilteredItems(filteredProducts.length > 0 ? filteredProducts : productsData);
+    const receiveData = (sliderValue, selectedCategories) => {
+        setPrice(sliderValue);
+        setCategories(selectedCategories);
     };
-    
+
+    useEffect(() => {
+        // Filter by Price
+        const filteredByPrice = productsData.filter(item => item.price <= price);
+
+        // Filter by Categories
+        const filteredByCategory = categories?.length > 0
+            ? filteredByPrice.filter(item => categories.includes(item.category))
+            : filteredByPrice;
+
+        // Update the state with the filtered items
+        setFilteredItems(filteredByCategory);
+    }, [price, categories]);
 
     return (
         <>
