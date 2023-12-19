@@ -1,10 +1,10 @@
+import {useState, useEffect} from 'react';
 import Sidebar from '../../components/Sidebar/Sidebar';
-import './Shop.scss';
 import Product from '../../components/Product/Product';
 import productsData from '../../data/products.json';
-import {useState, useEffect } from 'react';
 import Navbar from '../../shared/Navbar/Navbar';
 import Footer from '../../shared/Footer/Footer';
+import './Shop.scss';
 
 const Shop = () => {
     const [filteredItems, setFilteredItems] = useState(productsData);
@@ -12,23 +12,25 @@ const Shop = () => {
     const [categories, setCategories] = useState([]);
 
     // Getting Filtered Price and Category
-    const receiveData = (sliderValue, selectedCategories) => {
+    const receiveData = (sliderValue, categories) => {
         setPrice(sliderValue);
-        setCategories(selectedCategories);
+        setCategories(categories);
+        console.log(sliderValue);
     };
 
     useEffect(() => {
         // Filter by Price
         const filteredByPrice = productsData.filter(item => item.price <= price);
-
+    
         // Filter by Categories
         const filteredByCategory = categories?.length > 0
             ? filteredByPrice.filter(item => categories.includes(item.category))
             : filteredByPrice;
-
+    
         // Update the state with the filtered items
         setFilteredItems(filteredByCategory);
     }, [price, categories]);
+    
 
     return (
         <>
