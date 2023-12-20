@@ -38,16 +38,23 @@ const Navbar = () => {
                         <BiSearchAlt/>
                     </button>
 
-                    <div className={`search-products ${productMatched?.length === 0 ? 'hide' : ''}`}>
-                        {
-                            productMatched?.map(item => (
-                                <Link className='product-list' key={item.id}>
-                                    <img src={item.img} alt={item.item} />
-                                    <Link>{item.title}</Link>
-                                </Link>
-                            ))
-                        }
-                    </div>
+                    {
+                        productMatched?.length > 0 ?
+
+                        <div className="search-products">
+                            {
+                                productMatched?.map(item => (
+                                    <Link className='product-list' key={item.id}>
+                                        <img src={item.img} alt={item.item} />
+                                        <Link>{item.title}</Link>
+                                    </Link>
+                                ))
+                            }
+                        </div>
+                        :
+                        ""
+                    }
+                    
                 </div>
 
                 <div className="header-right">
