@@ -40,6 +40,39 @@
                 border: none;
                 font-size: 20px;
             }
+
+            .search-products {
+                position: absolute;
+                background: $white-color;
+                width: 100%;
+                padding: 10px;
+                border-radius: 10px;
+                top: 120%;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px -7px 15px -5px, rgba(0, 0, 0, 0.1) 0px 0px 0px -8px;
+
+                .product-list {
+                    padding: 5px;
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        max-width: 50px;
+                    }
+
+                    &:hover {
+                        background: #dddddd;
+                    }
+                }
+
+                a {
+                    color: $black-color;
+                    margin-bottom: 0;
+                }
+
+                &.hide {
+                    display: none;
+                }
+            }
         }
 
         .header-right {

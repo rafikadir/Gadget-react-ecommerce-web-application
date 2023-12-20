@@ -15,7 +15,6 @@ const Shop = () => {
     const receiveData = (sliderValue, categories) => {
         setPrice(sliderValue);
         setCategories(categories);
-        console.log(sliderValue);
     };
 
     useEffect(() => {

@@ -1,10 +1,9 @@
 import './Sidebar.scss';
-import { useState, useEffect} from 'react';
+import { useState} from 'react';
 
 const Sidebar = ({sendData}) => {
     const [sliderValue, setSliderValue] = useState(1800);
     const [categories, setCategories] = useState([]);
-
   
     const updateValue = (sliderValue) => {
         setSliderValue(sliderValue.target.value);
@@ -14,18 +13,17 @@ const Sidebar = ({sendData}) => {
     const updateCategory = (e) => {
         const updatedCategory = e.target.value;
     
-        setCategories(prevCategories => {
-            if (!prevCategories.includes(updatedCategory) && e.target.checked) {
-                sendData(sliderValue, [...prevCategories, updatedCategory]);
-                return [...prevCategories, updatedCategory];
+        setCategories(categories => {
+            if (!categories.includes(updatedCategory) && e.target.checked) {
+                sendData(sliderValue, [...categories, updatedCategory]);
+                return [...categories, updatedCategory];
             } else {
-                const updatedCategories = prevCategories.filter(category => category !== updatedCategory);
+                const updatedCategories = categories.filter(category => category !== updatedCategory);
                 sendData(sliderValue, updatedCategories);
                 return updatedCategories;
             }
         });
     };
-    
 
     return (
         <div className='sidebar-wrapper'>
