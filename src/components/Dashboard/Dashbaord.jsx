@@ -11,7 +11,7 @@ const Dashbaord = () => {
             <div className="container">
                 <div className="dashboard-top">
                     <div className="dashboard-text">
-                        <h2>Hello, {userInfo?.displayName} 👋</h2>
+                        <h2>Hello, {userInfo.name || userInfo.displayName} 👋</h2>
                         <p>Welcome to your dashboard 📊</p>
                     </div>
                     <div className="dashboard-img">

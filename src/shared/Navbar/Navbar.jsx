@@ -23,8 +23,6 @@ const Navbar = () => {
         }
     }
 
-    console.log(productMatched?.length);
-
     return (
         <header className='header-wrapper'>
             <div className="header-top container">
@@ -66,7 +64,7 @@ const Navbar = () => {
                     <Link to="/user/dashboard" className="header-account">
                         <FaUserAlt/>
                         {
-                            isLoggedIn ? userInfo.displayName : "Account"
+                            isLoggedIn ? userInfo.name || userInfo.displayName : "Account"
                         }
                     </Link>
                 </div>

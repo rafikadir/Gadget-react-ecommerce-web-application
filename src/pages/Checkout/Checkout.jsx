@@ -5,16 +5,21 @@ import Footer from "../../shared/Footer/Footer";
 import OrderSummary from '../../components/OrderSummary/OrderSummary';
 import Button from '../../components/Button/Button';
 import "./Checkout.scss";
+import { CartContext } from "../../App";
+import { useContext } from "react";
 
 const Checkout = () => {
-    const { register, handleSubmit } = useForm();
+    const {orderInfo} = useContext(CartContext);  
+    const { register, handleSubmit} = useForm();
     const navigate = useNavigate();
 
     // Handle form Submission
     const onSubmit = (data,e) => {
         e.preventDefault();
+        localStorage.setItem('shipping', JSON.stringify(data));
+        localStorage.setItem('order', JSON.stringify(orderInfo));
+
         navigate("/payment");
-        console.log(data);
     };
 
     return (

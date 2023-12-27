@@ -44,8 +44,7 @@ const CartItems = () => {
         latestCart[index].quantity += 1;
         setProductsInCart(latestCart);
     }
-    
-    
+
     return (
         <section className='cart-section'>
             <div className="container">
@@ -97,7 +96,9 @@ const CartItems = () => {
                             <h3>Cart Summary</h3>
                             <p>Total: <span>${grandTotal}</span></p>
 
-                            <LinkBtn name="Go to Checkout" link="/checkout"/>
+                            {
+                                productsInCart?.length > 0 ? <LinkBtn name="Go to Checkout" link="/checkout"/> : ""
+                            }
                         </div>
                     </div>
                 </div>

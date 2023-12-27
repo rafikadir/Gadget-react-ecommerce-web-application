@@ -7,7 +7,6 @@ import { CartContext } from "../../App";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Signin = () => {
-
     const {SetUserInfo, SetIsLoggedIn} = useContext(CartContext);
     const [isNewUser, SetIsNewUser] = useState(false);
     const [wrongPass, SetWrongPass] = useState(false);
@@ -109,6 +108,7 @@ const Signin = () => {
     const checkNewUser = () => {
         SetIsNewUser(!isNewUser);
     }
+
 
     return (
         <section className='signin-section'>
