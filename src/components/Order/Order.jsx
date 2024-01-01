@@ -18,6 +18,7 @@ const Order = () => {
                         <th>NO</th>
                         <th>Product</th>
                         <th>Quantity</th>
+                        <th>Amount</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -27,6 +28,7 @@ const Order = () => {
                             <td>{index + 1}</td>
                             <td>{order.title}</td>
                             <td>{order.quantity}</td>
+                            <td>{order.price}</td>
                             <td>Procesing</td>
                         </tr>
                     ))}

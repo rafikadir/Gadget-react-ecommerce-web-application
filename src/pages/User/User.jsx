@@ -10,7 +10,7 @@ import { getAuth, signOut } from 'firebase/auth';
 import Footer from '../../shared/Footer/Footer';
 import Navbar from '../../shared/Navbar/Navbar';
 import Dashbaord from '../Dashboard/Dashbaord';
-import Profile from '../../components/Profile/Profile';
+import Address from '../../components/Address/Address';
 import Order from '../../components/Order/Order';
 import './User.scss';
 
@@ -22,8 +22,8 @@ const User = () => {
     const {url} = useParams();
     const sidebarNav = [
         { "name" : "Dashboard", "link" : "dashboard", "icon" : <RxDashboard/>, "section": <Dashbaord/>},
-        { "name" : "Edit Profile", "link" : "profile", "icon" : <BiUser/>, "section": <Profile/>},
-        { "name" : "Orders", "link" : "order", "icon" : <BsCart2/>, "section": <Order/>}
+        { "name" : "Orders", "link" : "order", "icon" : <BsCart2/>, "section": <Order/>},
+        { "name" : "Address", "link" : "profile", "icon" : <BiUser/>, "section": <Address/>},
     ];
 
     const selectedElem = sidebarNav.find(nav => nav.link === url);

@@ -1,12 +1,25 @@
-import './Profile.scss';
+import './Address.scss';
+import { FiEdit } from "react-icons/fi";
 
 const Profile = () => {
     return (
-        <section className='profile-wrapper'>
-             <div className="profile-text">
-                <h2>Profile Information 💼</h2>
+        <section className='address-wrapper'>
+            <div className="address-top">
+                <h2>Shipping Address:</h2>
+
+                <button className='address-edit-btn'>
+                    <FiEdit />
+                </button>
             </div>
-            <form>
+            <ul className='address-text'>
+                <li>Name: User Name</li>
+                <li>E-mail: User Email</li>
+                <li>Phone: +88121245844</li>
+
+                <li>Address: abcd , smdkd, 5000</li>
+                <li>City: abcd</li>
+            </ul>
+            {/* <form>
                 <div className="form-group">
                     <label className="form-label">Full Name</label>
                     <input type='text' placeholder='Full Name' className="form-control" required/>
@@ -51,7 +64,7 @@ const Profile = () => {
                     </div>
                 </div>
                 <button>Update Information</button>
-            </form>
+            </form> */}
         </section>
     );
 };
