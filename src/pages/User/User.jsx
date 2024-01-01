@@ -9,7 +9,7 @@ import { getAuth, signOut } from 'firebase/auth';
 
 import Footer from '../../shared/Footer/Footer';
 import Navbar from '../../shared/Navbar/Navbar';
-import Dashbaord from '../../components/Dashboard/Dashbaord';
+import Dashbaord from '../Dashboard/Dashbaord';
 import Profile from '../../components/Profile/Profile';
 import Order from '../../components/Order/Order';
 import './User.scss';
