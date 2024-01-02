@@ -5,6 +5,7 @@ import "./OrderSummary.scss";
 const OrderSummary = () => {
     const {orderInfo} = useContext(CartContext);   
     const [total, setTotal] = useState();
+    
     useEffect(() => {
         const totalAmmount = orderInfo?.reduce((total, singleOrder) => total + singleOrder.price * singleOrder.quantity,0);
         setTotal(totalAmmount);

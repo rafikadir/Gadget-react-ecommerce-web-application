@@ -1,11 +1,7 @@
-import { useContext } from 'react';
 import './CheckoutInfo.scss';
 import { useForm } from "react-hook-form";
-import { CartContext } from '../../App';
-import OrderSummary from '../OrderSummary/OrderSummary';
 
 const CheckoutInfo = () => {
-    const {orderInfo} = useContext(CartContext);    
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {

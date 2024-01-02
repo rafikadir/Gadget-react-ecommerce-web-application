@@ -6,18 +6,36 @@ import OrderSummary from '../../components/OrderSummary/OrderSummary';
 import Button from '../../components/Button/Button';
 import "./Checkout.scss";
 import { CartContext } from "../../App";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 const Checkout = () => {
     const {orderInfo} = useContext(CartContext);  
     const { register, handleSubmit} = useForm();
     const navigate = useNavigate();
+    const [orderData, setOrderData] = useState();
+    const [orderNumber, setOrderNumber] = useState();
+
+    const getOrderNumber =()=>{
+        const min = 1000;
+        const max = 9999;
+        return setOrderNumber(Math.floor(Math.random() * (max - min + 1)) + min)
+    }
+
+    useEffect(() => {
+       const updateOrder = orderInfo?.map((order) =>({
+        ...order,
+        orderNo: orderNumber
+       }))
+
+       setOrderData(updateOrder);
+    }, [orderInfo]);
 
     // Handle form Submission
     const onSubmit = (data,e) => {
         e.preventDefault();
         localStorage.setItem('shipping', JSON.stringify(data));
-        localStorage.setItem('order', JSON.stringify(orderInfo));
+        console.log(orderData)
+        // localStorage.setItem('order', JSON.stringify(orderInfo));
 
         navigate("/payment");
     };

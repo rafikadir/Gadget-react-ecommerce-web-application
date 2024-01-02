@@ -15,7 +15,7 @@ const Order = () => {
             <table className="table table-hover">
                 <thead>
                     <tr>
-                        <th>NO</th>
+                        <th>Order No</th>
                         <th>Product</th>
                         <th>Quantity</th>
                         <th>Amount</th>
@@ -23,7 +23,7 @@ const Order = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {orders.map((order, index) => (
+                    {orders?.map((order, index) => (
                         <tr key={order.id}>
                             <td>{index + 1}</td>
                             <td>{order.title}</td>
