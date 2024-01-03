@@ -9,6 +9,8 @@ const Order = () => {
        setOrders(loadOrders);
     }, []);
 
+    console.log(orders)
+
     return (
         <div>
             <h2>Order</h2>
