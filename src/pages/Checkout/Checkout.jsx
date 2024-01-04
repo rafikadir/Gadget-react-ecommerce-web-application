@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
-import { useContext, useState} from "react";
+import { useContext, useEffect, useState} from "react";
 import { CartContext } from "../../App";
 import Navbar from "../../shared/Navbar/Navbar";
 import Footer from "../../shared/Footer/Footer";
@@ -13,6 +13,11 @@ const Checkout = () => {
     const { register, handleSubmit} = useForm();
     const navigate = useNavigate();
     const [orderData, setOrderData] = useState([]);
+
+    useEffect(() => {
+        const previousOrder = JSON.parse(localStorage.getItem('order')) || [];
+        setOrderData(previousOrder);
+      }, []);
 
     // Handle form Submission
     const onSubmit = (data,e) => {

@@ -3,11 +3,19 @@ import './Order.scss';
 
 const Order = () => {
     const [orders, setOrders] = useState([]);
+    const [total, setTotal] = useState();
 
     useEffect(() => {
         const loadOrders = JSON.parse(localStorage.getItem("order"));
         setOrders(loadOrders);
 
+        const calculateTotalAmount = (orders) => {
+            return orders?.reduce((total, order) =>{
+                return total + order.product.reduce((productTotal, pd) => productTotal + pd.price, 0);
+            },0)
+        }
+
+        setTotal(calculateTotalAmount(loadOrders));
     }, []);
 
     return (
@@ -36,8 +44,9 @@ const Order = () => {
                                 </ul>
                             </td>
                             <td>
-                                
+                                {total}
                             </td>
+                            <td>Processing</td>
                         </tr>
                     ))}
                 </tbody>
