@@ -1,18 +1,18 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
+import { useContext, useState} from "react";
+import { CartContext } from "../../App";
 import Navbar from "../../shared/Navbar/Navbar";
 import Footer from "../../shared/Footer/Footer";
 import OrderSummary from '../../components/OrderSummary/OrderSummary';
 import Button from '../../components/Button/Button';
 import "./Checkout.scss";
-import { CartContext } from "../../App";
-import { useContext, useState} from "react";
 
 const Checkout = () => {
     const {orderInfo} = useContext(CartContext);  
     const { register, handleSubmit} = useForm();
     const navigate = useNavigate();
-    const [orderData, setOrderData] = useState(orderInfo);
+    const [orderData, setOrderData] = useState([]);
 
     // Handle form Submission
     const onSubmit = (data,e) => {
@@ -22,10 +22,12 @@ const Checkout = () => {
         const newOrderNumber = generateOrderNumber();
         const newOrder = {
             orderNumber: newOrderNumber,
-            order : orderData
+            product : orderInfo
         };
-        setOrderData((prevOrder) => [...prevOrder, newOrder]);
-        localStorage.setItem('order', JSON.stringify(orderData));
+
+        setOrderData((prevData) => [...prevData, newOrder]);
+       
+        localStorage.setItem('order', JSON.stringify([...orderData, newOrder]));
 
         navigate("/payment");
     };
@@ -33,8 +35,6 @@ const Checkout = () => {
     const generateOrderNumber = () => {
         return Math.floor(Math.random() * 1000) + 1;
     };
-
-    console.log(orderData)
 
     return (
         <>

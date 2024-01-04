@@ -5,11 +5,10 @@ const Order = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-       const loadOrders = JSON.parse(localStorage.getItem("order"));
-       setOrders(loadOrders);
-    }, []);
+        const loadOrders = JSON.parse(localStorage.getItem("order"));
+        setOrders(loadOrders);
 
-    console.log(orders)
+    }, []);
 
     return (
         <div>
@@ -19,19 +18,26 @@ const Order = () => {
                     <tr>
                         <th>Order No</th>
                         <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Amount</th>
+                        <th>Total Amount</th>
                         <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {orders?.map((order, index) => (
-                        <tr key={order.id}>
-                            <td>{index + 1}</td>
-                            <td>{order.title}</td>
-                            <td>{order.quantity}</td>
-                            <td>{order.price}</td>
-                            <td>Procesing</td>
+                    {orders?.map((singleOrder, index) => (
+                        <tr key={index}>
+                            <td>{singleOrder.orderNumber}</td>
+                            <td>
+                                <ul>
+                                    {
+                                        singleOrder.product.map((pd, index)=>(
+                                           <li key={index}>{pd.title} <span>x {pd.quantity}</span></li> 
+                                        ))
+                                    }
+                                </ul>
+                            </td>
+                            <td>
+                                
+                            </td>
                         </tr>
                     ))}
                 </tbody>
