@@ -9,14 +9,10 @@ const Order = () => {
         const loadOrders = JSON.parse(localStorage.getItem("order"));
         setOrders(loadOrders);
 
-        const calculateTotalAmount = (orders) => {
-            return orders?.reduce((total, order) =>{
-                return total + order.product.reduce((productTotal, pd) => productTotal + pd.price, 0);
-            },0)
-        }
-
-        setTotal(calculateTotalAmount(loadOrders));
+        setTotal(loadOrders.total);
     }, []);
+
+    console.log(orders);
 
     return (
         <div>

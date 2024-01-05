@@ -25,9 +25,12 @@ const Checkout = () => {
         localStorage.setItem('shipping', JSON.stringify(data));
 
         const newOrderNumber = generateOrderNumber();
+        const totalAmount = calculateTotalAmount();
         const newOrder = {
             orderNumber: newOrderNumber,
-            product : orderInfo
+            product : orderInfo,
+            total: "100",
+            status: "Done"
         };
 
         setOrderData((prevData) => [...prevData, newOrder]);
@@ -40,6 +43,12 @@ const Checkout = () => {
     const generateOrderNumber = () => {
         return Math.floor(Math.random() * 1000) + 1;
     };
+
+    const calculateTotalAmount = (orderData) => {
+        return orderData?.product.reduce((total, order) =>{
+            return total + order.product.reduce((productTotal, pd) => productTotal + pd.price, 0);
+        },0)
+    }
 
     return (
         <>
